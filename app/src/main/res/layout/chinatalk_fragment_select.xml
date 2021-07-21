@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ScrollView
+        android:id="@+id/scrollView2"
+        android:layout_width="wrap_content"
+        android:layout_height="381dp"
+        android:orientation="vertical"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:padding="12dp">
+
+            <TextView
+                android:id="@+id/select_question"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginLeft="16dp"
+                android:layout_marginTop="32dp"
+                android:text='29.(单选题)  下雨天地滑,小明骑车上学不小心打滑了,幸亏小明一把把住了车把,才没能摔倒. 请问: "加下滑线的字是什么词性?"'
+                android:textSize="14sp" />
+            <!--            选项-->
+            <RadioGroup
+                android:id="@+id/rg_select"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="12dp">
+                <RadioButton
+                    android:id="@+id/rb_A"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="5dp"
+                    android:button="@null"
+                    android:drawableLeft="@drawable/ic_selector"
+                    android:drawablePadding="10dp"
+                    android:text="A. 名词"
+                    android:textColor="@color/color_black"
+                    android:textSize="@dimen/sp_18"/>
+                <RadioButton
+                    android:id="@+id/rb_B"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="5dp"
+                    android:button="@null"
+                    android:drawableLeft="@drawable/ic_selector"
+                    android:drawablePadding="10dp"
+                    android:text="B. 动词"
+                    android:textColor="@color/color_black"
+                    android:textSize="@dimen/sp_18"/>
+                <RadioButton
+                    android:id="@+id/rb_C"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="5dp"
+                    android:button="@null"
+                    android:drawableLeft="@drawable/ic_selector"
+                    android:drawablePadding="10dp"
+                    android:text="C. 副词"
+                    android:textColor="@color/color_black"
+                    android:textSize="@dimen/sp_18"/>
+                <RadioButton
+                    android:id="@+id/rb_D"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="5dp"
+                    android:button="@null"
+                    android:drawableLeft="@drawable/ic_selector"
+                    android:drawablePadding="10dp"
+                    android:text="D. 助词"
+                    android:textColor="@color/color_black"
+                    android:textSize="@dimen/sp_18"/>
+            </RadioGroup>
+        </LinearLayout>
+    </ScrollView>
+
+    <ScrollView
+        android:layout_width="409dp"
+        android:layout_height="348dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/scrollView2">
+
+        <LinearLayout
+            android:id="@+id/linearLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginLeft="16dp"
+            android:orientation="vertical">
+
+            <ScrollView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/textView9"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="15dp"
+                        android:layout_marginTop="10dp"
+                        android:text="回答正确!!"
+                        android:textColor="#E91E63" />
+
+                    <TextView
+                        android:id="@+id/textView10"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="15dp"
+                        android:layout_marginTop="10dp"
+                        android:paddingRight="10dp"
+                        android:text="解析:  这是中国的一种传统食物,有着团员等美好的寓意提示:  这是中国的一种传统食物,有着团员等美好的寓意"
+                        android:textColor="#E91E63" />
+                </LinearLayout>
+            </ScrollView>
+
+        </LinearLayout>
+    </ScrollView>
+
+</android.support.constraint.ConstraintLayout>

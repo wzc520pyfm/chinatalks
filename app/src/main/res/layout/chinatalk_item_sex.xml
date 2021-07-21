@@ -1,0 +1,10 @@
+<!--选项列表的样式-->
+<TextView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:gravity="left"
+    android:layout_margin="@dimen/dp_5"
+    android:textSize="@dimen/sp_16"
+    android:textColor="@color/color_gray">
+
+</TextView>

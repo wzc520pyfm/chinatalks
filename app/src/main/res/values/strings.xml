@@ -1,0 +1,159 @@
+<!--存放字符串常量-->
+<resources>
+    <string name="app_name">DcsSampleApp</string>
+    <string name="err_net_msg">当前网络连接失败,请稍后重试</string>
+    <string name="voice_err_msg">识别失败，请稍后再试</string>
+    <string name="audio_paused">暂停中&#8230;</string>
+    <string name="audio_playing">播放中&#8230;</string>
+    <string name="audio_default">等待音乐</string>
+    <string name="stop_record">点击说话</string>
+    <string name="start_record">录音中&#8230;</string>
+    <string name="time_record">耗时:click->StopListen:%1$dms</string>
+    <string name="request_error">出错了，请稍后再试</string>
+    <string name="no_log">暂时没有日志</string>
+    <string name="no_directive">对不起，暂时没有收到指令</string>
+    <string name="no_audio">暂时没有歌曲了，请稍后再试</string>
+    <string name="open_file_title">选择浏览工具</string>
+    <string name="previous_audio">上一首</string>
+    <string name="next_audio">下一首</string>
+    <string name="open_log">打开日志</string>
+    <string name="login">登陆</string>
+    <string name="client_id">您应用的client_id</string>
+    <string name="client_id_empty">请输入您申请的client_id</string>
+    <string name="login_succeed">登陆成功</string>
+    <string name="wakeup_succeed">唤醒成功,您问点什么呢?</string>
+    <string name="wakeup_word">您可以说【小D小D】进行唤醒</string>
+    <string name="introduction">Introduction</string>
+    <string name="news">News</string>
+    <string name="policy">Policy</string>
+    <string name="introduction_1">The Confucius Institute is an organization set up by the Office
+        of China National Chinese International Promotion Leading Group to promote Chinese and
+        disseminate Chinese culture around the world. </string>
+    <string name="introduction_2">The most important task of Confucius Institutes is to provide
+        standard and authoritative modern Chinese textbooks for Chinese learners all over the world,
+        and to provide the most formal and main channel of Chinese teaching. The first Confucius
+        Institute in the world was formally established in Seoul, South Korea in 2004.
+        In May 2012, the United States censored the academic qualifications of Confucius Institutes
+        and asked some teachers to leave the country, which triggered a heated debate.</string>
+    <string name="confucius_institute">Confucius Institute</string>
+    <string name="introduction_3">China has established 511 Confucius Institutes and 1073 Confucius classrooms in 140 countries and regions. There are 2.1 million registered students and 46,000 full-time and part-time teachers at home and abroad.</string>
+    <string name="new_1">In September, Suva, the capital of island country Fiji in the South Pacific, is still full of green coconut…</string>
+    <string name="new_title_1">A Special Lecture on Chinese Culture</string>
+    <string name="new_title_2">Delegation from Confucius Institute at Hokuriku University Visits Confucius…</string>
+    <string name="new_2">On the morning of August 28th, Heiseikenchushi, a delegation of the Confucius Institute at Hokuriku…</string>
+    <string name="xinhuanet_com">xinhuanet.com</string>
+    <string name="confucius_institute_headquarters">Confucius Institute Headquarters</string>
+    <string name="_2018_09_21">2018-09-21</string>
+    <string name="_2018_08_31">2018-08-31</string>
+    <string name="policy_title">Application Information for Confucius Institute Scholarship 2018</string>
+    <string name="policy_detial">For the purpose of cultivating qualified Chinese language teachers and facilitating
+        the promotion of Chinese language and culture, the Confucius Institute Headquarters (Hanban) launches
+        “Confucius Institute Scholarship” (CIS) to support outstanding students, scholars and currently
+        employed Chinese language teachers recommended by Confucius Institutes, independently operated Confucius
+        Classrooms as well as some HSK test centers (hereinafter to be collectively referred to as “recommending institutions”)
+        to study in Chinese universities and colleges (hereinafter referred to as “host institutions”).
+        \n\n\nl ELIGIBILITY
+        \nAll applicants shall be
+        \na) Non-Chinese citizens
+        \nb) In good Physical and mental condition, well performed both academically and behaviorally
+        \nc) Aspired to take future careers on the teaching or international promotion of Chinese language.
+        \nd) Between the ages of 16-35 on September 1st, 2018. Applicants currently worked as Chinese language teachers shall not exceed the age limit of 45, while undergraduate students shall not exceed the age limit of 25.
+        \n\n\nl SCHOLARSHIP TYPES AND QUALIFICATIONS
+        \nA.Scholarship for Master’s Degree in Teaching Chinese to Speakers of Other Languages (MTCSOL)
+        \nCommences September 2018 and provides scholarship for maximum two academic years. Applicants shall be Bachelor degree holders, and have a minimum score of 210 in HSK Test (Level 5) as well as 60 in HSKK test (Intermediate Level). Applicants who are able to provide notarized document of the employment agreement or related proofs upon completing study in China are preferred.
+        \nB.Scholarship for Bachelor’s Degree in Teaching Chinese to Speakers of Other Languages (BTCSOL)
+        \nCommences September 2018 and provides scholarship for maximum four academic years. Applicants must have graduated with a high school diploma, , and have a minimum score of 210 in HSK Test (Level 4) as well as 60 in HSKK test (Intermediate Level).
+        \nC.Scholarship for One-Academic-Year Study
+        \nCommences September 2018, and provides scholarship for maximum 11 months. International students currently studying in China are not eligible.
+        \ni. TCSOL
+        \nApplicants shall have a minimum score of 270 in HSK test (Level 3), while HSKK test score required.
+        \nii. Chinese Language and Literature, Chinese History, and Chinese Philosophy
+        \nApplicants shall have a minimum score of 180 in HSK test (Level 4) and 60 in HSKK test (intermediate level).
+        \niii. Chinese Language Study
+        \nApplicants shall have a minimum score of 180 in HSK test (Level 3 level).
+        \nD. Scholarship for One-Semester Study
+        \nCommences either in September 2018 or March 2019, and provides scholarship of maximum 5 months. Applicants withholding visas X1 or X2 are not eligible.
+        \ni. TCSOL, Chinese Language and Literature, Chinese History and Chinese Philosophy
+        \nApplicants shall have a minimum score of 210 in HSK test (Level 3), while HSKK test score required
+        \nii. Traditional Chinese Medicine and Taiji Culture
+        \nHSK test score are required.
+        \nE. Scholarship for Four-Week Study
+        \nCommences either on July or December of 2018, and provides a four-week scholarship. Applicants withholding visas X1 or X2 are not eligible.
+        \ni. Traditional Chinese Medicine and Taiji Culture
+        \nHSK test score are required.
+        \nii. Chinese Language plus home-stay Experience in a Chinese Family
+        \nHSK test score are required. Organized and applied by a Confucius Institute with 10-15 participants per group. Prior to the trip, a detailed study plan shall be made after consultation with host institutions and submit to Hanban for approval.
+        \nⅲ. Special Four-week Program for Confucius Institutes
+        \nHSK test score are required. Organized and applied by a Confucius Institute with 10-15 participants per group.
+        \n\n\nl APPLICATION PROCEDURES
+        \nOnline registration will be available from March 1, 2018 on the Confucius Institute Scholarship website (cis.chinese.cn). Please log on to search recommending institutions and host institutions, upload application materials online, track the application progress, feedback of review and admission results. Scholarship holders need to confirm with the host institutions to go through the procedures of studying in China, print out CIS certificate online, and register at host institutions at the designated date and time as per the letter of admission.
+        \nThe application deadlines are
+        \na) April 20th (for those commencing in July)
+        \nb) June 20th (for those commencing in September)
+        \nc) September 20th (for those commencing in December)
+        \nd) December 20th (for those commencing in March 2019)
+        \nHanban will complete the scholarship review and notify the results two months before enrollment of the admitted students..
+        \nl CHINESE BRIDGE AWARD RECIPIENT POLICIES
+        \nChinese Bridge winners who have been awarded the 2018 “Confucius Institute Scholarship Certificate” shall log onto the scholarship website and submit documents to relevant host institutions upon presentation of their CIS certificates. Please contact chinesebridge@hanban.org for inquiry.
+        \n\n\nl ADMISSION AND CONSULTATION SERVICES
+        \nRecommending institutions and host institutions are responsible for issuing local enrollment guide and provide consulting, recommending and registering services in accordance with this procedure.
+        \n\n\nl OTHERS
+        \na) For major training plans and courses, please contact designated host institutions
+        \nb) Applicants shall be familiar with the specific criteria and closing dates for registration, and follow specific procedures to submit necessary documents
+        \nc) Degree students shall accept the annual assessment under the Annual Appraisal Procedures of Confucius Institute Scholarship
+        \nd) Those who failed to register on time, failed to pass the health assessment, dropped out midway and/or suspended will be deprived of scholarship.
+        \n\n\nl CONTACTS
+        \nDivision of Test and Scholarships at Hanban
+        \nEmail: scholarships@hanban.org
+        \nFax: +86-10-58595727
+        \n\n\nl Appendix
+       \na) Confucius Institute Scholarship Coverage and Criteria
+       \nb) Application Documents for Confucius Institute Scholarship
+        \n\n\nConfucius Institute Headquarters(Hanban)
+        \n\n\nNovember 27th, 2017</string>
+    <string name="share_student">Will Smith
+        \nFrom America</string>
+    <string name="feeling_1">In 1981, Chris Gardner was a struggling salesman in little needed medical bone density scanners while his wife toiled in double shifts to support the family including their young son, Christopher. In the face of this difficult life, Chris has the desperate inspiration to try for a stockbroker internship where one in twenty has a chance of a lucrative full time career. Even when his wife leaves him because of this choice, Chris clings to this dream with his son even when</string>
+    <string name="iconfucius">iConfucius</string>
+    <string name="xinhuanet_com_2018_09_21">xinhuanet.com\n2018-09-21</string>
+    <string name="news_detail_2">Red lanterns and eye-catching Chinese knots were hung high on both sides of the room. The special lecture of Chinese tea art begun under the accompaniment of the fresh and beautiful Chinese folk music. The trained tea artist of the Confucius Institute, wearing traditional Chinese cheongsam, systematically and vividly explained the types, distribution, production process of Chinese tea by PPT, and demonstrated how to make tea and taste it. She invited Fijian employees to come on the stage to have a closer look of the tea making. The tea artist also patiently answered the questions asked by Fijian employees to make sure she was understood.</string>
+    <string name="news_detail_1">In September, Suva, the capital of island country Fiji in the South Pacific, is still full of green coconut trees and stroke by the gentle sea breeze. As the traditional Mid-Autumn Festival approaches, the central city of the South Pacific is bustling with activity. On the 14th, China Railway First Group Co., Ltd., Fiji’s largest Chinese-funded company, together with the Confucius Institute at the University of the South Pacific hosted a special lecture on Chinese culture--tea tasting for more than 40 Fijian and Chinese representatives from the company headquarters and various projects. The lecture was warmly welcomed by the representatives.</string>
+    <string name="news_detail_3">The Fijian employees were captivated by the tea artist’s spectacular explanation and tea making demonstration. After the activity, they admired the long history and profoundness of the Chinese tea culture even more which they acclaimed as an art of living, a self-cultivating lifestyle and life etiquette.</string>
+    <string name="student_feeling">Student Feeling</string>
+    <string name="photo_wall">Photo Wall</string>
+    <string name="scenery">Scenery</string>
+    <string name="culture">Culture</string>
+
+    <string name="qingming_content">
+        The Qingming or Ching Ming festival, also known as
+Tomb-Sweeping Day in English (sometimes also
+called Chinese Memorial Day or Ancestors\' Day),is a
+traditional Chinese festival. It falls on the first day of
+the fifth solar term of the traditional Chinese lunisolar
+calendar. This makes it the 15th day after the Spring
+Equinox, either 4 or 5 April in a given year.During
+Qingming, Chinese families visit the tombs of their
+ancestors to clean the gravesites, pray to their
+ancestors, and make ritual offearings. Offerings would
+typically include traditional food dishes, and the
+burning of joss sticks and joss paper.
+    </string>
+    <string name="xihu_introduction">
+            "                           "   (Chinese: 西湖; pinyin: Xī Hú; Wu: Si-wu
+) is a freshwater lake in Hangzhou, China. It is divided
+into five sections by three causeways. There are
+numerous temples, pagodas, gardens, and artificial
+islands within the lake.
+        \n
+\n
+West Lake has influenced poets and painters
+throughout Chinese history for its natural beauty and
+historic relics, and it has also been among the most
+important sources of inspiration for Chinese garden
+designers.[1] It was made a UNESCO World Heritage
+Site in 2011, described as having "influenced garden design in the rest of China as well as Japan and Korea over the centuries"[2] and reflecting "an idealized fusion between humans and nature".
+    </string>
+
+    <string name="hichina_introdution_text">China, officially the People\'s Republic of China (PRC), is a country in East Asia and the world\'s most populous country, with a population of around 1.404 billion.[13] Covering approximately 9,600,000 square kilometers (3,700,000 sq mi), it is the third- or fourth -largest country by total area,[k][19] depending on the source consulted. Governed by the Communist Party of China, the state exercises jurisdiction over 22 provinces, five autonomous regions, four direct -controlled municipalities (Beijing, Tianjin, Shanghai, and Chongqing), and the special administrative regions of Hong Kong and Macau.</string>
+    <string name="test_blank">a b</string>
+</resources>

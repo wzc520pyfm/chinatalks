@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    android:orientation="vertical"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".androidapp.XihuActivity">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="53dp"
+        android:background="@color/color_AB162A">
+
+        <ImageView
+            android:onClick="back"
+            android:layout_marginLeft="15dp"
+            android:layout_centerVertical="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@mipmap/ic_return"/>
+        <TextView
+            android:id="@+id/hichina_culture_content_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="West Lake"
+            android:textColor="#ffffff"
+            android:textSize="18sp" />
+    </RelativeLayout>
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:src="@mipmap/ic_china_xihu_banner"
+        android:layout_height="wrap_content" />
+
+    <FrameLayout
+        android:layout_marginTop="10dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@mipmap/ic_china_xihu_border"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="West Lake"
+            android:textSize="18sp"
+            android:layout_marginTop="9dp"
+            android:layout_marginLeft="23dp"
+            android:textColor="@color/color_AB162A"/>
+        <TextView
+            android:layout_marginTop="15dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_width="313dp"
+            android:textSize="12sp"
+            android:layout_height="wrap_content"
+            android:text="@string/xihu_introduction"/>
+
+    </FrameLayout>
+<ImageView
+    android:id="@+id/hichina_secenery_"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_gravity="center_horizontal"
+    android:layout_marginTop="10dp"
+    android:onClick="toNext"
+    android:src="@mipmap/ic_secenery_face"/>
+
+</LinearLayout>

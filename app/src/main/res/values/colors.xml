@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#3F51B5</color>
+    <color name="colorPrimaryDark">#303F9F</color>
+    <color name="colorAccent">#FF4081</color>
+
+    <color name="color_ff1247c2">#ff1247c2</color>
+    <color name="color_aa1247c2">#aa1247c2</color>
+    <color name="color_transparent">#00000000</color>
+    <color name="color_f5f5f5">#f5f5f5</color>
+    <color name="color_AB162A">#AB162A</color>
+
+    <color name="color_black">#ff000000</color>
+    <color name="color_gray">#ffBBBBBB</color>
+    <color name="color_low_gray">#fff8f8f8</color>
+    <color name="color_low_blue">#ff5c82ee</color>
+    <color name="color_white">#ffffffff</color>
+    <color name="color_low_yellow">#fffffde9</color>
+</resources>
+<!--存放颜色常量-->

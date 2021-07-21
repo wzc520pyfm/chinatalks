@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".androidapp.CultureActivity">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="53dp"
+        android:background="@color/color_AB162A">
+
+        <ImageView
+            android:onClick="back"
+            android:layout_marginLeft="15dp"
+            android:layout_centerVertical="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@mipmap/ic_return"/>
+        <TextView
+            android:id="@+id/hichina_culture_content_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="@string/iconfucius"
+            android:textColor="#ffffff"
+            android:textSize="18sp" />
+    </RelativeLayout>
+
+
+    <ImageView
+        android:id="@+id/hichina_culture_content_image"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@mipmap/ic_qingming_banner" />
+
+    <TextView
+        android:id="@+id/hichina_culture_content_content"
+        android:layout_width="313dp"
+        android:layout_height="300dp"
+        android:layout_gravity="center_horizontal"
+        android:lineSpacingExtra="@dimen/px_14"
+        android:text="The Qingming or Ching Ming festival, also known as
+Tomb-Sweeping Day in English (sometimes also
+called Chinese Memorial Day or Ancestors' Day),is a
+traditional Chinese festival. It falls on the first day of
+the fifth solar term of the traditional Chinese lunisolar
+calendar. This makes it the 15th day after the Spring
+Equinox, either 4 or 5 April in a given year.During
+Qingming, Chinese families visit the tombs of their
+ancestors to clean the gravesites, pray to their
+ancestors, and make ritual offerings. Offerings would
+typically include traditional food dishes, and the
+burning of joss sticks and joss paper."
+        android:textSize="13sp" />
+
+</LinearLayout>

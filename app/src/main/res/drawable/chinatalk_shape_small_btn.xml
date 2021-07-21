@@ -1,0 +1,24 @@
+
+<shape
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    >
+    <size
+        android:height="37dp"
+        android:width="61dp">
+
+    </size>
+    <!-- 指定了形状内部的填充颜色 -->
+    <solid android:color="@color/color_low_blue" />
+
+    <!-- 指定了形状边线的粗细与颜色 -->
+    <stroke
+        android:width="0dp"
+        android:color="#ffaaaaaa" />
+
+    <!-- 指定了形状四个圆角的半径 -->
+    <corners
+        android:bottomLeftRadius="5dp"
+        android:bottomRightRadius="5dp"
+        android:topLeftRadius="5dp"
+        android:topRightRadius="5dp" />
+</shape>

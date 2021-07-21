@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ImageView
+        android:id="@+id/selecdolls_xuxian"
+        android:layout_width="150dp"
+        android:layout_height="200dp"
+        android:layout_marginLeft="30dp"
+        android:clickable="true"
+        android:src="@drawable/xuxianjpg" />
+
+    <ImageView
+        android:id="@+id/selecdolls_bainiangzi"
+        android:layout_width="150dp"
+        android:layout_height="200dp"
+        android:layout_toRightOf="@+id/selecdolls_xuxian"
+
+        android:clickable="true"
+        android:src="@drawable/bainiangzijpg" />
+
+    <ImageView
+        android:id="@+id/selecdolls_fahai"
+        android:layout_width="150dp"
+        android:layout_height="200dp"
+        android:layout_below="@+id/selecdolls_xuxian"
+
+        android:layout_marginLeft="30dp"
+        android:clickable="true"
+        android:src="@drawable/fahaijpg" />
+
+    <ImageView
+        android:id="@+id/selecdolls_xiaoqing"
+        android:layout_width="150dp"
+        android:layout_height="200dp"
+        android:layout_below="@+id/selecdolls_xuxian"
+
+        android:layout_toRightOf="@+id/selecdolls_fahai"
+        android:clickable="true"
+        android:src="@drawable/xiaoqingjpg" />
+
+
+</RelativeLayout>
