@@ -12,7 +12,8 @@
         android:layout_gravity="center_horizontal"
         android:layout_centerHorizontal="true"
         android:layout_height="wrap_content"
-        app:helper="PagerSnapHelper" />
+        app:helper="PagerSnapHelper" >
+    </com.ryan.rv_gallery.GalleryRecyclerView>
 
 
 </LinearLayout>

@@ -16,6 +16,10 @@
 package com.baidu.duer.dcs.androidapp;
 
 import android.app.Application;
+import android.content.Context;
+
+import com.iflytek.cloud.SpeechConstant;
+import com.iflytek.cloud.SpeechUtility;
 
 import java.util.HashMap;
 
@@ -33,10 +37,17 @@ public class DcsSampleApplication extends Application {
 
     @Override
     public void onCreate() {
+
         super.onCreate();
         //在打开应用时对静态的应用实例赋值
         instance = this;
         // LeakCanary.install(this);
+
+
+        // 将“12345678”替换成您申请的APPID，申请地址：http://www.xfyun.cn
+// 请勿在“=”与appid之间添加任何空字符或者转义符
+
+        SpeechUtility.createUtility(DcsSampleApplication.this, SpeechConstant.APPID +"=d213d266");
     }
 //利用单例模式获取当前应用的唯一实例
     public static DcsSampleApplication getInstance() {

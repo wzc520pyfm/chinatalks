@@ -19,6 +19,11 @@ import com.baidu.duer.dcs.chinatalk.GameActivity;
 import com.baidu.duer.dcs.chinatalk.SelectTestActivity;
 import com.baidu.duer.dcs.chinatalk.TestCenterActivity;
 import com.baidu.duer.dcs.chinatalk.WrongQuesBookActivity;
+import com.iflytek.mscv5plusdemo.AsrDemo;
+import com.iflytek.mscv5plusdemo.IatDemo;
+import com.iflytek.mscv5plusdemo.MainActivity;
+import com.iflytek.mscv5plusdemo.OneShotDemo;
+import com.iflytek.mscv5plusdemo.TtsDemo;
 
 //@Nullable  注解表示可以传入null
 public class FunTestsFragment extends Fragment implements View.OnClickListener {
@@ -39,8 +44,13 @@ public class FunTestsFragment extends Fragment implements View.OnClickListener {
 //        Intent intent =new Intent(this.getContext(), SelectTestActivity.class);
         //Intent intent =new Intent(this.getContext(), WrongQuesBookActivity.class);
 //        Intent intent =new Intent(this.getContext(), TestCenterActivity.class);
-        Intent intent =new Intent(this.getContext(), Dev_code.class);
+//        Intent intent =new Intent(this.getContext(), Dev_code.class);
 //        Intent intent =new Intent(this.getContext(), DcsSampleOAuthActivity.class);
+//        Intent intent =new Intent(this.getContext(), OneShotDemo.class); //唤醒+识别
+//        Intent intent =new Intent(this.getContext(), TtsDemo.class);  //语音合成
+//        Intent intent =new Intent(this.getContext(), IatDemo.class);  //语音听写
+//        Intent intent =new Intent(this.getContext(), AsrDemo.class);  //语音评测
+        Intent intent =new Intent(this.getContext(), MainActivity.class);
         startActivityForResult(intent,0);
     }
 
