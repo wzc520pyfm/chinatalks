@@ -1,5 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
 <!--存放字符串常量-->
 <resources>
+
+    <string name="url">https://wzctest.wzc520pyf.cn</string>
+
+    <string name="sign_out">Sign out</string>
+    <string name="delete">Delete</string>
+    <string name="wrong_book">Wrong question book</string>
+    <string name="front_ques">Previous question</string>
+    <string name="next_ques">next question</string>
+    <string name="edit_info">Editing information</string>
+    <string name="name">Name</string>
+    <string name="example_name">Jean Pena</string>
+    <string name="sex">Sex</string>
+    <string name="birthday">Birthday</string>
+    <string name="please_select_data">Please select a date</string>
+    <string name="confirm">Confirm</string>
+    <string name="school_example">Zhejiang Institute of Technology</string>
+    <string-array name="school">
+        <item>Zhejiang Institute of Technology</item>
+    </string-array>
+    <string name="profession_example">Digital Media Major</string>
+    <string-array name="profession">
+        <item>Digital Media Major</item>
+    </string-array>
+    <string name="notice">#NOTICE#</string>
+    <string name="view_more">View more</string>
+    <string name="leading_record">Learning record</string>
+    <string name="HSK4">Chinese level 4</string>
+    <string name="exam_record">Examination record</string>
+    <string name="error">Error</string>
+    <string name="test_time">testing time</string>
+    <string name="score">Minute</string>
+    <string name="ques">question</string>
+    <string name="all_ques_num">Total number of questions</string>
+    <string name="wrong_num">Number of wrong questions</string>
+    <string name="re_test">Test again</string>
+    <string name="login_desc">Carrying your Chinese dream</string>
+    <string name="user_name">Username</string>
+    <string name="login_info">please enter your email/mobile number</string>
+    <string name="password">Password</string>
+    <string name="password_info">please enter your email/mobile number</string>
+    <string name="register">No account yet? Go to register</string>
+    <string name="sign">Sign in</string>
+    <string name="reg_new_user">New user registration</string>
+    <string name="phone">Mobile Number</string>
+    <string name="phone_hint">please enter your mobile number</string>
+    <string name="e_mail">E-mail</string>
+    <string name="e_mail_hint">please enter your email</string>
+    <string name="ver_code">Verfication Code</string>
+    <string name="ver_code_hint">please enter your veification code</string>
+    <string name="send">Send</string>
+    <string name="reg_password">Password</string>
+    <string name="reg_password_hint">please enter your password</string>
+    <string name="confirm_password">Confirm Password</string>
+    <string name="con_pass_hint">please enter your password again</string>
+    <string name="btn_register">Register</string>
+    <string name="time_left">time left</string>
+    <string name="random_test">Random test</string>
+    <string name="left_ques">Remaining</string>
+    <string name="exam">Exam</string>
+    <string name="recom_practice">Recommended practice</string>
+    <string name="used_time">time consuming</string>
+    <string name="wrongs">error</string>
+    <string name="back_home">Back to homepage</string>
+    <string name="see_wrong_ques">Check wrong questions</string>
+    <string name="edit">Edit</string>
+    <string name="per_center">Personal Center</string>
+    <string name="login_out">Logout</string>
+    <string name="what_is_your_answer">What is your answer...</string>
+    <string name="see_and_dis_things">Look at the picture and know things</string>
+    <string name="game">Game</string>
+    <string name="third_pass">Third pass</string>
+    <string name="tips">Warm reminder: You can click on the voice input on the right side of the description, the recorded voice will be converted into text in real time, and you can choose to delete or re-record</string>
+    <string name="answer_hint">Please enter your answer</string>
+    <string name="yes">determine</string>
+    <string name="answer_wrong">The answer is wrong, please try again!!</string>
+    <string name="please_speak">Please voice input</string>
+    <string name="speak">Voice input</string>
+    <string name="up_and_over">Release the end</string>
+    <string name="answer_right">correct answer!!</string>
+    <string name="wrong_from">Source of wrong question</string>
+    <string name="overed">completed</string>
+    <string name="restart">Restart</string>
+    <string name="test_continue">Continue testing</string>
+    <string name="topest">highest</string>
+    <string name="test_start">start testing</string>
+
+
+
 
     <string name="app_name">讯飞语音示例v5+</string>
     <!-- 请替换成在语音云官网申请的appid -->

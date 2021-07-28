@@ -4,5 +4,5 @@ mode voice;
 
 root $main;
 $main = [$call] $name;
-$call = 讯飞语音|讯飞语点|叮咚叮咚;
-$name = 张三|李四|张海洋;
+$call = 打开;
+$name = 汉语闯关|真题测试一|张海洋;

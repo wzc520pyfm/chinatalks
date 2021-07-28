@@ -71,7 +71,7 @@ public class IatDemo extends Activity implements OnClickListener{
 		
 		mSharedPreferences = getSharedPreferences(IatSettings.PREFER_NAME, Activity.MODE_PRIVATE);
 		mToast = Toast.makeText(this, "", Toast.LENGTH_SHORT);
-		mResultText = ((EditText)findViewById(R.id.iat_text));
+		mResultText = ((EditText)findViewById(R.id.iat_text));//内容文本显示区域
 	}
 
 	/**

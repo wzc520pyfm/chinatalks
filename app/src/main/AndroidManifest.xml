@@ -39,7 +39,9 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme">
+        android:theme="@style/AppTheme"
+        android:usesCleartextTraffic="true">
+
         <activity android:name="com.iflytek.mscv5plusdemo.WakeDemo"/>
         <activity android:name="com.iflytek.mscv5plusdemo.IvwActivity"/>
         <activity android:name="com.iflytek.mscv5plusdemo.MainActivity"/>

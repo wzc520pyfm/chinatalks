@@ -4,12 +4,14 @@
     android:layout_height="53dp"
     android:background="@color/color_AB162A">
     <TextView
-        android:text="@string/iconfucius"
+        android:text="ChinaTalk"
         android:textColor="#ffffff"
         android:layout_centerInParent="true"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textSize="18sp"
         />
+
+
 
 </RelativeLayout>

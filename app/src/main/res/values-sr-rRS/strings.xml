@@ -1,0 +1,382 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="url">https://wzctest.wzc520pyf.cn</string>
+
+    <string name="sign_out">Одјава</string>
+    <string name="delete">Избриши</string>
+    <string name="wrong_book">Погрешна књига са питањима</string>
+    <string name="front_ques">Претходно питање</string>
+    <string name="next_ques">следеће питање</string>
+    <string name="edit_info">Уређивање података</string>
+    <string name="name">име</string>
+    <string name="example_name">Јеан Пена</string>
+    <string name="sex">Секс</string>
+    <string name="birthday">Рођендан</string>
+    <string name="please_select_data">Изаберите датум</string>
+    <string name="confirm">Потврди</string>
+    <string name="school_example">З Институт за технологију Хејианг</string>
+    <string-array name="school">
+        <item>З Институт за технологију Хејианг</item>
+    </string-array>
+    <string name="profession_example">Дигитал Медиа Мајор</string>
+    <string-array name="profession">
+        <item>Дигитал Медиа Мајор</item>
+    </string-array>
+    <string name="notice">#ОБЈАВА#</string>
+    <string name="view_more">Погледај још</string>
+    <string name="leading_record">Запис о учењу</string>
+    <string name="HSK4">Кинески ниво 4</string>
+    <string name="exam_record">Записник о прегледу</string>
+    <string name="error">Грешка</string>
+    <string name="test_time">време тестирања</string>
+    <string name="score">Минута</string>
+    <string name="ques">питање</string>
+    <string name="all_ques_num">Укупан број питања</string>
+    <string name="wrong_num">Број погрешних питања</string>
+    <string name="re_test">Поново тестирајте</string>
+    <string name="login_desc">Носећи свој кинески сан</string>
+    <string name="user_name">Корисничко име</string>
+    <string name="login_info">молимо унесите свој е-маил / број мобитела</string>
+    <string name="password">Лозинка</string>
+    <string name="password_info">молимо унесите свој е-маил / број мобитела</string>
+    <string name="register">Још немате рачун? Идите да се региструјете</string>
+    <string name="sign">Пријавите се</string>
+    <string name="reg_new_user">Регистрација новог корисника</string>
+    <string name="phone">Мобилни број</string>
+    <string name="phone_hint">молимо унесите свој број мобитела</string>
+    <string name="e_mail">Е-маил</string>
+    <string name="e_mail_hint">молим вас унесите свој емаил</string>
+    <string name="ver_code">Верификациони код</string>
+    <string name="ver_code_hint">унесите верификациони код</string>
+    <string name="send">Пошаљите</string>
+    <string name="reg_password">Лозинка</string>
+    <string name="reg_password_hint">Молим вас унесите вашу шифру</string>
+    <string name="confirm_password">Потврди лозинку</string>
+    <string name="con_pass_hint">Молимо Вас да поново унесите лозинку</string>
+    <string name="btn_register">Регистровати</string>
+    <string name="time_left">Преостало време</string>
+    <string name="random_test">Случајни тест</string>
+    <string name="left_ques">Преостало</string>
+    <string name="exam">Испит</string>
+    <string name="recom_practice">Препоручена пракса</string>
+    <string name="used_time">дуготрајан</string>
+    <string name="wrongs">грешка</string>
+    <string name="back_home">Повратак на насловну страницу</string>
+    <string name="see_wrong_ques">Проверите погрешна питања</string>
+    <string name="edit">Уредити</string>
+    <string name="per_center">Персонал Центер</string>
+    <string name="login_out">Одјавити се</string>
+    <string name="what_is_your_answer">Који је твој одговор...</string>
+    <string name="see_and_dis_things">Погледај слику и знај ствари</string>
+    <string name="game">Игра</string>
+    <string name="third_pass">Треће додавање</string>
+    <string name="tips">Топли подсетник: Можете да кликнете на гласовни унос на десној страни описа, снимљени глас ће се претворити у текст у реалном времену, а можете одабрати и брисање или поновно снимање</string>
+    <string name="answer_hint">Молимо Вас да унесете свој одговор</string>
+    <string name="yes">утврдити</string>
+    <string name="answer_wrong">Одговор је погрешан, покушајте поново !!</string>
+    <string name="please_speak">Молимо унесите глас</string>
+    <string name="speak">Гласовни унос</string>
+    <string name="up_and_over">Пусти крај</string>
+    <string name="answer_right">тачан одговор!!</string>
+    <string name="wrong_from">Извор погрешног питања</string>
+    <string name="overed">завршен</string>
+    <string name="restart">Поново покренути</string>
+    <string name="test_continue">Наставите са тестирањем</string>
+    <string name="topest">највиши</string>
+    <string name="test_start">започните тестирање</string>
+
+
+
+
+    <string name="app_name">讯飞语音示例v5+</string>
+    <!-- 请替换成在语音云官网申请的appid -->
+    <string name="app_id">d213d266</string>
+    <string name="example_explain">本示例为讯飞语音Android平台开发者提供语音听写、语法识别、语义理解和语音合成等代码样例，旨在让用户能够依据该示例快速开发出基于语音接口的应用程序。</string>
+    <string name="text_tts_source">
+        科大讯飞作为中国最大的智能语音技术提供商，在智能语音技术领域有着长期的研究积累，并在中文语音合成、语音识别、口语评测等多项技术上拥有国际领先的成果。科大讯飞是我国唯一以语音技术为产业化方向的“国家863计划成果产业化基地”…
+    </string>
+    <string name="text_tts_source_en">iFLYTEK is a national key software enterprise dedicated to the research of intelligent speech and language technologies, development of software and chip products, provision of speech information services, and integration of E-government systems. The intelligent speech technology of iFLYTEK, the core technology of the company, represents the top level in the world.
+    </string>
+    <string name="text_isr_abnf_hint">\t上传内容为：\n\t#ABNF 1.0 gb2312;\n\tlanguage zh-CN;\n\tmode voice;\n\troot $main;\n\t$main = $place1 到$place2 ;\n\t$place1 = 北京 | 武汉 | 南京 | 天津 | 东京;\n\t$place2 = 上海 | 合肥;</string>
+    <string name="text_understand_hint">\t您可以说：\n\t今天的天气怎么样?\n\t北京到上海的火车?\n\t来首歌吧?\n\n\t更多语义请登录：\n\thttp://aiui.xfyun.cn/ \n\t配置您的专属语义吧!</string>
+
+    <!-- 听写 -->
+    <string name="text_begin">请开始说话&#8230;</string>
+    <string name="text_begin_recognizer">开始音频流识别</string>
+    <string name="text_upload_contacts">上传联系人</string>
+    <string name="text_upload_userwords">上传用户词表</string>
+    <string name="text_upload_success">上传成功</string>
+    <string name="text_userword_empty">词表下载失败或内容为空</string>
+    <string name="text_download_success">下载成功</string>
+    <string name="pref_key_iat_show">iat_show</string>
+    <string name="pref_title_iat_show">显示听写界面</string>
+
+    <string name="pref_key_translate">translate</string>
+    <string name="pref_title_translate">翻译</string>
+
+    <!-- 合成 -->
+    <string-array name="voicer_cloud_entries">
+        <item>小燕</item>
+        <item>小宇</item>
+        <item>凯瑟琳</item>
+        <item>亨利</item>
+        <item>玛丽</item>
+        <item>小研</item>
+        <item>小琪</item>
+        <item>小峰</item>
+        <item>小梅</item>
+        <item>小莉</item>
+        <item>小蓉</item>
+        <item>小芸</item>
+        <item>小坤</item>
+        <item>小强 </item>
+        <item>小莹</item>
+        <item>小新</item>
+        <item>楠楠</item>
+        <item>老孙</item>
+    </string-array>
+    <string-array name="voicer_cloud_values">
+        <item>xiaoyan</item>
+        <item>xiaoyu</item>
+        <item>catherine</item>
+        <item>henry</item>
+        <item>vimary</item>
+        <item>vixy</item>
+        <item>xiaoqi</item>
+        <item>vixf</item>
+        <item>xiaomei</item>
+        <item>xiaolin</item>
+        <item>xiaorong</item>
+        <item>xiaoqian</item>
+        <item>xiaokun</item>
+        <item>xiaoqiang</item>
+        <item>vixying</item>
+        <item>xiaoxin</item>
+        <item>nannan</item>
+        <item>vils</item>
+    </string-array>
+    <string-array name="voicer_xtts_entries">
+        <item>小燕</item>
+        <item>小峰</item>
+    </string-array>
+    <string-array name="voicer_xtts_values">
+        <item>xiaoyan</item>
+        <item>xiaofeng</item>
+    </string-array>
+    <string-array name="voicer_local_entries">
+        <item>小燕</item>
+        <item>小峰</item>
+
+    </string-array>
+    <string-array name="voicer_local_values">
+        <item>xiaoyan</item>
+        <item>xiaofeng</item>
+    </string-array>
+    <string-array name="stream_entries">
+        <item>通话</item>
+        <item>系统</item>
+        <item>铃声</item>
+        <item>音乐</item>
+        <item>闹铃</item>
+        <item>通知</item>
+    </string-array>
+    <string-array name="stream_values">
+        <item>0</item>
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+        <item>5</item>
+    </string-array>
+    <string
+        name="tts_toast_format"
+        formatted="false">缓冲进度为%d%%，播放进度为%d%%</string>
+    <!-- 语言 -->
+    <string-array name="language_entries">
+        <item>普通话</item>
+        <item>粤语</item>
+        <item>英语</item>
+    </string-array>
+    <string-array name="language_values">
+        <item>mandarin</item>
+        <item>cantonese</item>
+        <item>en_us</item>
+    </string-array>
+
+    <!-- 标点符号 -->
+    <string-array name="punc_entries">
+        <item>有标点</item>
+        <item>无标点</item>
+    </string-array>
+    <string-array name="punc_values">
+        <item>1</item>
+        <item>0</item>
+    </string-array>
+
+    <!-- 唤醒 -->
+    <string name="example_explain_wake">唤醒是指通过说出特定的唤醒词来唤醒处于休眠状态下的设备，又分为唤醒和唤醒+识别。</string>
+    <string name="wake_demo_hint">请点击“开始唤醒”后读出您在开放平台购买的唤醒词，当引擎计算得分大于您设置的门限值时，即可进行唤醒。</string>
+    <string name="oneshot_demo_hint">请点击“唤醒+识别”后读出您在开放平台购买的唤醒词+语法中指定的识别对象，当引擎计算得分大于您设置的门限值时，即可进行唤醒+识别。</string>
+    <string name="oneshot_resource_hint">本示例识别词语为“张三|李四|张海洋”，请开发者将语法文件中的唤醒词字段替换，本地语法定义详见demo工程的asset/wake.bnf文件。</string>
+
+
+
+    <!--    <string name="app_id">d213d266</string>-->
+    <!--    <string name="app_name">DcsSampleApp</string>-->
+    <string name="err_net_msg">当前网络连接失败,请稍后重试</string>
+    <string name="voice_err_msg">识别失败，请稍后再试</string>
+    <string name="audio_paused">暂停中&#8230;</string>
+    <string name="audio_playing">播放中&#8230;</string>
+    <string name="audio_default">等待音乐</string>
+    <string name="stop_record">点击说话</string>
+    <string name="start_record">录音中&#8230;</string>
+    <string name="time_record">耗时:click->StopListen:%1$dms</string>
+    <string name="request_error">出错了，请稍后再试</string>
+    <string name="no_log">暂时没有日志</string>
+    <string name="no_directive">对不起，暂时没有收到指令</string>
+    <string name="no_audio">暂时没有歌曲了，请稍后再试</string>
+    <string name="open_file_title">选择浏览工具</string>
+    <string name="previous_audio">上一首</string>
+    <string name="next_audio">下一首</string>
+    <string name="open_log">打开日志</string>
+    <string name="login">登陆</string>
+    <string name="client_id">您应用的client_id</string>
+    <string name="client_id_empty">请输入您申请的client_id</string>
+    <string name="login_succeed">登陆成功</string>
+    <string name="wakeup_succeed">唤醒成功,您问点什么呢?</string>
+    <string name="wakeup_word">您可以说【小D小D】进行唤醒</string>
+    <string name="introduction">Introduction</string>
+    <string name="news">News</string>
+    <string name="policy">Policy</string>
+    <string name="introduction_1">The Confucius Institute is an organization set up by the Office
+        of China National Chinese International Promotion Leading Group to promote Chinese and
+        disseminate Chinese culture around the world. </string>
+    <string name="introduction_2">The most important task of Confucius Institutes is to provide
+        standard and authoritative modern Chinese textbooks for Chinese learners all over the world,
+        and to provide the most formal and main channel of Chinese teaching. The first Confucius
+        Institute in the world was formally established in Seoul, South Korea in 2004.
+        In May 2012, the United States censored the academic qualifications of Confucius Institutes
+        and asked some teachers to leave the country, which triggered a heated debate.</string>
+    <string name="confucius_institute">Confucius Institute</string>
+    <string name="introduction_3">China has established 511 Confucius Institutes and 1073 Confucius classrooms in 140 countries and regions. There are 2.1 million registered students and 46,000 full-time and part-time teachers at home and abroad.</string>
+    <string name="new_1">In September, Suva, the capital of island country Fiji in the South Pacific, is still full of green coconut…</string>
+    <string name="new_title_1">A Special Lecture on Chinese Culture</string>
+    <string name="new_title_2">Delegation from Confucius Institute at Hokuriku University Visits Confucius…</string>
+    <string name="new_2">On the morning of August 28th, Heiseikenchushi, a delegation of the Confucius Institute at Hokuriku…</string>
+    <string name="xinhuanet_com">xinhuanet.com</string>
+    <string name="confucius_institute_headquarters">Confucius Institute Headquarters</string>
+    <string name="_2018_09_21">2018-09-21</string>
+    <string name="_2018_08_31">2018-08-31</string>
+    <string name="policy_title">Application Information for Confucius Institute Scholarship 2018</string>
+    <string name="policy_detial">For the purpose of cultivating qualified Chinese language teachers and facilitating
+        the promotion of Chinese language and culture, the Confucius Institute Headquarters (Hanban) launches
+        “Confucius Institute Scholarship” (CIS) to support outstanding students, scholars and currently
+        employed Chinese language teachers recommended by Confucius Institutes, independently operated Confucius
+        Classrooms as well as some HSK test centers (hereinafter to be collectively referred to as “recommending institutions”)
+        to study in Chinese universities and colleges (hereinafter referred to as “host institutions”).
+        \n\n\nl ELIGIBILITY
+        \nAll applicants shall be
+        \na) Non-Chinese citizens
+        \nb) In good Physical and mental condition, well performed both academically and behaviorally
+        \nc) Aspired to take future careers on the teaching or international promotion of Chinese language.
+        \nd) Between the ages of 16-35 on September 1st, 2018. Applicants currently worked as Chinese language teachers shall not exceed the age limit of 45, while undergraduate students shall not exceed the age limit of 25.
+        \n\n\nl SCHOLARSHIP TYPES AND QUALIFICATIONS
+        \nA.Scholarship for Master’s Degree in Teaching Chinese to Speakers of Other Languages (MTCSOL)
+        \nCommences September 2018 and provides scholarship for maximum two academic years. Applicants shall be Bachelor degree holders, and have a minimum score of 210 in HSK Test (Level 5) as well as 60 in HSKK test (Intermediate Level). Applicants who are able to provide notarized document of the employment agreement or related proofs upon completing study in China are preferred.
+        \nB.Scholarship for Bachelor’s Degree in Teaching Chinese to Speakers of Other Languages (BTCSOL)
+        \nCommences September 2018 and provides scholarship for maximum four academic years. Applicants must have graduated with a high school diploma, , and have a minimum score of 210 in HSK Test (Level 4) as well as 60 in HSKK test (Intermediate Level).
+        \nC.Scholarship for One-Academic-Year Study
+        \nCommences September 2018, and provides scholarship for maximum 11 months. International students currently studying in China are not eligible.
+        \ni. TCSOL
+        \nApplicants shall have a minimum score of 270 in HSK test (Level 3), while HSKK test score required.
+        \nii. Chinese Language and Literature, Chinese History, and Chinese Philosophy
+        \nApplicants shall have a minimum score of 180 in HSK test (Level 4) and 60 in HSKK test (intermediate level).
+        \niii. Chinese Language Study
+        \nApplicants shall have a minimum score of 180 in HSK test (Level 3 level).
+        \nD. Scholarship for One-Semester Study
+        \nCommences either in September 2018 or March 2019, and provides scholarship of maximum 5 months. Applicants withholding visas X1 or X2 are not eligible.
+        \ni. TCSOL, Chinese Language and Literature, Chinese History and Chinese Philosophy
+        \nApplicants shall have a minimum score of 210 in HSK test (Level 3), while HSKK test score required
+        \nii. Traditional Chinese Medicine and Taiji Culture
+        \nHSK test score are required.
+        \nE. Scholarship for Four-Week Study
+        \nCommences either on July or December of 2018, and provides a four-week scholarship. Applicants withholding visas X1 or X2 are not eligible.
+        \ni. Traditional Chinese Medicine and Taiji Culture
+        \nHSK test score are required.
+        \nii. Chinese Language plus home-stay Experience in a Chinese Family
+        \nHSK test score are required. Organized and applied by a Confucius Institute with 10-15 participants per group. Prior to the trip, a detailed study plan shall be made after consultation with host institutions and submit to Hanban for approval.
+        \nⅲ. Special Four-week Program for Confucius Institutes
+        \nHSK test score are required. Organized and applied by a Confucius Institute with 10-15 participants per group.
+        \n\n\nl APPLICATION PROCEDURES
+        \nOnline registration will be available from March 1, 2018 on the Confucius Institute Scholarship website (cis.chinese.cn). Please log on to search recommending institutions and host institutions, upload application materials online, track the application progress, feedback of review and admission results. Scholarship holders need to confirm with the host institutions to go through the procedures of studying in China, print out CIS certificate online, and register at host institutions at the designated date and time as per the letter of admission.
+        \nThe application deadlines are
+        \na) April 20th (for those commencing in July)
+        \nb) June 20th (for those commencing in September)
+        \nc) September 20th (for those commencing in December)
+        \nd) December 20th (for those commencing in March 2019)
+        \nHanban will complete the scholarship review and notify the results two months before enrollment of the admitted students..
+        \nl CHINESE BRIDGE AWARD RECIPIENT POLICIES
+        \nChinese Bridge winners who have been awarded the 2018 “Confucius Institute Scholarship Certificate” shall log onto the scholarship website and submit documents to relevant host institutions upon presentation of their CIS certificates. Please contact chinesebridge@hanban.org for inquiry.
+        \n\n\nl ADMISSION AND CONSULTATION SERVICES
+        \nRecommending institutions and host institutions are responsible for issuing local enrollment guide and provide consulting, recommending and registering services in accordance with this procedure.
+        \n\n\nl OTHERS
+        \na) For major training plans and courses, please contact designated host institutions
+        \nb) Applicants shall be familiar with the specific criteria and closing dates for registration, and follow specific procedures to submit necessary documents
+        \nc) Degree students shall accept the annual assessment under the Annual Appraisal Procedures of Confucius Institute Scholarship
+        \nd) Those who failed to register on time, failed to pass the health assessment, dropped out midway and/or suspended will be deprived of scholarship.
+        \n\n\nl CONTACTS
+        \nDivision of Test and Scholarships at Hanban
+        \nEmail: scholarships@hanban.org
+        \nFax: +86-10-58595727
+        \n\n\nl Appendix
+       \na) Confucius Institute Scholarship Coverage and Criteria
+       \nb) Application Documents for Confucius Institute Scholarship
+        \n\n\nConfucius Institute Headquarters(Hanban)
+        \n\n\nNovember 27th, 2017</string>
+    <string name="share_student">Will Smith
+        \nFrom America</string>
+    <string name="feeling_1">In 1981, Chris Gardner was a struggling salesman in little needed medical bone density scanners while his wife toiled in double shifts to support the family including their young son, Christopher. In the face of this difficult life, Chris has the desperate inspiration to try for a stockbroker internship where one in twenty has a chance of a lucrative full time career. Even when his wife leaves him because of this choice, Chris clings to this dream with his son even when</string>
+    <string name="iconfucius">iConfucius</string>
+    <string name="xinhuanet_com_2018_09_21">xinhuanet.com\n2018-09-21</string>
+    <string name="news_detail_2">Red lanterns and eye-catching Chinese knots were hung high on both sides of the room. The special lecture of Chinese tea art begun under the accompaniment of the fresh and beautiful Chinese folk music. The trained tea artist of the Confucius Institute, wearing traditional Chinese cheongsam, systematically and vividly explained the types, distribution, production process of Chinese tea by PPT, and demonstrated how to make tea and taste it. She invited Fijian employees to come on the stage to have a closer look of the tea making. The tea artist also patiently answered the questions asked by Fijian employees to make sure she was understood.</string>
+    <string name="news_detail_1">In September, Suva, the capital of island country Fiji in the South Pacific, is still full of green coconut trees and stroke by the gentle sea breeze. As the traditional Mid-Autumn Festival approaches, the central city of the South Pacific is bustling with activity. On the 14th, China Railway First Group Co., Ltd., Fiji’s largest Chinese-funded company, together with the Confucius Institute at the University of the South Pacific hosted a special lecture on Chinese culture--tea tasting for more than 40 Fijian and Chinese representatives from the company headquarters and various projects. The lecture was warmly welcomed by the representatives.</string>
+    <string name="news_detail_3">The Fijian employees were captivated by the tea artist’s spectacular explanation and tea making demonstration. After the activity, they admired the long history and profoundness of the Chinese tea culture even more which they acclaimed as an art of living, a self-cultivating lifestyle and life etiquette.</string>
+    <string name="student_feeling">Student Feeling</string>
+    <string name="photo_wall">Photo Wall</string>
+    <string name="scenery">Scenery</string>
+    <string name="culture">Culture</string>
+
+    <string name="qingming_content">
+        The Qingming or Ching Ming festival, also known as
+Tomb-Sweeping Day in English (sometimes also
+called Chinese Memorial Day or Ancestors\' Day),is a
+traditional Chinese festival. It falls on the first day of
+the fifth solar term of the traditional Chinese lunisolar
+calendar. This makes it the 15th day after the Spring
+Equinox, either 4 or 5 April in a given year.During
+Qingming, Chinese families visit the tombs of their
+ancestors to clean the gravesites, pray to their
+ancestors, and make ritual offearings. Offerings would
+typically include traditional food dishes, and the
+burning of joss sticks and joss paper.
+    </string>
+    <string name="xihu_introduction">
+            "                           "   (Chinese: 西湖; pinyin: Xī Hú; Wu: Si-wu
+) is a freshwater lake in Hangzhou, China. It is divided
+into five sections by three causeways. There are
+numerous temples, pagodas, gardens, and artificial
+islands within the lake.
+        \n
+\n
+West Lake has influenced poets and painters
+throughout Chinese history for its natural beauty and
+historic relics, and it has also been among the most
+important sources of inspiration for Chinese garden
+designers.[1] It was made a UNESCO World Heritage
+Site in 2011, described as having "influenced garden design in the rest of China as well as Japan and Korea over the centuries"[2] and reflecting "an idealized fusion between humans and nature".
+    </string>
+
+    <string name="hichina_introdution_text">China, officially the People\'s Republic of China (PRC), is a country in East Asia and the world\'s most populous country, with a population of around 1.404 billion.[13] Covering approximately 9,600,000 square kilometers (3,700,000 sq mi), it is the third- or fourth -largest country by total area,[k][19] depending on the source consulted. Governed by the Communist Party of China, the state exercises jurisdiction over 22 provinces, five autonomous regions, four direct -controlled municipalities (Beijing, Tianjin, Shanghai, and Chongqing), and the special administrative regions of Hong Kong and Macau.</string>
+    <string name="test_blank">a b</string>
+</resources>

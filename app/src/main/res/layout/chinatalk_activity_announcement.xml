@@ -9,13 +9,15 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical">
+
     <ImageButton
         android:id="@+id/btn_back"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/dp_30"
+        android:layout_width="24dp"
+        android:layout_height="33dp"
         android:layout_marginLeft="@dimen/dp_15"
-        android:background="@drawable/ic_back">
+        android:layout_marginTop="@dimen/dp_30"
+        android:background="@drawable/ic_back"
+        android:scaleType="fitCenter">
 
     </ImageButton>
     <TextView

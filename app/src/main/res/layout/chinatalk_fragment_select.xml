@@ -11,6 +11,7 @@
         android:layout_width="wrap_content"
         android:layout_height="381dp"
         android:orientation="vertical"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
@@ -36,57 +37,62 @@
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
                 android:padding="12dp">
+
                 <RadioButton
                     android:id="@+id/rb_A"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:padding="5dp"
                     android:button="@null"
                     android:drawableLeft="@drawable/ic_selector"
                     android:drawablePadding="10dp"
+                    android:padding="5dp"
                     android:text="A. 名词"
                     android:textColor="@color/color_black"
-                    android:textSize="@dimen/sp_18"/>
+                    android:textSize="@dimen/sp_18" />
+
                 <RadioButton
                     android:id="@+id/rb_B"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:padding="5dp"
                     android:button="@null"
                     android:drawableLeft="@drawable/ic_selector"
                     android:drawablePadding="10dp"
+                    android:padding="5dp"
                     android:text="B. 动词"
                     android:textColor="@color/color_black"
-                    android:textSize="@dimen/sp_18"/>
+                    android:textSize="@dimen/sp_18" />
+
                 <RadioButton
                     android:id="@+id/rb_C"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:padding="5dp"
                     android:button="@null"
                     android:drawableLeft="@drawable/ic_selector"
                     android:drawablePadding="10dp"
+                    android:padding="5dp"
                     android:text="C. 副词"
                     android:textColor="@color/color_black"
-                    android:textSize="@dimen/sp_18"/>
+                    android:textSize="@dimen/sp_18" />
+
                 <RadioButton
                     android:id="@+id/rb_D"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:padding="5dp"
                     android:button="@null"
                     android:drawableLeft="@drawable/ic_selector"
                     android:drawablePadding="10dp"
+                    android:padding="5dp"
                     android:text="D. 助词"
                     android:textColor="@color/color_black"
-                    android:textSize="@dimen/sp_18"/>
+                    android:textSize="@dimen/sp_18" />
             </RadioGroup>
         </LinearLayout>
     </ScrollView>
 
     <ScrollView
-        android:layout_width="409dp"
+        android:layout_width="match_parent"
         android:layout_height="348dp"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/scrollView2">
 
@@ -95,8 +101,11 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
-            android:layout_marginLeft="16dp"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            android:paddingLeft="0dp"
+            android:paddingTop="5dp"
+            android:paddingRight="10dp"
+            android:paddingBottom="0dp">
 
             <ScrollView
                 android:layout_width="match_parent"
@@ -113,7 +122,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="15dp"
                         android:layout_marginTop="10dp"
-                        android:text="回答正确!!"
+                        android:text="@string/answer_right"
                         android:textColor="#E91E63" />
 
                     <TextView

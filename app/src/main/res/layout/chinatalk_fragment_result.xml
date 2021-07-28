@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:padding="12dp">
+
+            <TextView
+                android:id="@+id/textView25"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginLeft="16dp"
+                android:layout_marginTop="32dp"
+                android:text='29.(单选题)  下雨天地滑,小明骑车上学不小心打滑了,幸亏小明一把把住了车把,才没能摔倒. 请问: "加下滑线的字是什么词性?"'
+                android:textSize="14sp" />
+            <!--            少一组选项-->
+            <!--            选项-->
+            <RadioGroup
+                android:id="@+id/rg_select"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="12dp">
+
+                <RadioButton
+                    android:id="@+id/rb_A"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:button="@null"
+                    android:drawableLeft="@drawable/ic_selector"
+                    android:drawablePadding="10dp"
+                    android:padding="5dp"
+                    android:text="A. 名词"
+                    android:textColor="@color/color_black"
+                    android:textSize="@dimen/sp_18" />
+
+                <RadioButton
+                    android:id="@+id/rb_B"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:button="@null"
+                    android:drawableLeft="@drawable/ic_selector"
+                    android:drawablePadding="10dp"
+                    android:padding="5dp"
+                    android:text="B. 动词"
+                    android:textColor="@color/color_black"
+                    android:textSize="@dimen/sp_18" />
+
+                <RadioButton
+                    android:id="@+id/rb_C"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:button="@null"
+                    android:drawableLeft="@drawable/ic_selector"
+                    android:drawablePadding="10dp"
+                    android:padding="5dp"
+                    android:text="C. 副词"
+                    android:textColor="@color/color_black"
+                    android:textSize="@dimen/sp_18" />
+
+                <RadioButton
+                    android:id="@+id/rb_D"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:button="@null"
+                    android:drawableLeft="@drawable/ic_selector"
+                    android:drawablePadding="10dp"
+                    android:padding="5dp"
+                    android:text="D. 助词"
+                    android:textColor="@color/color_black"
+                    android:textSize="@dimen/sp_18" />
+            </RadioGroup>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="237dp"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/tip"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+            </LinearLayout>
+
+        </LinearLayout>
+    </ScrollView>
+
+</android.support.constraint.ConstraintLayout>

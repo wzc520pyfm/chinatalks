@@ -12,6 +12,7 @@
         android:layout_width="wrap_content"
         android:layout_height="149dp"
         android:elevation="3dp"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -19,9 +20,9 @@
         android:id="@+id/imageView11"
         android:layout_width="71dp"
         android:layout_height="69dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginLeft="16dp"
         android:layout_marginTop="12dp"
+        app:layout_constraintEnd_toEndOf="@+id/view9"
+        app:layout_constraintHorizontal_bias="0.02"
         app:layout_constraintStart_toStartOf="@+id/view9"
         app:layout_constraintTop_toTopOf="@+id/view9"
         app:srcCompat="@drawable/ic_exam_random" />
@@ -33,7 +34,7 @@
         android:layout_marginStart="12dp"
         android:layout_marginLeft="12dp"
         android:layout_marginTop="4dp"
-        android:text="随机测试"
+        android:text="@string/random_test"
         android:textSize="18sp"
         android:textStyle="bold"
         app:layout_constraintStart_toEndOf="@+id/imageView11"
@@ -57,7 +58,7 @@
         android:layout_marginTop="32dp"
         android:layout_marginEnd="12dp"
         android:layout_marginRight="12dp"
-        android:text="题"
+        android:text="@string/ques"
         app:layout_constraintEnd_toEndOf="@+id/view9"
         app:layout_constraintTop_toTopOf="@+id/view9" />
 
@@ -76,33 +77,33 @@
         android:id="@+id/textView37"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="已完成"
+        android:text="@string/overed"
         app:layout_constraintEnd_toStartOf="@+id/textView36"
         app:layout_constraintTop_toTopOf="@+id/textView35" />
 
     <Button
         android:id="@+id/button15"
-        android:layout_width="161dp"
+        android:layout_width="130dp"
         android:layout_height="39dp"
-        android:layout_marginStart="4dp"
-        android:layout_marginLeft="4dp"
         android:layout_marginTop="12dp"
         android:background="@drawable/chinatalk_shape_button"
-        android:text="重新开始"
-        app:layout_constraintStart_toStartOf="@+id/imageView11"
+        android:text="@string/restart"
+        android:textColor="@color/color_f5f5f5"
+        app:layout_constraintEnd_toEndOf="@+id/view9"
+        app:layout_constraintHorizontal_bias="0.03"
+        app:layout_constraintStart_toStartOf="@+id/view9"
         app:layout_constraintTop_toBottomOf="@+id/imageView11" />
 
     <Button
         android:id="@+id/button17"
-        android:layout_width="167dp"
+        android:layout_width="130dp"
         android:layout_height="38dp"
-        android:layout_marginStart="168dp"
-        android:layout_marginLeft="168dp"
         android:layout_marginTop="36dp"
         android:background="@drawable/chinatalk_shape_button"
-        android:text="继续测试"
-        app:layout_constraintEnd_toEndOf="@+id/textView35"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="@+id/imageView11"
+        android:text="@string/test_continue"
+        android:textColor="@color/color_f5f5f5"
+        app:layout_constraintEnd_toEndOf="@+id/view9"
+        app:layout_constraintHorizontal_bias="0.94"
+        app:layout_constraintStart_toStartOf="@+id/view9"
         app:layout_constraintTop_toBottomOf="@+id/textView36" />
 </android.support.constraint.ConstraintLayout>

@@ -11,38 +11,36 @@
         android:id="@+id/editText"
         android:layout_width="282dp"
         android:layout_height="41dp"
-        android:layout_marginTop="152dp"
         android:background="@drawable/chinatalk_shape_edittext_bg"
-        android:hint="你的答案是什么呢..."
+        android:hint="@string/what_is_your_answer"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.139"
+        app:layout_constraintHorizontal_bias="0.14"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView7"
-        app:layout_constraintVertical_bias="0.157" />
+        app:layout_constraintVertical_bias="0.73" />
 
     <View
         android:id="@+id/view5"
-        android:layout_width="337dp"
+        android:layout_width="350dp"
         android:layout_height="1dp"
         android:layout_marginTop="88dp"
         android:background="@color/color_gray"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.243"
+        app:layout_constraintHorizontal_bias="0.26"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/editText2" />
 
     <TextView
         android:id="@+id/textView6"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="30dp"
         android:layout_marginTop="24dp"
-        android:text="看图识物"
+        android:text="@string/see_and_dis_things"
         android:textColor="@color/color_ff1247c2"
         android:textSize="24sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.05"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView4" />
 
@@ -52,8 +50,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginLeft="16dp"
-        android:layout_marginTop="16dp"
-        android:text="Game"
+        android:text="@string/game"
         android:textColor="@color/color_ff1247c2"
         android:textSize="24sp"
         android:textStyle="bold"
@@ -67,20 +64,19 @@
         android:layout_marginTop="28dp"
         android:layout_marginEnd="16dp"
         android:layout_marginRight="16dp"
-        android:text="Third pass"
+        android:text="@string/third_pass"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <View
         android:id="@+id/view"
         android:layout_width="match_parent"
-        android:layout_height="80dp"
-        android:layout_marginTop="80dp"
+        android:layout_height="90dp"
         android:background="@color/color_low_yellow"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_bias="0.52"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/textView" />
 
     <ImageView
         android:id="@+id/imageView2"
@@ -89,18 +85,21 @@
         android:layout_marginStart="16dp"
         android:layout_marginLeft="16dp"
         android:layout_marginTop="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/view"
         app:layout_constraintTop_toTopOf="@+id/view"
         app:srcCompat="@drawable/ic_remind" />
 
     <TextView
         android:id="@+id/textView5"
-        android:layout_width="296dp"
+        android:layout_width="260dp"
         android:layout_height="0dp"
-        android:layout_marginTop="20dp"
-        android:text="温馨提示:  描述可点击右侧语音输入, 录入的语音将实时转成文字, 可以选择删除或重录"
-        app:layout_constraintEnd_toEndOf="@+id/view"
-        app:layout_constraintStart_toStartOf="@+id/view"
+        android:text="@string/tips"
+        app:layout_constraintBottom_toBottomOf="@+id/view"
+        app:layout_constraintEnd_toStartOf="@+id/imageView3"
+        app:layout_constraintHorizontal_bias="0.49"
+        app:layout_constraintStart_toEndOf="@+id/imageView2"
         app:layout_constraintTop_toTopOf="@+id/view" />
 
     <ImageView
@@ -108,17 +107,21 @@
         android:layout_width="13dp"
         android:layout_height="18dp"
         android:layout_marginTop="8dp"
-        android:layout_marginEnd="12dp"
-        android:layout_marginRight="12dp"
         app:layout_constraintEnd_toEndOf="@+id/view"
+        app:layout_constraintHorizontal_bias="0.93"
+        app:layout_constraintStart_toStartOf="@+id/view"
         app:layout_constraintTop_toTopOf="@+id/view"
         app:srcCompat="@drawable/btn_back" />
 
     <ImageView
         android:id="@+id/imageView4"
-        android:layout_width="375dp"
-        android:layout_height="223dp"
-        android:layout_marginTop="32dp"
+        android:layout_width="292dp"
+        android:layout_height="191dp"
+        android:layout_marginStart="5dp"
+        android:layout_marginLeft="5dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginEnd="5dp"
+        android:layout_marginRight="5dp"
         android:scaleType="fitCenter"
         android:visibility="visible"
         app:layout_constraintEnd_toEndOf="parent"
@@ -130,7 +133,6 @@
         android:id="@+id/textView7"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
         android:text="请问:  图中的食物叫什么名字?"
         android:textColor="@color/color_black"
         android:textSize="18sp"
@@ -145,7 +147,7 @@
         android:layout_height="41dp"
         android:layout_marginTop="8dp"
         android:background="@null"
-        android:hint="请输入你的答案"
+        android:hint="@string/answer_hint"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.164"
         app:layout_constraintStart_toStartOf="parent"
@@ -155,9 +157,9 @@
         android:id="@+id/imageButton"
         android:layout_width="19dp"
         android:layout_height="25dp"
-        android:layout_marginStart="32dp"
-        android:layout_marginLeft="32dp"
         android:layout_marginTop="4dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginRight="10dp"
         android:background="@null"
         android:scaleType="fitCenter"
         app:layout_constraintEnd_toEndOf="parent"
@@ -167,7 +169,7 @@
 
     <View
         android:id="@+id/view4"
-        android:layout_width="337dp"
+        android:layout_width="350dp"
         android:layout_height="1dp"
         android:background="@color/color_gray"
         app:layout_constraintEnd_toEndOf="parent"
@@ -181,7 +183,7 @@
         android:layout_height="37dp"
         android:layout_marginTop="4dp"
         android:background="@drawable/chinatalk_shape_small_btn"
-        android:text="确定"
+        android:text="@string/yes"
         android:textColor="@color/color_white"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.897"
@@ -194,6 +196,7 @@
         android:layout_height="85dp"
         android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="@+id/view5"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/editText2">
 
@@ -204,6 +207,7 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
                 android:orientation="vertical">
 
                 <TextView
@@ -212,8 +216,8 @@
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="15dp"
                     android:layout_marginTop="10dp"
-                    android:text="回答错误, 请重新做答!!"
-                    android:textColor="#E91E63" />
+                    android:text=""
+                    android:textColor="@color/color_wrong" />
 
                 <TextView
                     android:id="@+id/textView10"
@@ -222,8 +226,8 @@
                     android:layout_marginLeft="15dp"
                     android:layout_marginTop="10dp"
                     android:paddingRight="10dp"
-                    android:text="提示:  这是中国的一种传统食物,有着团员等美好的寓意提示:  这是中国的一种传统食物,有着团员等美好的寓意"
-                    android:textColor="#E91E63" />
+                    android:text=""
+                    android:textColor="@color/color_wrong" />
             </LinearLayout>
         </ScrollView>
 
@@ -231,22 +235,25 @@
 
 <!--    下面是语音输入弹窗-->
     <LinearLayout
+        android:id="@+id/speak_mwindow"
         android:layout_width="match_parent"
         android:layout_height="358dp"
         android:background="@color/color_white"
         android:orientation="vertical"
-        android:visibility="visible"
+        android:visibility="gone"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent">
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView4"
+        app:layout_constraintVertical_bias="0.0">
 
         <TextView
             android:id="@+id/title2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="15dp"
-            android:layout_marginTop="15dp"
-            android:text="看图识物"
+            android:layout_marginTop="0dp"
+            android:text="@string/see_and_dis_things"
             android:textColor="@color/color_ff1247c2"
             android:textSize="18sp" />
 
@@ -260,13 +267,13 @@
             android:textColor="@color/color_gray"
             android:textSize="18sp" />
 
-        <TextView
-            android:id="@+id/title3"
+        <EditText
+            android:id="@+id/ch_frg_game_input_answer"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="15dp"
             android:layout_marginTop="15dp"
-            android:text="请语音输入"
+            android:hint="@string/please_speak"
             android:textColor="@color/color_gray"
             android:textSize="18sp" />
 
@@ -287,10 +294,10 @@
                 android:id="@+id/textView13"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="150dp"
+                android:layout_marginLeft="160dp"
                 android:layout_marginTop="5dp"
                 android:gravity="center"
-                android:text="语音输入"
+                android:text="@string/speak"
                 android:textSize="18sp"
                 android:textStyle="bold" />
 
@@ -298,7 +305,7 @@
                 android:id="@+id/imageView5"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                android:layout_marginLeft="150dp"
+                android:layout_marginLeft="80dp"
                 android:layout_marginTop="5dp"
                 android:scaleType="fitCenter"
                 app:srcCompat="@drawable/btn_back" />
@@ -306,8 +313,9 @@
 
         <View
             android:id="@+id/view8"
-            android:layout_width="match_parent"
+            android:layout_width="220dp"
             android:layout_height="1dp"
+            android:layout_gravity="center"
             android:layout_marginTop="10dp"
             android:background="@color/color_gray" />
 
@@ -315,14 +323,15 @@
             android:id="@+id/title4"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="15dp"
+            android:layout_marginLeft="0dp"
             android:layout_marginTop="15dp"
             android:gravity="center"
-            android:text="松开结束"
+            android:text="@string/up_and_over"
             android:textColor="@color/color_gray"
             android:textSize="18sp" />
 
         <LinearLayout
+            android:id="@+id/confirm"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:gravity="center"
@@ -332,8 +341,9 @@
                 android:id="@+id/imageButton2"
                 android:layout_width="121dp"
                 android:layout_height="112dp"
+                android:background="@null"
                 android:scaleType="fitCenter"
-                app:srcCompat="@drawable/btn_voice_ongoing" />
+                app:srcCompat="@drawable/btn_voice_end" />
 
             <TextView
                 android:id="@+id/textView14"

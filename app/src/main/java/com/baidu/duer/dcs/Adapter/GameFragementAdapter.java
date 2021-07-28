@@ -17,6 +17,8 @@ public class GameFragementAdapter extends FragmentStatePagerAdapter {
     public GameFragementAdapter(FragmentManager fm, ArrayList<Game> gamesList){
         super(fm);
         mGameList=gamesList;
+
+
     }
 
     //获取碎片的Fragment的个数
@@ -26,7 +28,7 @@ public class GameFragementAdapter extends FragmentStatePagerAdapter {
 
     //获取指定位置的碎片Fragment
     public Fragment getItem(int position){
-        return ChinaTalkGameFragment.newInstance(position,mGameList.get(position).pic,mGameList.get(position).question,mGameList.get(position).answer);
+        return ChinaTalkGameFragment.newInstance(position,mGameList.get(position).pic,mGameList.get(position).question,mGameList.get(position).answer,mGameList.get(position).tip,getCount());
     }
 
     //

@@ -17,7 +17,7 @@ public class ChinaTalkTestFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState){
         mContext=getActivity();//获取获得页面的上下文
         //根据布局文件chinatalk_fragment_game.xml生成视图对象
-        mView=inflater.inflate(R.layout.chinatalk_fragment_test,container,false);
+        mView=inflater.inflate(R.layout.chinatalk_fragment_result,container,false);
 
         return mView;//返回该碎片的视图对象
     }

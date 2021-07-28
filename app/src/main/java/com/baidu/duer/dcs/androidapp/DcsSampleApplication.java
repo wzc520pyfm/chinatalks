@@ -17,11 +17,17 @@ package com.baidu.duer.dcs.androidapp;
 
 import android.app.Application;
 import android.content.Context;
+import android.content.res.Configuration;
+import android.content.res.Resources;
+import android.text.TextUtils;
+import android.util.DisplayMetrics;
 
+import com.baidu.duer.dcs.util.SharedUtil;
 import com.iflytek.cloud.SpeechConstant;
 import com.iflytek.cloud.SpeechUtility;
 
 import java.util.HashMap;
+import java.util.Locale;
 
 /**
  * DcsSample application
@@ -48,6 +54,18 @@ public class DcsSampleApplication extends Application {
 // 请勿在“=”与appid之间添加任何空字符或者转义符
 
         SpeechUtility.createUtility(DcsSampleApplication.this, SpeechConstant.APPID +"=d213d266");
+
+        //初始化语言--好像还有bug
+        String location = SharedUtil.getInstance(this).readShared("COUNTRY","");//(可用Sharedpreferences代替，获取选中的语言种类)
+        if (!TextUtils.isEmpty(location)) {
+            Resources resources = getResources();
+            DisplayMetrics dm = resources.getDisplayMetrics();
+            Configuration config = resources.getConfiguration();
+            Locale myLocale = new Locale(location);
+            config.locale = myLocale;
+            resources.updateConfiguration(config, dm);
+        }
+
     }
 //利用单例模式获取当前应用的唯一实例
     public static DcsSampleApplication getInstance() {

@@ -105,7 +105,7 @@ public class TestCenterDBHelper extends SQLiteOpenHelper {
         for(TestCenter info : infoArray){
             Log.d(TAG,"test_id="+info.test_id+"title="+info.title+",desc="+info.desc+",finsged_num="+info.finshed_num+",score="+info.score+",test_time="+info.test_time);
             //如果存在相同标记test_id的记录,则更新记录---类似行号,如果是已有的记录,应附带此id,如果是插入新纪录,此id应由表自动生成,
-            if(info.rowid>0){
+            if(info.rowid>0){//有问题,这里应该test_id,但已经被我改的可以正常运行了,别乱动
                 String condition = String.format("rowid='%d'",info.rowid);
                 update(info,condition);
                 result=info.rowid;

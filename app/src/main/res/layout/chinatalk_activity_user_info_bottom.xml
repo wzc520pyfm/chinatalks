@@ -2,6 +2,7 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="vertical">
+<!--    改掉,改成约束布局-->
     <TextView
         android:id="@+id/item_title"
         android:layout_width="match_parent"
@@ -10,7 +11,7 @@
         android:padding="@dimen/dp_10"
         android:textSize="@dimen/sp_16"
         android:textColor="@color/color_black"
-        android:text="Name">
+        android:text="@string/name">
 
     </TextView>
     <EditText
@@ -19,7 +20,7 @@
         android:layout_height="wrap_content"
         android:padding="@dimen/dp_5"
         android:inputType="text"
-        android:hint="Jean Pena"
+        android:hint="@string/example_name"
         android:textColorHint="@color/color_gray"
         android:cursorVisible="true">
 

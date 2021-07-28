@@ -1,11 +1,19 @@
 package com.baidu.duer.dcs.androidapp;
 
+import android.content.Intent;
+import android.content.res.Configuration;
 import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.DisplayMetrics;
+import android.util.Log;
 import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.ImageView;
+import android.widget.Spinner;
+import android.widget.Toast;
 
 import com.baidu.duer.dcs.Adapter.FragmentAdapter;
 import com.baidu.duer.dcs.Fragment.FunTestsFragment;
@@ -13,9 +21,11 @@ import com.baidu.duer.dcs.Fragment.HiChinaFragment;
 import com.baidu.duer.dcs.Fragment.HomeFragment;
 import com.baidu.duer.dcs.Fragment.ShareFragment;
 import com.baidu.duer.dcs.R;
+import com.baidu.duer.dcs.util.SharedUtil;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Locale;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
     private ImageView item_home, item_share, item_hichina, item_funtests;
@@ -32,10 +42,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-
         initView();
 
         initFragment();
+
     }
 
     private void initFragment() {
@@ -136,4 +146,6 @@ funTestsFragment=new FunTestsFragment();
                 break;
         }
     }
+
+
 }

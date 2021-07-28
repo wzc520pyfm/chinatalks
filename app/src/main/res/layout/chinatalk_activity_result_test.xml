@@ -8,70 +8,101 @@
 
     <ImageView
         android:id="@+id/imageView8"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="24dp"
+        android:layout_height="29dp"
         android:layout_marginStart="16dp"
         android:layout_marginLeft="16dp"
         android:layout_marginTop="16dp"
+        android:scaleType="fitCenter"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/ic_back" />
 
     <Button
         android:id="@+id/button8"
-        android:layout_width="wrap_content"
+        android:layout_width="130dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="32dp"
-        android:layout_marginLeft="32dp"
         android:layout_marginBottom="16dp"
-        android:text="Button"
+        android:background="@drawable/chinatalk_shape_btn_low"
+        android:text="@string/front_ques"
         app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.11"
         app:layout_constraintStart_toStartOf="parent" />
 
     <Button
         android:id="@+id/button10"
-        android:layout_width="wrap_content"
+        android:layout_width="130dp"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="24dp"
-        android:layout_marginRight="24dp"
         android:layout_marginBottom="16dp"
-        android:text="Button"
+        android:background="@drawable/chinatalk_shape_button"
+        android:text="@string/next_ques"
+        android:textColor="@color/color_f5f5f5"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.89"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
         android:id="@+id/textView23"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginLeft="16dp"
-        android:layout_marginTop="76dp"
         android:text="真题测试卷(1)"
         android:textSize="24sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.07"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/imageView8" />
 
     <TextView
         android:id="@+id/textView24"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="88dp"
         android:layout_marginEnd="16dp"
         android:layout_marginRight="16dp"
         android:text="剩余时间: 12:23"
+        app:layout_constraintBottom_toBottomOf="@+id/textView23"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintHorizontal_bias="0.91"
+        app:layout_constraintStart_toEndOf="@+id/textView23"
+        app:layout_constraintTop_toTopOf="@+id/textView23" />
 
-    <fragment
-        android:id="@+id/fragment"
-        android:name="com.baidu.duer.dcs.Fragment.ChinaTalkTestFragment"
-        android:layout_width="356dp"
-        android:layout_height="69dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginLeft="8dp"
-        android:layout_marginTop="4dp"
+<!--    <fragment-->
+<!--        android:id="@+id/fragment"-->
+<!--        android:name="com.baidu.duer.dcs.Fragment.ChinaTalkTestFragment"-->
+<!--        android:layout_width="300dp"-->
+<!--        android:layout_height="0dp"-->
+<!--        android:layout_marginStart="8dp"-->
+<!--        android:layout_marginLeft="8dp"-->
+<!--        android:layout_marginTop="4dp"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintTop_toBottomOf="@+id/textView23" />-->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="548dp"
+        android:orientation="vertical"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.096"
-        app:layout_constraintStart_toStartOf="@+id/textView23"
-        app:layout_constraintTop_toBottomOf="@+id/textView23" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView23">
+        <!--        加上ScrollView会导致闪退,报错-->
+        <!--        <ScrollView-->
+        <!--            android:id="@+id/scrollView3"-->
+        <!--            android:layout_width="match_parent"-->
+        <!--            android:layout_height="match_parent"-->
+        <!--            android:fillViewport="true">-->
+        <ProgressBar
+            android:id="@+id/pb_async"
+            style="?android:attr/progressBarStyleHorizontal"
+            android:layout_width="match_parent"
+            android:layout_height="5dp" />
+
+        <android.support.v4.view.ViewPager
+            android:id="@+id/vp_content"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+        </android.support.v4.view.ViewPager>
+        <!--        </ScrollView>-->
+    </LinearLayout>
 </android.support.constraint.ConstraintLayout>

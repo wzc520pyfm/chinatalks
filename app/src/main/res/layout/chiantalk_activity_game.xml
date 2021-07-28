@@ -4,64 +4,65 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:padding="0dp"
     tools:context=".chinatalk.GameActivity">
+
     <Button
         android:id="@+id/button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginLeft="8dp"
-        android:layout_marginTop="8dp"
+        android:layout_width="103dp"
+        android:layout_height="38dp"
         android:background="@null"
-        android:text="Sign out"
+        android:text="@string/sign_out"
         android:textColor="@color/color_low_blue"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
         android:id="@+id/button2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginRight="8dp"
-        android:text="Skip(?)"
-        android:textColor="@color/color_low_blue"
+        android:layout_width="113dp"
+        android:layout_height="38dp"
         android:background="@null"
+        android:text=""
+        android:textColor="@color/color_low_blue"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
-<!--一般不会静态注册fragment,而是在代码中动态注册,xml中只需要为其预留位置即可-->
-<!--    <fragment-->
-<!--        android:id="@+id/fragment_game"-->
-<!--        android:name="com.baidu.duer.dcs.Fragment.ChinaTalkGameFragment"-->
-<!--        android:layout_width="match_parent"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        android:layout_marginTop="68dp"-->
-<!--        app:layout_constraintStart_toStartOf="parent"-->
-<!--        app:layout_constraintTop_toTopOf="parent" />-->
+    <!--一般不会静态注册fragment,而是在代码中动态注册,xml中只需要为其预留位置即可-->
+    <!--    <fragment-->
+    <!--        android:id="@+id/fragment_game"-->
+    <!--        android:name="com.baidu.duer.dcs.Fragment.ChinaTalkGameFragment"-->
+    <!--        android:layout_width="match_parent"-->
+    <!--        android:layout_height="wrap_content"-->
+    <!--        android:layout_marginTop="68dp"-->
+    <!--        app:layout_constraintStart_toStartOf="parent"-->
+    <!--        app:layout_constraintTop_toTopOf="parent" />-->
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_marginTop="52dp"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/button">
-        <ScrollView
-            android:id="@+id/scrollView3"
+        <!--        加上ScrollView会导致闪退,报错-->
+        <!--        <ScrollView-->
+        <!--            android:id="@+id/scrollView3"-->
+        <!--            android:layout_width="match_parent"-->
+        <!--            android:layout_height="match_parent"-->
+        <!--            android:fillViewport="true">-->
+        <ProgressBar
+            android:id="@+id/pb_async"
+            style="?android:attr/progressBarStyleHorizontal"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:fillViewport="true">
+            android:layout_height="5dp" />
 
-            <android.support.v4.view.ViewPager
-                android:id="@+id/vp_content"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent">
+        <android.support.v4.view.ViewPager
+            android:id="@+id/vp_content"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
 
-            </android.support.v4.view.ViewPager>
-        </ScrollView>
+        </android.support.v4.view.ViewPager>
+        <!--        </ScrollView>-->
     </LinearLayout>
-
-
 
 
 </android.support.constraint.ConstraintLayout>

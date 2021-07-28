@@ -8,11 +8,12 @@
 
     <ImageView
         android:id="@+id/imageView7"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="24dp"
+        android:layout_height="29dp"
         android:layout_marginStart="16dp"
         android:layout_marginLeft="16dp"
         android:layout_marginTop="24dp"
+        android:scaleType="fitCenter"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/ic_back" />
@@ -21,60 +22,66 @@
         android:id="@+id/textView11"
         android:layout_width="245dp"
         android:layout_height="35dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginLeft="16dp"
-        android:layout_marginTop="88dp"
-        android:text="New user registration"
+        android:text="@string/reg_new_user"
         android:textSize="24sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.17"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/imageView7" />
 
     <ScrollView
-        android:layout_width="410dp"
+        android:id="@+id/scrollView3"
+        android:layout_width="match_parent"
         android:layout_height="514dp"
         android:layout_marginTop="16dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView11">
+        app:layout_constraintTop_toBottomOf="@+id/textView11"
+        app:layout_constraintVertical_bias="0.0">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:padding="12dp">
+            android:paddingLeft="25dp"
+            android:paddingTop="10dp"
+            android:paddingRight="25dp"
+            android:paddingBottom="10dp">
 
             <TextView
                 android:id="@+id/textView18"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Mobile Number" />
+                android:text="@string/phone" />
 
             <EditText
                 android:id="@+id/editTextPhone"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:ems="10"
-                android:hint="please enter your mobile number"
+                android:hint="@string/phone_hint"
                 android:inputType="phone" />
 
             <TextView
                 android:id="@+id/textView19"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="E-mail" />
+                android:text="@string/e_mail" />
 
             <EditText
                 android:id="@+id/editTextTextEmailAddress"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:ems="10"
-                android:hint="please enter your email"
+                android:hint="@string/e_mail_hint"
                 android:inputType="textEmailAddress" />
 
             <TextView
                 android:id="@+id/textView20"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Verfication Code" />
+                android:text="@string/ver_code" />
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -83,46 +90,47 @@
 
                 <EditText
                     android:id="@+id/editTextNumber"
-                    android:layout_width="318dp"
+                    android:layout_width="250dp"
                     android:layout_height="match_parent"
                     android:ems="10"
-                    android:hint="please enter your veification code"
-                    android:inputType="number" />
+                    android:hint="@string/ver_code_hint"
+                    android:inputType="number"
+                    android:textSize="14sp" />
 
                 <Button
                     android:id="@+id/button7"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="Send" />
+                    android:text="@string/send" />
             </LinearLayout>
 
             <TextView
                 android:id="@+id/textView21"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Password" />
+                android:text="@string/reg_password" />
 
             <EditText
                 android:id="@+id/editTextTextPassword"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:ems="10"
-                android:hint="please enter your password"
+                android:hint="@string/reg_password_hint"
                 android:inputType="textPassword" />
 
             <TextView
                 android:id="@+id/textView22"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Confirm Password" />
+                android:text="@string/confirm_password" />
 
             <EditText
                 android:id="@+id/editTextTextPassword2"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:ems="10"
-                android:hint="please enter your password again"
+                android:hint="@string/con_pass_hint"
                 android:inputType="textPassword" />
 
         </LinearLayout>
@@ -132,12 +140,12 @@
         android:id="@+id/button9"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="52dp"
-        android:layout_marginLeft="52dp"
-        android:layout_marginBottom="16dp"
         android:background="@drawable/chinatalk_shape_button"
-        android:text="Register"
+        android:text="@string/btn_register"
         android:textColor="@color/color_white"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/scrollView3"
+        app:layout_constraintVertical_bias="0.49" />
 </android.support.constraint.ConstraintLayout>

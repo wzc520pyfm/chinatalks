@@ -11,7 +11,7 @@ import android.widget.ImageButton;
 import com.baidu.duer.dcs.R;
 import com.baidu.duer.dcs.androidapp.DcsSampleApplication;
 import com.baidu.duer.dcs.androidapp.DcsSampleMainActivity;
-import com.baidu.duer.dcs.androidapp.MainActivity;
+import com.iflytek.mscv5plusdemo.MainActivity;
 
 public class Dev_code extends AppCompatActivity {
     @Override
@@ -47,7 +47,8 @@ public class Dev_code extends AppCompatActivity {
         user_info.setOnClickListener(new Dev_code.ButtonOnClickListener());
         Button wrong_ques=(Button) findViewById(R.id.button29);
         wrong_ques.setOnClickListener(new Dev_code.ButtonOnClickListener());
-
+        Button goto_xun_fei=(Button) findViewById(R.id.button30);
+        goto_xun_fei.setOnClickListener(new Dev_code.ButtonOnClickListener());
 
     }
 
@@ -111,6 +112,11 @@ public class Dev_code extends AppCompatActivity {
                 case R.id.button29:
                     Intent intent29 =new Intent(Dev_code.this, WrongQuesBookActivity.class);
                     startActivityForResult(intent29,0);
+                    break;
+                case R.id.button30:
+                    //一定要确保MainActivity是讯飞包里的,而不是百度包里的(md,蛋疼,这两包里有同名文件,c)
+                    Intent intent30 =new Intent(Dev_code.this, MainActivity.class);
+                    startActivityForResult(intent30,0);
                     break;
             }
         }

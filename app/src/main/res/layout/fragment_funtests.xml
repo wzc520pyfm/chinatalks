@@ -2,66 +2,59 @@
 <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    >
 <!--趣味互动答题唤醒页面-->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:padding="8dp">
 
-        <TextView
-            android:id="@+id/textView3"
-            android:layout_width="match_parent"
-            android:layout_height="33dp"
-            android:gravity="bottom"
-            android:text="Game"
-            android:textSize="18sp"
-            android:textStyle="bold" />
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/textView3"
+                android:layout_width="wrap_content"
+                android:layout_height="33dp"
+                android:gravity="bottom"
+                android:text="语音助手"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="right"
+                android:orientation="vertical">
+
+                <Spinner
+                    android:id="@+id/sp_dropdown"
+                    android:layout_width="143dp"
+                    android:layout_height="match_parent"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentEnd="true"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginStart="265dp"
+                    android:layout_marginLeft="265dp"
+                    android:layout_marginEnd="3dp"
+                    android:layout_marginRight="3dp"
+                    android:spinnerMode="dropdown" />
+            </LinearLayout>
+        </LinearLayout>
+
 
         <TextView
             android:id="@+id/textView4"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_margin="10dp"
             android:gravity="center"
-            android:text='YOU CAN SAY "小D小D" TO AWAKE ME' />
-
-        <TableLayout
-            android:layout_width="match_parent"
-            android:layout_height="276dp">
-
-            <TableRow
-                android:layout_width="match_parent"
-                android:layout_height="match_parent">
-
-            </TableRow>
-
-            <TableRow
-                android:layout_width="match_parent"
-                android:layout_height="match_parent" />
-
-            <TableRow
-                android:layout_width="match_parent"
-                android:layout_height="match_parent" />
-
-            <TableRow
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:gravity="bottom">
-
-                <View
-                    android:id="@+id/view2"
-                    android:layout_width="361dp"
-                    android:layout_height="208dp" />
-
-                <ImageView
-                    android:id="@+id/imageView"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    app:srcCompat="@android:drawable/ic_btn_speak_now" />
-
-            </TableRow>
-
-        </TableLayout>
+            android:text='你可以点击按钮并且说"志超志超"来唤醒我,随后您可以向我下达指令\n比如您可以说:"志超志超,打开汉语闯关"\n我目前可以识别的命令包含:\n志超志超,打开真题试卷一\n志超志超,打开错题册\n志超志超打开随机测试\n志超志超,打开测试主页\n志超志超打开个人信息\n志超志超,编辑个人信息\n' />
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -74,22 +67,23 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="center"
-                android:text="RECORDING......"
+                android:text="Waitting for you ..."
                 android:textSize="18sp"
                 android:textStyle="bold" />
 
             <View
                 android:id="@+id/view3"
-                android:layout_width="match_parent"
-                android:layout_height="189dp" />
+                android:layout_width="384dp"
+                android:layout_height="159dp" />
 
             <ImageButton
                 android:id="@+id/speak_btn"
                 android:layout_width="76dp"
                 android:layout_height="75dp"
                 android:layout_centerInParent="true"
-                android:background="@drawable/button_ripple"
-                android:src="@android:drawable/ic_btn_speak_now" />
+                android:background="@null"
+                android:scaleType="fitCenter"
+                android:src="@drawable/btn_voice_start" />
         </LinearLayout>
 
     </LinearLayout>
