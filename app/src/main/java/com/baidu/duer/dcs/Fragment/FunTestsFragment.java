@@ -15,6 +15,7 @@ import android.text.TextUtils;
 import android.util.DisplayMetrics;
 import android.util.Log;
 import android.view.LayoutInflater;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
@@ -59,7 +60,7 @@ import java.io.InputStream;
 import java.util.Locale;
 
 //@Nullable  //注解表示可以传入null
-public class FunTestsFragment extends Fragment implements View.OnClickListener, View.OnLongClickListener {
+public class FunTestsFragment extends Fragment implements View.OnClickListener, View.OnLongClickListener, View.OnTouchListener {
     private ImageButton speak_btn;
     //_________________________BEGIN____________________________________
 private String TAG = "FunTestsFragment";
@@ -142,6 +143,7 @@ private SpeechSynthesizer mTts;
         speak_btn=view.findViewById(R.id.speak_btn);
         speak_btn.setOnClickListener(this);
         speak_btn.setOnLongClickListener(this);
+        speak_btn.setOnTouchListener(this);
         //从布局稳健者获取下拉框
         sp=(Spinner) view.findViewById(R.id.sp_dropdown);
         initSpinner();
@@ -229,7 +231,30 @@ GrammarListener grammarListener = new GrammarListener() {
 
 
     @Override
-    public void onClick(View v){
+    public void onClick(View v){//点击进入测试页面
+
+        if(v.getId()==R.id.speak_btn){
+            //        Intent intent =new Intent(this.getContext(),AnnouncementActivity.class);
+//        Intent intent =new Intent(this.getContext(), EditInformationActivity.class);
+            //Intent intent =new Intent(this.getContext(), GameActivity.class);
+//        Intent intent =new Intent(this.getContext(), SelectTestActivity.class);
+            //Intent intent =new Intent(this.getContext(), WrongQuesBookActivity.class);
+//        Intent intent =new Intent(this.getContext(), TestCenterActivity.class);
+            Intent intent =new Intent(this.getContext(), Dev_code.class);
+//        Intent intent =new Intent(this.getContext(), DcsSampleOAuthActivity.class);
+//        Intent intent =new Intent(this.getContext(), OneShotDemo.class); //唤醒+识别
+//        Intent intent =new Intent(this.getContext(), TtsDemo.class);  //语音合成
+//        Intent intent =new Intent(this.getContext(), IatDemo.class);  //语音听写
+//        Intent intent =new Intent(this.getContext(), AsrDemo.class);  //语音评测
+//        Intent intent =new Intent(this.getContext(), com.iflytek.mscv5plusdemo.MainActivity.class);//综合语音测试,//一定要确保MainActivity是讯飞包里的,而不是百度包里的(md,蛋疼,这两包里有同名文件,c)
+//        Intent intent =new Intent(this.getContext(), Head.class);
+            startActivityForResult(intent,0);
+        }
+    }
+
+    @Override
+    public boolean onLongClick(View v){//长按时进行录音输入
+
 
         switch (v.getId()){//触发唤醒开始事件
             case R.id.speak_btn:
@@ -302,28 +327,18 @@ GrammarListener grammarListener = new GrammarListener() {
                 break;
         }
 
+        return true;
     }
 
-    @Override
-    public boolean onLongClick(View v){
+    public boolean onTouch(View v, MotionEvent event){//录音结束时触发
+
         if(v.getId()==R.id.speak_btn){
-            //        Intent intent =new Intent(this.getContext(),AnnouncementActivity.class);
-//        Intent intent =new Intent(this.getContext(), EditInformationActivity.class);
-            //Intent intent =new Intent(this.getContext(), GameActivity.class);
-//        Intent intent =new Intent(this.getContext(), SelectTestActivity.class);
-            //Intent intent =new Intent(this.getContext(), WrongQuesBookActivity.class);
-//        Intent intent =new Intent(this.getContext(), TestCenterActivity.class);
-            Intent intent =new Intent(this.getContext(), Dev_code.class);
-//        Intent intent =new Intent(this.getContext(), DcsSampleOAuthActivity.class);
-//        Intent intent =new Intent(this.getContext(), OneShotDemo.class); //唤醒+识别
-//        Intent intent =new Intent(this.getContext(), TtsDemo.class);  //语音合成
-//        Intent intent =new Intent(this.getContext(), IatDemo.class);  //语音听写
-//        Intent intent =new Intent(this.getContext(), AsrDemo.class);  //语音评测
-//        Intent intent =new Intent(this.getContext(), com.iflytek.mscv5plusdemo.MainActivity.class);//综合语音测试,//一定要确保MainActivity是讯飞包里的,而不是百度包里的(md,蛋疼,这两包里有同名文件,c)
-//        Intent intent =new Intent(this.getContext(), Head.class);
-            startActivityForResult(intent,0);
+            if (event.getAction() == MotionEvent.ACTION_UP){
+                speak_btn.setImageResource(R.drawable.btn_voice_start);
+                mIvw.stopListening();
+            }
         }
-        return true;
+        return false;
     }
 
     @Override
@@ -472,7 +487,7 @@ private WakeuperListener mWakeuperListener = new WakeuperListener() {
             RecognizerResult reslut = ((RecognizerResult)obj.get(SpeechEvent.KEY_EVENT_IVW_RESULT));
             recoString += JsonParser.parseGrammarResult(reslut.getResultString());
 //            textView.setText(recoString);//recoString 即识别结果
-            speak_btn.setImageResource(R.drawable.btn_voice_start);
+
             Toast.makeText(getContext(),recoString,Toast.LENGTH_SHORT).show();
             if(recoString.contains("汉语闯关")){
                 //语音合成
