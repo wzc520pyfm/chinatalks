@@ -33,27 +33,7 @@ import com.baidu.duer.dcs.chinatalk.GameActivity;
 import com.baidu.duer.dcs.chinatalk.ResultTestActivity;
 import com.baidu.duer.dcs.chinatalk.TestScoreActivity;
 import com.baidu.duer.dcs.util.CPResourceUtil;
-import com.baidu.duer.dcs.util.StringUtils;
-import com.iflytek.cloud.ErrorCode;
-import com.iflytek.cloud.InitListener;
-import com.iflytek.cloud.RecognizerListener;
-import com.iflytek.cloud.RecognizerResult;
-import com.iflytek.cloud.SpeechConstant;
-import com.iflytek.cloud.SpeechError;
-import com.iflytek.cloud.SpeechEvent;
-import com.iflytek.cloud.SpeechRecognizer;
-import com.iflytek.cloud.SpeechSynthesizer;
-import com.iflytek.cloud.SynthesizerListener;
-import com.iflytek.cloud.ui.RecognizerDialog;
-import com.iflytek.cloud.ui.RecognizerDialogListener;
-import com.iflytek.cloud.util.ResourceUtil;
-import com.iflytek.mscv5plusdemo.TtsDemo;
-import com.iflytek.speech.setting.IatSettings;
-import com.iflytek.speech.setting.TtsSettings;
-import com.iflytek.speech.util.JsonParser;
 
-import java.util.HashMap;
-import java.util.LinkedHashMap;
 
 public class ChinaTalkResultFragment extends Fragment {
     protected View mView;//声明一个视图对象

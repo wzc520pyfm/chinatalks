@@ -32,6 +32,7 @@ import com.baidu.duer.dcs.androidapp.MainActivity;
 import com.baidu.duer.dcs.chinatalk.Dev_code;
 import com.baidu.duer.dcs.chinatalk.GameActivity;
 import com.baidu.duer.dcs.chinatalk.ResultTestActivity;
+import com.baidu.duer.dcs.chinatalk.SelectTestActivity;
 import com.baidu.duer.dcs.util.SharedUtil;
 import com.iflytek.cloud.ErrorCode;
 import com.iflytek.cloud.GrammarListener;
@@ -274,7 +275,7 @@ GrammarListener grammarListener = new GrammarListener() {
                             // 设置云端识别使用的语法id
                             mIvw.setParameter(SpeechConstant.CLOUD_GRAMMAR,
                                     mCloudGrammarID);
-                            mIvw.startListening(mWakeuperListener);
+                            mIvw.startListening(mWakeuperListener);//开始录音
                         } else {
                             showTip("请先构建语法");
                         }
@@ -288,7 +289,8 @@ GrammarListener grammarListener = new GrammarListener() {
                             // 设置本地识别使用语法id
                             mIvw.setParameter(SpeechConstant.LOCAL_GRAMMAR,
                                     mLocalGrammarID);
-                            mIvw.startListening(mWakeuperListener);
+                            mIvw.startListening(mWakeuperListener);//开始录音
+                            //mIvw.stopListening();
                         } else {
                             showTip("请先构建语法");
                         }
@@ -491,6 +493,16 @@ private WakeuperListener mWakeuperListener = new WakeuperListener() {
                 }//语音合成end
 
                 Intent intent =new Intent(getContext(), ResultTestActivity.class);
+                startActivityForResult(intent,0);
+            }else if(recoString.contains("随机测试")){
+                //语音合成
+                setParam2();
+                int code = mTts.startSpeaking("正在为您打开随机测试", mTtsListener);
+                if (code != ErrorCode.SUCCESS) {
+                    showTip("语音合成失败,错误码: " + code+",请点击网址https://www.xfyun.cn/document/error-code查询解决方案");
+                }//语音合成end
+
+                Intent intent =new Intent(getContext(), SelectTestActivity.class);
                 startActivityForResult(intent,0);
             }
         }

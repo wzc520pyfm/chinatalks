@@ -26,7 +26,7 @@ public class SelectFragmentAdapter extends FragmentStatePagerAdapter {
 
     //获取指定位置的碎片Fragment
     public Fragment getItem(int position){
-        return ChinaTalkSelectFragment.newInstance(position,mSelectList.get(position).question,mSelectList.get(position).item,mSelectList.get(position).answer);
+        return ChinaTalkSelectFragment.newInstance(position,mSelectList.get(position).Qno,mSelectList.get(position).question,mSelectList.get(position).answer,mSelectList.get(position).item1,mSelectList.get(position).item2,mSelectList.get(position).item3,mSelectList.get(position).item4,mSelectList.get(position).desc,mSelectList.get(position).tip,mSelectList.get(position).key_word,getCount());
     }
 
 

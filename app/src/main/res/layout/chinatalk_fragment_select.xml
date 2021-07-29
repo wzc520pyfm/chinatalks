@@ -122,7 +122,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="15dp"
                         android:layout_marginTop="10dp"
-                        android:text="@string/answer_right"
+                        android:text=""
                         android:textColor="#E91E63" />
 
                     <TextView
@@ -132,7 +132,7 @@
                         android:layout_marginLeft="15dp"
                         android:layout_marginTop="10dp"
                         android:paddingRight="10dp"
-                        android:text="解析:  这是中国的一种传统食物,有着团员等美好的寓意提示:  这是中国的一种传统食物,有着团员等美好的寓意"
+                        android:text=""
                         android:textColor="#E91E63" />
                 </LinearLayout>
             </ScrollView>

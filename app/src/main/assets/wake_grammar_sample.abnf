@@ -5,4 +5,4 @@ mode voice;
 root $main;
 $main = [$call] $name;
 $call = 打开;
-$name = 汉语闯关|真题测试一|张海洋;
+$name = 汉语闯关|真题测试一|随机测试;
