@@ -53,11 +53,11 @@ public class GetGameTask extends AsyncTask<String,Integer, ArrayList<Game>> {
                     Game info=new Game();
                     info.q_id=list_item.getInt("q_id");
                     info.img_src=list_item.getString("img_src");
-                    try{//根据图片名获取图片id---利用反射机制
-                        info.pic= (Integer) R.drawable.class.getField(list_item.getString("img_src")).get(new R.drawable());
-                    }catch (Exception e){
-                        e.printStackTrace();
-                    }
+//                    try{//根据图片名获取图片id---利用反射机制
+//                        info.pic= (Integer) R.drawable.class.getField(list_item.getString("img_src")).get(new R.drawable());
+//                    }catch (Exception e){
+//                        e.printStackTrace();
+//                    }
                     info.question=list_item.getString("question");
                     info.answer=list_item.getString("answer");
                     info.tip=list_item.getString("tip");

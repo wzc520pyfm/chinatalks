@@ -3,15 +3,21 @@ package com.baidu.duer.dcs.Fragment;
 import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.app.AlertDialog;
+import android.app.DownloadManager;
+import android.app.DownloadManager.Query;
+import android.app.DownloadManager.Request;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.content.SharedPreferences;
+import android.database.Cursor;
+import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Environment;
+import android.os.Handler;
 import android.support.v4.app.Fragment;
 import android.support.v4.content.LocalBroadcastManager;
 import android.util.Log;
@@ -35,6 +41,7 @@ import com.baidu.duer.dcs.devicemodule.alerts.message.Alert;
 import com.baidu.duer.dcs.util.CPResourceUtil;
 import com.baidu.duer.dcs.util.Image;
 import com.baidu.duer.dcs.util.StringUtils;
+import com.baidu.duer.dcs.widget.TextProgressCircle;
 import com.iflytek.cloud.ErrorCode;
 import com.iflytek.cloud.InitListener;
 import com.iflytek.cloud.RecognizerListener;
@@ -53,6 +60,8 @@ import com.iflytek.speech.setting.IatSettings;
 import com.iflytek.speech.setting.TtsSettings;
 import com.iflytek.speech.util.JsonParser;
 
+import java.io.File;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.LinkedHashMap;
 
@@ -65,6 +74,7 @@ public class ChinaTalkGameFragment extends Fragment implements View.OnClickListe
 
     private  int mCount;
     private int mPosition;//位置序号
+    private String mImgSrc;//图片名
     private int mPic;//图片的资源编号
     private String mQuestion;//题目
     private String mAnswer;//答案
@@ -139,15 +149,21 @@ private SpeechSynthesizer mTts;
 
     String[] tip_color={"color_wrong","color_right"};//对应答错和答对的颜色
 
-
+    private ImageView iv_pic;
+    private TextProgressCircle tpc_progress; // 定义一个文本进度圈对象
+    private String mImagePath; // 图片的本地路径
+    private DownloadManager mDownloadManager; // 声明一个下载管理器对象
+    private long mDownloadId = 0; // 当前任务的下载编号
+    private static HashMap<Integer, String> mStatusMap = new HashMap<Integer, String>(); // 下载状态映射
 
 
     //获取该碎片的一个实例
-    public static ChinaTalkGameFragment newInstance(int position, int pic_id, String ques, String ans,String tip,int Count){//需补充tip等参数
+    public static ChinaTalkGameFragment newInstance(int position, String img_src, String ques, String ans,String tip,int Count){//需补充tip等参数
         ChinaTalkGameFragment fragment = new ChinaTalkGameFragment();//创建该碎片的一个实例
         Bundle bundle = new Bundle();//创建一个新包裹
         bundle.putInt("position",position);//存入位置编号
-        bundle.putInt("pic",pic_id);//存入图片资源id
+        bundle.putString("img_src",img_src);
+        //bundle.putInt("pic",pic_id);//存入图片资源id
         bundle.putString("question",ques);//存入题目
         bundle.putString("answer",ans);//存入答案
         bundle.putString("tip",tip);//存入题目提示
@@ -168,7 +184,8 @@ private SpeechSynthesizer mTts;
         //如果碎片携带有包裹,则打开包裹获取参数信息
         if(getArguments()!=null){
             mPosition = getArguments().getInt("position",0);
-            mPic = getArguments().getInt("pic",0);
+            mImgSrc=getArguments().getString("img_src");
+            //mPic = getArguments().getInt("pic",0);
             mQuestion = getArguments().getString("question");
             mAnswer = getArguments().getString("answer");
             tip=getArguments().getString("tip");
@@ -179,10 +196,78 @@ private SpeechSynthesizer mTts;
         mView=inflater.inflate(R.layout.chinatalk_fragment_game,container,false);
 
         mView.findViewById(R.id.imageView5).setOnClickListener(this);
-        ImageView iv_pic = mView.findViewById(R.id.imageView4);
+        iv_pic = mView.findViewById(R.id.imageView4);
         TextView tv_ques = mView.findViewById(R.id.title);
         TextView tv_ques2=mView.findViewById(R.id.textView7);
-        iv_pic.setImageResource(mPic);
+        //iv_pic.setImageResource(mPic);//现在这里是直接设置图片资源, 改为: 在此处根据img_src发起图片请求,完成后再设置图片
+
+        // 从布局文件中获取名叫tpc_progress的文本进度圈
+        tpc_progress = mView.findViewById(R.id.tpc_progress);
+        // 从系统服务中获取下载管理器
+        mDownloadManager = (DownloadManager) mContext.getSystemService(Context.DOWNLOAD_SERVICE);
+        // 下面几行初始化下载状态映射
+        mStatusMap.put(DownloadManager.STATUS_PENDING, "挂起");
+        mStatusMap.put(DownloadManager.STATUS_RUNNING, "运行中");
+        mStatusMap.put(DownloadManager.STATUS_PAUSED, "暂停");
+        mStatusMap.put(DownloadManager.STATUS_SUCCESSFUL, "成功");
+        mStatusMap.put(DownloadManager.STATUS_FAILED, "失败");
+        // 清空图像视图
+        iv_pic.setImageDrawable(null);
+//************************判断指定文件是否已经在存储内,但有bug: for循环没有执行,每一次都会执行文件不存在,然后去网络请求******************************
+        String path=mContext.getFilesDir().getAbsolutePath();
+        boolean pdtemp=false;
+
+        ArrayList<String> ss = getFileName(path, ".jpg");
+        for (String s : ss) {
+            Log.d(TAG, "result:" + s);
+            if (s.equals(mImgSrc)) pdtemp=true;
+        }
+
+        File file = new File(mImgSrc);
+//**************************************************************************
+        if(!pdtemp){// 文件不存在
+
+            // 设置文本进度圈的当前进度为0，最大进度为100
+            tpc_progress.setProgress(0, 100);
+            // 显示文本进度圈
+            tpc_progress.setVisibility(View.VISIBLE);
+            // 根据图片的下载地址构建一个Uri对象
+            Uri uri = Uri.parse(mContext.getString(R.string.url)+"/static/image/"+mImgSrc+".jpg");
+            // 创建一个下载请求对象，指定从哪个网络地址下载文件
+            Request down = new Request(uri);
+            // 设置允许下载的网络类型
+            down.setAllowedNetworkTypes(Request.NETWORK_MOBILE | Request.NETWORK_WIFI);
+            // 设置不在通知栏显示
+            down.setNotificationVisibility(Request.VISIBILITY_HIDDEN);
+            // 设置不在系统下载页面显示。该方法其实不管用，因为国产手机不提供下载app
+            //down.setVisibleInDownloadsUi(false);
+            // 设置下载文件在本地的保存路径
+            down.setDestinationInExternalFilesDir(
+                    mContext, Environment.DIRECTORY_DCIM, mImgSrc + ".jpg");
+            // 把下载请求对象加入到下载管理器的下载队列中
+            mDownloadId = mDownloadManager.enqueue(down);
+            // 延迟10毫秒后启动下载进度的刷新任务
+            mHandler.postDelayed(mRefresh, 10);
+
+        }else{//文件存在
+
+            //Toast.makeText(mContext,"从sd卡读取",Toast.LENGTH_SHORT).show();
+            String fileUri = path+mImgSrc+".jpg";
+            mImagePath = Uri.parse(fileUri).getPath();
+
+            // 隐藏文本进度圈
+            tpc_progress.setVisibility(View.GONE);
+            // 把指定路径的图片显示在图像视图上面
+            iv_pic.setImageURI(Uri.parse(mImagePath));
+        }
+
+
+
+
+
+
+
+
         tv_ques.setText(mQuestion);
         tv_ques2.setText(mQuestion);
 
@@ -847,6 +932,79 @@ private SpeechSynthesizer mTts;
 
             }
         }
+    }
+
+
+    private Handler mHandler = new Handler(); // 声明一个处理器对象
+    // 定义一个下载进度的刷新任务
+    private Runnable mRefresh = new Runnable() {
+        @Override
+        public void run() {
+            boolean isFinished = false;
+            // 创建一个下载查询对象，按照下载编号过滤
+            DownloadManager.Query down_query = new DownloadManager.Query();
+            // 设置下载查询对象的编号过滤器
+            down_query.setFilterById(mDownloadId);
+            // 向下载管理器发起查询操作，并返回查询结果集的游标
+            Cursor cursor = mDownloadManager.query(down_query);
+            while (cursor.moveToNext()) {
+                int nameIdx = cursor.getColumnIndex(DownloadManager.COLUMN_LOCAL_FILENAME);
+                int uriIdx = cursor.getColumnIndex(DownloadManager.COLUMN_LOCAL_URI);
+                int mediaTypeIdx = cursor.getColumnIndex(DownloadManager.COLUMN_MEDIA_TYPE);
+                int totalSizeIdx = cursor.getColumnIndex(
+                        DownloadManager.COLUMN_TOTAL_SIZE_BYTES);
+                int nowSizeIdx = cursor.getColumnIndex(
+                        DownloadManager.COLUMN_BYTES_DOWNLOADED_SO_FAR);
+                int statusIdx = cursor.getColumnIndex(DownloadManager.COLUMN_STATUS);
+                // 根据总大小和已下载大小，计算当前的下载进度
+                int progress = (int) (100 * cursor.getLong(nowSizeIdx) / cursor.getLong(totalSizeIdx));
+                if (cursor.getString(uriIdx) == null) {
+                    break;
+                }
+                // 设置文本进度圈的当前进度
+                tpc_progress.setProgress(progress, 100);
+                // Android7.0之后提示COLUMN_LOCAL_FILENAME已废弃
+                if (Build.VERSION.SDK_INT < Build.VERSION_CODES.N) {
+                    mImagePath = cursor.getString(nameIdx);
+                } else {
+                    // 所以7.0之后要先获取文件的Uri，再根据Uri获取文件路径
+                    String fileUri = cursor.getString(uriIdx);
+                    mImagePath = Uri.parse(fileUri).getPath();
+                }
+                if (progress == 100) { // 下载完毕
+                    isFinished = true;
+                }
+                // 获得实际的下载状态
+                int status = isFinished ? DownloadManager.STATUS_SUCCESSFUL : cursor.getInt(statusIdx);
+
+            }
+            cursor.close(); // 关闭数据库游标
+            if (!isFinished) { // 未完成，则继续刷新
+                // 延迟100毫秒后再次启动下载进度的刷新任务
+                mHandler.postDelayed(this, 10);
+            } else { // 已完成，则显示图片
+                // 隐藏文本进度圈
+                tpc_progress.setVisibility(View.GONE);
+                // 把指定路径的图片显示在图像视图上面
+                iv_pic.setImageURI(Uri.parse(mImagePath));
+            }
+        }
+    };
+
+    //用于判断存储中是否已有指定文件的函数
+    public ArrayList<String> getFileName(String fileAbsolutePaht, String type) {
+        ArrayList<String>  result = new ArrayList<String>();
+        File file = new File(fileAbsolutePaht);
+        File[] files = file.listFiles();
+        for (int i = 0; i < files.length; ++i) {
+            if (!files[i].isDirectory()) {
+                String fileName = files[i].getName();
+                if (fileName.trim().toLowerCase().endsWith(type)) {
+                    result.add(fileName);
+                }
+            }
+        }
+        return result;
     }
 
 }

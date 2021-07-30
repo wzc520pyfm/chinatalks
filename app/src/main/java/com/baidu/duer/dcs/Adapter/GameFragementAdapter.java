@@ -28,7 +28,7 @@ public class GameFragementAdapter extends FragmentStatePagerAdapter {
 
     //获取指定位置的碎片Fragment
     public Fragment getItem(int position){
-        return ChinaTalkGameFragment.newInstance(position,mGameList.get(position).pic,mGameList.get(position).question,mGameList.get(position).answer,mGameList.get(position).tip,getCount());
+        return ChinaTalkGameFragment.newInstance(position,mGameList.get(position).img_src,mGameList.get(position).question,mGameList.get(position).answer,mGameList.get(position).tip,getCount());
     }
 
     //

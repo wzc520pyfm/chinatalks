@@ -129,6 +129,17 @@
         app:layout_constraintTop_toBottomOf="@+id/view"
         tools:srcCompat="@drawable/game_example" />
 
+    <com.baidu.duer.dcs.widget.TextProgressCircle
+        android:id="@+id/tpc_progress"
+        android:layout_width="288dp"
+        android:layout_height="180dp"
+        android:layout_gravity="center"
+        android:background="#99ffffff"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="@+id/imageView4"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/view" />
     <TextView
         android:id="@+id/textView7"
         android:layout_width="wrap_content"

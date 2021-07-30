@@ -67,12 +67,18 @@ public class GameTestDBhelper extends SQLiteOpenHelper {
         String drop_sql="DROP TABLE IF EXISTS " + TABLE_NAME +";";
         Log.d(TAG,"onCreate");
         db.execSQL(drop_sql);
+//        String create_sql="CREATE TABLE IF NOT EXISTS "+ TABLE_NAME+"("
+//                +"_id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL,"
+//                +"q_id INTEGER NOT NULL,"
+//                +"img_src VARCHAR NOT NULL,"+"question VARCHAR NOT NULL,"
+//                +"answer VARCHAR NOT NULL,"+"tip VARCHAR NOT NULL,"
+//                +"pic INTEGER NOT NULL"+");";
         String create_sql="CREATE TABLE IF NOT EXISTS "+ TABLE_NAME+"("
                 +"_id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL,"
                 +"q_id INTEGER NOT NULL,"
                 +"img_src VARCHAR NOT NULL,"+"question VARCHAR NOT NULL,"
-                +"answer VARCHAR NOT NULL,"+"tip VARCHAR NOT NULL,"
-                +"pic INTEGER NOT NULL"+");";
+                +"answer VARCHAR NOT NULL,"+"tip VARCHAR NOT NULL"
+                +");";
         Log.d(TAG,"create_sql:"+create_sql);
         db.execSQL(create_sql);
     }
@@ -116,7 +122,7 @@ public class GameTestDBhelper extends SQLiteOpenHelper {
             cv.put("question",info.question);
             cv.put("answer",info.answer);
             cv.put("tip",info.tip);
-            cv.put("pic",info.pic);
+            //cv.put("pic",info.pic);
             //执行插入记录动作,该语句返回插入记录的行号
             result=mDB.insert(TABLE_NAME,"",cv);
             //添加成功后返回行号,失败后返回-1
@@ -135,7 +141,7 @@ public class GameTestDBhelper extends SQLiteOpenHelper {
         cv.put("question",info.question);
         cv.put("answer",info.answer);
         cv.put("tip",info.tip);
-        cv.put("pic",info.pic);
+        //cv.put("pic",info.pic);
         //执行更新记录动作,该语句返回记录更新的数目
         return mDB.update(TABLE_NAME,cv,condition,null);
     }
@@ -161,7 +167,7 @@ public class GameTestDBhelper extends SQLiteOpenHelper {
             info.question=cursor.getString(2);
             info.answer=cursor.getString(3);
             info.tip=cursor.getString(4);
-            info.pic=cursor.getInt(5);
+            //info.pic=cursor.getInt(5);
             infoArray.add(info);
         }
         cursor.close();//查询完毕,关闭游标
