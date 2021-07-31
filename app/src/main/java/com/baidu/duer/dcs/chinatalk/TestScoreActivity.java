@@ -11,13 +11,16 @@ import com.baidu.duer.dcs.R;
 import com.baidu.duer.dcs.androidapp.MainActivity;
 
 import org.w3c.dom.Text;
-
+/*********************************************************************************
+ * 页面:                成绩页面, 显示答题成绩
+ * 逻辑:                接收上一页面传来的包裹,构造页面
+ *=============================================================================== */
 public class TestScoreActivity extends AppCompatActivity implements View.OnClickListener {
 
-    private TextView tv_Score;
-    private TextView tv_test_title;
+    private TextView tv_Score;//成绩
+    private TextView tv_test_title;//试卷名
     private TextView tv_assess;//答题情况总结
-    private Button back_home;
+    private Button back_home;//返回按钮
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

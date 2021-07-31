@@ -3,7 +3,11 @@ package com.baidu.duer.dcs.util;
 import android.content.Context;
 import android.util.DisplayMetrics;
 import android.view.WindowManager;
-
+/************************************************************************************
+* 类:                工具类
+* 用途:               dp与px互转
+*
+*================================================================================= */
 public class DpUtil {
     //根据手机的分辨率从dp的单位转成为px像素
     public static int dip2px(Context context, float dpValue){

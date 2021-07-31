@@ -8,7 +8,11 @@ import com.baidu.duer.dcs.Fragment.ChinaTalkWrongBookFragment;
 import com.baidu.duer.dcs.bean.Wrong;
 
 import java.util.ArrayList;
-
+/****************************************************************************************************
+ * 类:               错题册页的碎片适配器
+ * 主要逻辑:          实现适配器基本函数和逻辑
+ *
+ * ==================================================================================================*/
 public class WrongFragmentAdapter extends FragmentStatePagerAdapter {
     //声明题目队列
     private ArrayList<Wrong> mWrongList = new ArrayList<Wrong>();

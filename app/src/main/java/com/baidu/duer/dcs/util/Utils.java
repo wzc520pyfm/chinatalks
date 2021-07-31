@@ -6,7 +6,11 @@ import java.text.DecimalFormat;
 
 import android.content.Context;
 import android.telephony.TelephonyManager;
-
+/************************************************************************************
+ * 类:                工具类
+ * 用途:               获得网络类型和状态,以及获得指定文件的大小
+ *
+ *================================================================================= */
 public class Utils {
 
     public static String getDotOne(double src) {

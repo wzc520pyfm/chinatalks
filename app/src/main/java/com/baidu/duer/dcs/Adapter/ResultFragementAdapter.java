@@ -10,7 +10,11 @@ import com.baidu.duer.dcs.bean.Game;
 import com.baidu.duer.dcs.bean.Result;
 
 import java.util.ArrayList;
-
+/****************************************************************************************************
+ * 类:               真题测试页的碎片适配器
+ * 主要逻辑:          实现适配器基本函数和逻辑
+ *
+ * ==================================================================================================*/
 public class ResultFragementAdapter extends FragmentStatePagerAdapter {
     //声明一个题目信息队列
     private ArrayList<Result> mResultList = new ArrayList<Result>();
@@ -29,7 +33,7 @@ public class ResultFragementAdapter extends FragmentStatePagerAdapter {
     }
 
     //获取指定位置的碎片Fragment
-    public Fragment getItem(int position){
+    public Fragment getItem(int position){//返回碎片,所以调用Fragment单例方法,返回一个碎片单例镀锡
         return ChinaTalkResultFragment.newInstance(position,mResultList.get(position).wno,mResultList.get(position).word,mResultList.get(position).wgra,mResultList.get(position).wmeans,mResultList.get(position).wexplain,mResultList.get(position).wexample,mResultList.get(position).wpinyin,mResultList.get(position).item1,mResultList.get(position).item2,mResultList.get(position).item3,mResultList.get(position).item4,getCount());
     }
 }

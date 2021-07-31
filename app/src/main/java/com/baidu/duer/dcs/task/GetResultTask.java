@@ -14,7 +14,13 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
-
+/****************************************************************************************************
+ * 类:            网络请求线程, 用于请求Result题目数据
+ * 进入方式:       由ResultActivity唤起
+ * 页面主要逻辑:    1.线程中发起Http请求,收到数据后进行json解析,最后返回网络应答数据.
+ *                 2.完成了线程状态的监听函数,以及一个请求信息的监听接口,留在主Activity中实现.
+ *
+ * ==================================================================================================*/
 public class GetResultTask extends AsyncTask<String,Integer, ArrayList<Result>> {
     private final static String TAG="GetResultTask";
     //请求地址--留作备用

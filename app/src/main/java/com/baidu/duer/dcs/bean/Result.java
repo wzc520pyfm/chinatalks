@@ -1,7 +1,12 @@
 package com.baidu.duer.dcs.bean;
 
 import android.content.IntentFilter;
-
+/*********************************************************************************
+ * 类:                bean类, Result数据类型
+ * 用途:              自定义Result数据类型
+ * 逻辑:              数据初始化
+ * 注意:
+ *=============================================================================== */
 public class Result {
     public int wno;//题目id
     public String word;//答案

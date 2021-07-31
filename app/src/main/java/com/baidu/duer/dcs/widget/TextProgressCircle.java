@@ -13,6 +13,11 @@ import android.view.View;
 
 import com.baidu.duer.dcs.util.Utils;
 
+/*****************************************************************************
+ * 类:                自定义的圆形进度条(加载条)
+ *
+ *
+ *=========================================================================== */
 
 @SuppressLint("DrawAllocation")
 public class TextProgressCircle extends View {

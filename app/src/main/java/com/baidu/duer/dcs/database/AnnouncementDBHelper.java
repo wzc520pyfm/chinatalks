@@ -11,7 +11,10 @@ import android.database.sqlite.SQLiteOpenHelper;
 import com.baidu.duer.dcs.bean.AnnInfo;
 
 import java.util.ArrayList;
-
+/***************************************************************************************
+ * 类:                Ann数据库帮助类
+ * 用途:              实现数据存储--存储公告信息
+ *===================================================================================== */
 public class AnnouncementDBHelper extends SQLiteOpenHelper {
     private static final String DB_NAME="ann.db";//数据库的名称
     private static final int DB_VERSION=1;//数据库的版本号

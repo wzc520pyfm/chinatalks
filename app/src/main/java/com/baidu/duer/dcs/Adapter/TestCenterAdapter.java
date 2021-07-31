@@ -16,13 +16,18 @@ import com.baidu.duer.dcs.androidapp.DcsSampleApplication;
 import com.baidu.duer.dcs.bean.TestCenter;
 
 import java.util.ArrayList;
-
+/****************************************************************************************************
+ * 类:               试卷中心页的列表适配器
+ * 主要逻辑:
+ * 注意:              如果启用视图重用,第二次的视图会重用第一次的视图,而第二次需要使用的后三个对象没有在第一次
+ *                   完成初始化,会导致空指针保错,最简单的解决办法就是放弃视图重用
+ * ==================================================================================================*/
 @SuppressLint("SetTextI18n")
 public class TestCenterAdapter extends BaseAdapter implements View.OnClickListener {
     private Context mContext;//声明一个上下文对象
     private ArrayList<TestCenter> mTestCenterArray;//声明一个试卷信息队列
 
-    //购物车适配器的构造函数,传入上下文、信息队列
+    //适配器的构造函数,传入上下文、信息队列
     public TestCenterAdapter(Context context,ArrayList<TestCenter> test_list){
         mContext=context;
         mTestCenterArray=test_list;

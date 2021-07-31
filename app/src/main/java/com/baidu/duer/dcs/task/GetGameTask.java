@@ -16,9 +16,24 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
-
+/****************************************************************************************
+* 类:            网络请求线程, 用于请求Game题目数据
+* 进入方式:       由GameActivity唤起
+* 页面主要逻辑:    1.线程中发起Http请求,收到数据后进行json解析,最后返回网络应答数据.
+*                 2.完成了线程状态的监听函数,以及一个请求信息的监听接口,留在主Activity中实现.
+*
+*
+*
+*
+*
+*
+*
+*
+*
+*
+*========================================================================================= */
 public class GetGameTask extends AsyncTask<String,Integer, ArrayList<Game>> {
-    private final static String TAG="GetGameTask";
+    private final static String TAG="GetGameTask";//测试标识
     //请求地址--留作备用
     private String mGameUrl = "";
     //趣味测试
@@ -28,7 +43,7 @@ public class GetGameTask extends AsyncTask<String,Integer, ArrayList<Game>> {
         super();
     }
 
-    //线程正在后台处理
+    //线程正在后台处理-----params对应异步任务参数的第一个参数即传入参数,可以是自定义的类型
     protected ArrayList<Game> doInBackground(String... params){
 
         //由params直接传入请求地址
@@ -38,14 +53,13 @@ public class GetGameTask extends AsyncTask<String,Integer, ArrayList<Game>> {
         //发送HTTP请求信息,并获得HTTP应答对象
         HttpRespData resp_data= HttpRequestUtil.postData(req_data);
         Log.d(TAG,"return json= "+resp_data.content);
-        ArrayList<Game> gameInfo=new ArrayList<Game>();
+        ArrayList<Game> gameInfo=new ArrayList<Game>();//创建存储响应数据的Game数组
         //下面从json串中解析字段
         if(resp_data.err_msg.length()<=0){
             try{
                 //解析
                 JSONObject F_obj=new JSONObject(resp_data.content);
                 JSONObject obj=F_obj.getJSONObject("obj");
-//                JSONObject result=obj.getJSONObject("result");
                 JSONArray listArray=obj.getJSONArray("list");
                 //读取内容---应利用for循环
                 for(int i=0;i<listArray.length();i++){
@@ -57,7 +71,7 @@ public class GetGameTask extends AsyncTask<String,Integer, ArrayList<Game>> {
 //                        info.pic= (Integer) R.drawable.class.getField(list_item.getString("img_src")).get(new R.drawable());
 //                    }catch (Exception e){
 //                        e.printStackTrace();
-//                    }
+//                    }//pic被废弃,转而直接存储图片名img_src,在碎片中使用图片时根据图片名向网络请求
                     info.question=list_item.getString("question");
                     info.answer=list_item.getString("answer");
                     info.tip=list_item.getString("tip");

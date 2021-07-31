@@ -12,7 +12,15 @@ import com.baidu.duer.dcs.R;
 import com.baidu.duer.dcs.androidapp.DcsSampleApplication;
 import com.baidu.duer.dcs.androidapp.DcsSampleMainActivity;
 import com.iflytek.mscv5plusdemo.MainActivity;
-
+/*********************************************************************************************
+ * 页面:          chinatalk测试页面                                                              *
+ * 进入方式:      单击FunTests页面的语音按钮
+ * 关联到的文件:  软件用到的所有页面
+ * 页面主要逻辑: 1.通过点击事件进入不同的测试页面
+ * 已知Bug:     1.
+ * 需小心的点:   1.
+ * 其他说明:     1.
+ * ===========================================================================================*/
 public class Dev_code extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {

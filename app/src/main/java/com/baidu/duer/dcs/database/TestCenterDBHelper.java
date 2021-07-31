@@ -11,7 +11,11 @@ import android.util.Log;
 import com.baidu.duer.dcs.bean.TestCenter;
 
 import java.util.ArrayList;
-
+/****************************************************************************************************
+ * 类:                TestCenter数据库帮助类
+ * 用途:              实现数据存储
+ *
+ * ==================================================================================================*/
 //@SuppressLint("DefaultLocale")
 public class TestCenterDBHelper extends SQLiteOpenHelper {
     private static final String TAG = "TestCenterDBHelper";

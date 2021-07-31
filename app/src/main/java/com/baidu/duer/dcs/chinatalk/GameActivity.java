@@ -1,21 +1,19 @@
 package com.baidu.duer.dcs.chinatalk;
 
-import android.annotation.SuppressLint;
-import android.app.Activity;
+
 import android.app.ProgressDialog;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
-import android.content.SharedPreferences;
-import android.os.Environment;
+
 import android.support.v4.content.LocalBroadcastManager;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
-import android.widget.EditText;
+
 import android.widget.ProgressBar;
 import android.widget.Toast;
 
@@ -24,51 +22,49 @@ import com.baidu.duer.dcs.Fragment.ChinaTalkGameFragment;
 import com.baidu.duer.dcs.R;
 import com.baidu.duer.dcs.androidapp.MainActivity;
 import com.baidu.duer.dcs.bean.Game;
-import com.baidu.duer.dcs.bean.TestCenter;
-import com.baidu.duer.dcs.database.AnnouncementDBHelper;
+
 import com.baidu.duer.dcs.database.GameTestDBhelper;
 import com.baidu.duer.dcs.task.GetGameTask;
-import com.iflytek.cloud.ErrorCode;
-import com.iflytek.cloud.InitListener;
-import com.iflytek.cloud.RecognizerListener;
-import com.iflytek.cloud.RecognizerResult;
-import com.iflytek.cloud.SpeechConstant;
-import com.iflytek.cloud.SpeechError;
-import com.iflytek.cloud.SpeechEvent;
-import com.iflytek.cloud.SpeechRecognizer;
-import com.iflytek.cloud.ui.RecognizerDialog;
-import com.iflytek.cloud.ui.RecognizerDialogListener;
-import com.iflytek.cloud.util.ResourceUtil;
-import com.iflytek.speech.setting.IatSettings;
-import com.iflytek.speech.util.JsonParser;
+
 
 import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.LinkedHashMap;
+
+/*********************************************************************************************
+* 页面:          Game页面, 即汉语闯关页面                                                                    *
+* 进入方式:      支持在FunTests页面通过语音唤醒, 亦可点击测试页面的Game按钮进入
+* 关联到的文件:  /Adapter/GameFragementAdapter   :  碎片适配器
+*               /bean/Game                      :  自定义的Game数据类型
+*               /database/GameTestDBhelper      :  存储Game的数据库帮助文件
+*               /Fragment/ChinaTalkGameFragment :  碎片
+*               /task/GetGameTask               :  网络请求线程(请求任务)
+*               以及一些工具类
+*               /layout/chinatalk_activity_game.xml
+* 碎片:        通过代码动态添加, 主要利用ViewPager
+* 页面主要逻辑: 1.在本地数据库中查询Game题目数据, 如果查询到结果, 则开始构建碎片, 如果查询不到结
+*               果,则表明是头一次打开页面, 此时执行GetGameTask线程进行网络请求Game题目数据,
+*               当线程结束时, 先将查询到的数据存入本地Game数据库以便下次取用, 接着利用请求到的
+*               数据构建碎片.
+*              2.页面声明了广播接收器, 并在onStart中进行了注册, 用于与碎片进行通信.
+*              3.与碎片通信的主要逻辑: 接收到碎片发来的广播时,取出内含的数据, 如果收到的答题正
+*                确则分数+1,错误则不加分, 如果收到的信息表示碎片需要成绩值,则发送广播并携带成绩
+*                值.
+*              4.页面还声明了一个点击监听器, 用于监听是否点击了返回按钮, 监听到点击动作时前往页面
+*                MainActivity.class
+* 已知Bug:     1.每一次执行时, 都查询不到本地数据库中数据, 所以每一次都在从网络请求Game题目的数据
+* 需小心的点:   1.
+* 其他说明:     1.
+* ===========================================================================================*/
+
 
 public class GameActivity extends AppCompatActivity implements GetGameTask.OnGameListener, View.OnClickListener {//实现GetGameTask中定义的接口
 
-    private String TAG="GameActivity";
-    public final static String EVENT="com.baidu.duer.dcs.chinatalk.GameActivity";
+    private String TAG="GameActivity";//测试标识
+    public final static String EVENT="com.baidu.duer.dcs.chinatalk.GameActivity";//广播事件标识
 
     private int Score=0;//成绩
-    boolean hasScore=false;
-//_________________BEGIN_____________________
-    // 语音听写对象
-//    private SpeechRecognizer mIat;
-//    // 语音听写UI
-//    private RecognizerDialog mIatDialog;
-//    // 听写结果内容
-//    private EditText mResultText;
-//    // 用HashMap存储听写结果
-//    private HashMap<String, String> mIatResults = new LinkedHashMap<String, String>();
-//
-//    private Toast mToast;
-//
-//    private SharedPreferences mSharedPreferences;
-//    private String mEngineType = "cloud";
-//___________________END_________________________________
-    private ViewPager vp_content;
+    boolean hasScore=false;//是否包含成绩
+
+    private ViewPager vp_content;//声明一个翻页视图对象
     private GameTestDBhelper mGameHelper;//声明一个数据库帮助器对象
     private ProgressBar pb_async;//声明一个进度条对象
     private ProgressDialog mDialog;//声明一个进度对话框对象
@@ -78,7 +74,7 @@ public class GameActivity extends AppCompatActivity implements GetGameTask.OnGam
     public int DIALOG_HORIZONTAL=3;//水平对话框
 
 
-    private int mCount;
+    private int mCount;//记录碎片数量
 
 
     @Override
@@ -86,22 +82,6 @@ public class GameActivity extends AppCompatActivity implements GetGameTask.OnGam
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.chiantalk_activity_game);
-//_____________________BEGIN_______________________________
-        // 初始化识别无UI识别对象
-        // 使用SpeechRecognizer对象，可根据回调消息自定义界面；
-//        mIat = SpeechRecognizer.createRecognizer(this, mInitListener);
-//
-//        // 初始化听写Dialog，如果只使用有UI听写功能，无需创建SpeechRecognizer
-//        // 使用UI听写功能，请根据sdk文件目录下的notice.txt,放置布局文件和图片资源
-//        mIatDialog = new RecognizerDialog(this,mInitListener);
-//
-//        mSharedPreferences = getSharedPreferences(IatSettings.PREFER_NAME, Activity.MODE_PRIVATE);
-//        mToast = Toast.makeText(this, "", Toast.LENGTH_SHORT);
-//        mResultText = ((EditText)findViewById(R.id.title3));//内容文本显示区域
-//        findViewById(R.id.imageButton2).setOnClickListener(this);//说话启动按钮
-//        //初始化云端
-//        mEngineType = SpeechConstant.TYPE_CLOUD;
-//____________________END____________________________
 
         //从布局文件中获取名叫pb_async的进度条
         pb_async=(ProgressBar) findViewById(R.id.pb_async);
@@ -132,7 +112,7 @@ public class GameActivity extends AppCompatActivity implements GetGameTask.OnGam
         }else{//本地数据库没有缓存,启动game信息请求线程
             startTask(DIALOG_HORIZONTAL,this.getString(R.string.url)+"/findGame");
         }
-
+        //为按钮绑定点击事件
         findViewById(R.id.button).setOnClickListener(this);
         findViewById(R.id.button2).setOnClickListener(this);
     }
@@ -178,18 +158,17 @@ public class GameActivity extends AppCompatActivity implements GetGameTask.OnGam
             mDialog.dismiss();//关闭对话框
         }
     }
-
+//********************GetGameTask实现接口中的四个监听函数BEGIN************************
     //在线程处理结束时触发
     public void onFindGameInfo(ArrayList<Game> gameInfo,String result){
         String desc=String.format("%s  已经加载完毕",result);
-        //以下初始化部分应该在异步任务完成处执行
-        //这里是直接将gameinfo传给了gameList用于构建页面
-        //,但还少了一步---将gameInfo存入本地数据库以加快下次打开速度
+        //将gameInfo存入本地数据库以加快下次打开速度
         for(int i=0;i<gameInfo.size();i++){
             Game info=gameInfo.get(i);
             //往game数据库插入一条记录
             long rowid=mGameHelper.insert(info);
         }
+        //利用请求到的数据构建碎片
         ArrayList<Game> gameList=gameInfo;
         //构建一个题目的碎片翻页适配器
         GameFragementAdapter adapter=new GameFragementAdapter(
@@ -242,11 +221,11 @@ public class GameActivity extends AppCompatActivity implements GetGameTask.OnGam
             }
         }
     }
-
+//****************************************GetGameTask接口实现END***************************
     //声明一个广播接收器
     private IsAnswer isAnswer;
 
-    //定义一个广播接收器,用于接收答题是否正确
+    //定义一个广播接收器,用于接收答题是否正确----接收碎片发出的广播
     private class IsAnswer extends BroadcastReceiver{
         //一旦接收到答题是否正确的广播,马上触发接收器的onReceive方法
         public void onReceive(Context context, Intent intent){
@@ -276,227 +255,14 @@ public class GameActivity extends AppCompatActivity implements GetGameTask.OnGam
     public void onClick(View v){
         switch (v.getId()){
             case R.id.button:
+                //如果点击了返回按钮则前往MainActivity页面
                 Intent intent =new Intent(this, MainActivity.class);
                 startActivityForResult(intent,0);
                 break;
-
-//                //该方法用来获取viewpager的当前页面的索引--此方法对动态生成的碎片不支持
-//                int currentPage=vp_content.getCurrentItem();//设置当前页面
-//                int nextPage=currentPage+1==mCount?0:currentPage+1;
-//                //给viewpager设置当前的page  为多少
-//                vp_content.setCurrentItem(nextPage);
-//                if (nextPage +1==mCount) {
-//                    Toast.makeText(this, "您已经滑倒了最后一页了", Toast.LENGTH_SHORT).show();
-//                    return;
-//                }
         }
     }
 
-//    //______________________________BEGIN_____________________________
-//    int ret = 0;// 函数调用返回值
-//    @Override
-//    public void onClick(View view) {
-//        switch (view.getId()){
-//            // 开始听写
-//            // 如何判断一次听写结束：OnResult isLast=true 或者 onError
-//            case R.id.imageButton2:
-//                mResultText.setText(null);// 清空显示内容
-//                mIatResults.clear();
-//                // 设置参数
-//                setParam();
-//                boolean isShowDialog = mSharedPreferences.getBoolean(getString(R.string.pref_key_iat_show), true);
-//                if (isShowDialog) {
-//                    // 显示听写对话框
-//                    mIatDialog.setListener(mRecognizerDialogListener);
-//                    mIatDialog.show();
-//                    showTip(getString(R.string.text_begin));
-//                } else {
-//                    // 不显示听写对话框
-//                    ret = mIat.startListening(mRecognizerListener);
-//                    if (ret != ErrorCode.SUCCESS) {
-//                        showTip("听写失败,错误码：" + ret+",请点击网址https://www.xfyun.cn/document/error-code查询解决方案");
-//                    } else {
-//                        showTip(getString(R.string.text_begin));
-//                    }
-//                }
-//                break;
-//            default:
-//                break;
-//        }
-//    }
-//    /**
-//     * 初始化监听器。
-//     */
-//    private InitListener mInitListener = new InitListener() {
-//
-//        @Override
-//        public void onInit(int code) {
-//            Log.d(TAG, "SpeechRecognizer init() code = " + code);
-//            if (code != ErrorCode.SUCCESS) {
-//                showTip("初始化失败，错误码：" + code+",请点击网址https://www.xfyun.cn/document/error-code查询解决方案");
-//            }
-//        }
-//    };
-//    /**
-//     * 听写监听器。
-//     */
-//    private RecognizerListener mRecognizerListener = new RecognizerListener() {
-//
-//        @Override
-//        public void onBeginOfSpeech() {
-//            // 此回调表示：sdk内部录音机已经准备好了，用户可以开始语音输入
-//            showTip("开始说话");
-//        }
-//
-//        @Override
-//        public void onError(SpeechError error) {
-//            // Tips：
-//            // 错误码：10118(您没有说话)，可能是录音机权限被禁，需要提示用户打开应用的录音权限。
-//
-//            showTip(error.getPlainDescription(true));
-//
-//        }
-//
-//        @Override
-//        public void onEndOfSpeech() {
-//            // 此回调表示：检测到了语音的尾端点，已经进入识别过程，不再接受语音输入
-//            showTip("结束说话");
-//        }
-//
-//        @Override
-//        public void onResult(RecognizerResult results, boolean isLast) {
-//
-//            String text = JsonParser.parseIatResult(results.getResultString());
-//            mResultText.append(text);
-//            mResultText.setSelection(mResultText.length());
-//
-//
-//            if(isLast) {
-//                //TODO 最后的结果
-//
-//            }
-//        }
-//
-//        @Override
-//        public void onVolumeChanged(int volume, byte[] data) {
-//            showTip("当前正在说话，音量大小：" + volume);
-//            Log.d(TAG, "返回音频数据："+data.length);
-//        }
-//
-//        @Override
-//        public void onEvent(int eventType, int arg1, int arg2, Bundle obj) {
-//            // 以下代码用于获取与云端的会话id，当业务出错时将会话id提供给技术支持人员，可用于查询会话日志，定位出错原因
-//            // 若使用本地能力，会话id为null
-//            if (SpeechEvent.EVENT_SESSION_ID == eventType) {
-//                String sid = obj.getString(SpeechEvent.KEY_EVENT_AUDIO_URL);
-//                Log.d(TAG, "session id =" + sid);
-//            }
-//        }
-//    };
-//
-//    /**
-//     * 听写UI监听器
-//     */
-//    private RecognizerDialogListener mRecognizerDialogListener = new RecognizerDialogListener() {
-//        public void onResult(RecognizerResult results, boolean isLast) {
-//            Log.d(TAG, "recognizer result：" + results.getResultString());
-//
-//            String text = JsonParser.parseIatResult(results.getResultString());
-//            mResultText.append(text);
-//            mResultText.setSelection(mResultText.length());
-//
-//        }
-//
-//        /**
-//         * 识别回调错误.
-//         */
-//        public void onError(SpeechError error) {
-//            showTip(error.getPlainDescription(true));
-//
-//        }
-//
-//    };
-//
-//    private void showTip(final String str)
-//    {
-//        runOnUiThread(new Runnable() {
-//            @Override
-//            public void run() {
-//                mToast.setText(str);
-//                mToast.show();
-//            }
-//        });
-//    }
-//
-//    /**
-//     * 参数设置
-//     * @return
-//     */
-//    public void setParam(){
-//        // 清空参数
-//        mIat.setParameter(SpeechConstant.PARAMS, null);
-//        String lag = mSharedPreferences.getString("iat_language_preference", "mandarin");
-//        // 设置引擎
-//        mIat.setParameter(SpeechConstant.ENGINE_TYPE, mEngineType);
-//        // 设置返回结果格式
-//        mIat.setParameter(SpeechConstant.RESULT_TYPE, "json");
-//
-//        //mIat.setParameter(MscKeys.REQUEST_AUDIO_URL,"true");
-//
-//        //	this.mTranslateEnable = mSharedPreferences.getBoolean( this.getString(R.string.pref_key_translate), false );
-//        if (mEngineType.equals(SpeechConstant.TYPE_LOCAL)) {
-//            // 设置本地识别资源
-//            mIat.setParameter(ResourceUtil.ASR_RES_PATH, getResourcePath());
-//        }
-//        // 在线听写支持多种小语种，若想了解请下载在线听写能力，参看其speechDemo
-//        if (lag.equals("en_us")) {
-//            // 设置语言
-//            mIat.setParameter(SpeechConstant.LANGUAGE, "en_us");
-//            mIat.setParameter(SpeechConstant.ACCENT, null);
-//
-//            // 设置语言
-//            mIat.setParameter(SpeechConstant.LANGUAGE, "zh_cn");
-//            // 设置语言区域
-//            mIat.setParameter(SpeechConstant.ACCENT,lag);
-//
-//        }
-//
-//
-//        // 设置语音前端点:静音超时时间，即用户多长时间不说话则当做超时处理
-//        mIat.setParameter(SpeechConstant.VAD_BOS, mSharedPreferences.getString("iat_vadbos_preference", "4000"));
-//
-//        // 设置语音后端点:后端点静音检测时间，即用户停止说话多长时间内即认为不再输入， 自动停止录音
-//        mIat.setParameter(SpeechConstant.VAD_EOS, mSharedPreferences.getString("iat_vadeos_preference", "1000"));
-//
-//        // 设置标点符号,设置为"0"返回结果无标点,设置为"1"返回结果有标点
-//        mIat.setParameter(SpeechConstant.ASR_PTT, mSharedPreferences.getString("iat_punc_preference", "1"));
-//
-//        // 设置音频保存路径，保存音频格式支持pcm、wav，设置路径为sd卡请注意WRITE_EXTERNAL_STORAGE权限
-//        mIat.setParameter(SpeechConstant.AUDIO_FORMAT,"wav");
-//        mIat.setParameter(SpeechConstant.ASR_AUDIO_PATH, Environment.getExternalStorageDirectory()+"/msc/iat.wav");
-//    }
-//
-//    private String getResourcePath(){
-//        StringBuffer tempBuffer = new StringBuffer();
-//        //识别通用资源
-//        tempBuffer.append(ResourceUtil.generateResourcePath(this, ResourceUtil.RESOURCE_TYPE.assets, "iat/common.jet"));
-//        tempBuffer.append(";");
-//        tempBuffer.append(ResourceUtil.generateResourcePath(this, ResourceUtil.RESOURCE_TYPE.assets, "iat/sms_16k.jet"));
-//        //识别8k资源-使用8k的时候请解开注释
-//        return tempBuffer.toString();
-//    }
-//
-//    @Override
-//    protected void onDestroy() {
-//        super.onDestroy();
-//
-//        if( null != mIat ){
-//            // 退出时释放连接
-//            mIat.cancel();
-//            mIat.destroy();
-//        }
-//    }
-////_________________________________END______________________________________
+
 }
 
 

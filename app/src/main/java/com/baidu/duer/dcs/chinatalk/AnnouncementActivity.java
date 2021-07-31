@@ -16,7 +16,19 @@ import com.baidu.duer.dcs.database.AnnouncementDBHelper;
 import com.baidu.duer.dcs.util.SharedUtil;
 
 import java.util.ArrayList;
-
+/*********************************************************************************************
+ * 页面:          试卷中心页面                                                              *
+ * 进入方式:      点击测试页面的Ann按钮进入
+ * 关联到的文件:  /database/AnnouncementDBHelper   :  数据库帮助器
+ *               /bean/AnnInfo                    :  自定义的AnnInfo数据类型
+ *               以及一些工具类
+ *               /layout/chinatalk_activity_announcement.xml
+ * 页面主要逻辑: 1.模拟网络请求来获取数据,将数据展示在页面上
+ *              2.页面监听了一个点击事件,用于返回首页
+ * 已知Bug:     1.
+ * 需小心的点:   1.
+ * 其他说明:     1.
+ * ===========================================================================================*/
 public class AnnouncementActivity extends AppCompatActivity {
 
     private AnnouncementDBHelper mAnnHelper;//声明一个公告数据库的帮助器对象

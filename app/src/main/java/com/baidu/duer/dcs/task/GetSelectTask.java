@@ -13,12 +13,19 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
-
+/****************************************************************************************************
+ * 类:            网络请求线程, 用于请求Select题目数据
+ * 进入方式:       由SelectActivity唤起
+ * 页面主要逻辑:    1.线程中发起Http请求,收到数据后进行json解析,最后返回网络应答数据.
+ *                 2.完成了线程状态的监听函数,以及一个请求信息的监听接口,留在主Activity中实现.
+ *
+ *
+ * ==================================================================================================*/
 public class GetSelectTask extends AsyncTask<String,Integer, ArrayList<Select>> {
-    private final static String TAG="GetResultTask";
+    private final static String TAG="GetResultTask";//测试标识
     //请求地址--留作备用
     private String mSelectUrl = "";
-    //真题测试
+    //随机测试---试卷名
     private String result="随机测试";
 
     public GetSelectTask(){
@@ -26,7 +33,7 @@ public class GetSelectTask extends AsyncTask<String,Integer, ArrayList<Select>> 
     }
 
     //线程正在后台处理
-    protected ArrayList<Select> doInBackground(String... params){
+    protected ArrayList<Select> doInBackground(String... params){//params对应线程的第一个参数,传入参数
 
         //由params直接传入请求地址
         String url=params[0];
@@ -42,7 +49,6 @@ public class GetSelectTask extends AsyncTask<String,Integer, ArrayList<Select>> 
                 //解析
                 JSONObject F_obj=new JSONObject(resp_data.content);
                 JSONObject obj=F_obj.getJSONObject("obj");
-//                JSONObject result=obj.getJSONObject("result");
                 JSONArray listArray=obj.getJSONArray("list");
                 //读取内容---应利用for循环
                 for(int i=0;i<listArray.length();i++){

@@ -11,7 +11,10 @@ import com.baidu.duer.dcs.bean.Game;
 
 import java.lang.annotation.Target;
 import java.util.ArrayList;
-
+/***************************************************************************************
+* 类:                Game数据库帮助类
+* 用途:              实现数据存储
+*===================================================================================== */
 public class GameTestDBhelper extends SQLiteOpenHelper {
     private static final String TAG = "GameTestDBhelper";
     private static final String DB_NAME="game.db";//数据库名称

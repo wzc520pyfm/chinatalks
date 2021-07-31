@@ -25,7 +25,17 @@ import com.baidu.duer.dcs.Adapter.UserInfoBottomAdapter;
 
 import java.util.ArrayList;
 import java.util.Calendar;
-
+/*********************************************************************************************
+ * 页面:          编辑用户信息页面                                                              *
+ * 进入方式:      点击测试页面的Ann按钮进入
+ * 关联到的文件:  /layout/chinatalk_activity_edit_information.xml
+ * 页面主要逻辑: 1.实现了一个日期选择对话框
+ *              2.实现了一个列表
+ *              3.实现了一个下拉框
+ * 已知Bug:     1.
+ * 需小心的点:   1.
+ * 其他说明:     1.
+ * ===========================================================================================*/
 public class EditInformationActivity extends AppCompatActivity implements View.OnClickListener,DatePickerDialog.OnDateSetListener {
 
     private ArrayList<UserInfoBottom> infoBList;//声明列表信息队列

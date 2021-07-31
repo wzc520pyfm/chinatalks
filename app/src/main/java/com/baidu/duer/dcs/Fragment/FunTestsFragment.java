@@ -58,12 +58,23 @@ import org.json.JSONObject;
 
 import java.io.InputStream;
 import java.util.Locale;
-
+/****************************************************************************************
+ * 类:                碎片, FunTest页面的碎片, 存在于MainActivity页的ViewPager中
+ *
+ * 页面主要逻辑:       1.页面实现了多语言切换(监听spinner下拉框的选中事件和一个变更语言的函数)
+ *                    2.页面主要监听语音按钮的点击事件和长按事件:长按开始录音,点击进入测试页面
+ *                    3.录音:使用科大讯飞SDK
+ *                    4.页面主要使用了科大讯飞语音唤醒和语音合成SDK
+ *                    5.页面中包含科大讯飞SDK中语音识别和语音合成代码
+ * 注意:               1.更好的做法是将科大讯飞SDK封装成工具类
+ *
+ *
+ *======================================================================================= */
 //@Nullable  //注解表示可以传入null
 public class FunTestsFragment extends Fragment implements View.OnClickListener, View.OnLongClickListener, View.OnTouchListener {
     private ImageButton speak_btn;
     //_________________________BEGIN____________________________________
-private String TAG = "FunTestsFragment";
+private String TAG = "FunTestsFragment";//测试标识
     private Toast mToast;
     private TextView textView;
     // 语音唤醒对象
@@ -144,7 +155,7 @@ private SpeechSynthesizer mTts;
         speak_btn.setOnClickListener(this);
         speak_btn.setOnLongClickListener(this);
         speak_btn.setOnTouchListener(this);
-        //从布局稳健者获取下拉框
+        //从布局文件中获取下拉框
         sp=(Spinner) view.findViewById(R.id.sp_dropdown);
         initSpinner();
 
@@ -153,7 +164,7 @@ private SpeechSynthesizer mTts;
         mIvw = VoiceWakeuper.createWakeuper(getContext(), null);
         // 初始化识别对象---唤醒+识别,用来构建语法
         mAsr = SpeechRecognizer.createRecognizer(getContext(), null);
-        // 初始化语法文件
+        // 初始化语法文件-----------------------------------识别的命令在此文件中设定
         mCloudGrammar = readFile(getContext(), "wake_grammar_sample.abnf", "utf-8");
         mLocalGrammar = readFile(getContext(), "wake.bnf", "utf-8");
 //__________________________END_____________________________________________
@@ -234,20 +245,7 @@ GrammarListener grammarListener = new GrammarListener() {
     public void onClick(View v){//点击进入测试页面
 
         if(v.getId()==R.id.speak_btn){
-            //        Intent intent =new Intent(this.getContext(),AnnouncementActivity.class);
-//        Intent intent =new Intent(this.getContext(), EditInformationActivity.class);
-            //Intent intent =new Intent(this.getContext(), GameActivity.class);
-//        Intent intent =new Intent(this.getContext(), SelectTestActivity.class);
-            //Intent intent =new Intent(this.getContext(), WrongQuesBookActivity.class);
-//        Intent intent =new Intent(this.getContext(), TestCenterActivity.class);
             Intent intent =new Intent(this.getContext(), Dev_code.class);
-//        Intent intent =new Intent(this.getContext(), DcsSampleOAuthActivity.class);
-//        Intent intent =new Intent(this.getContext(), OneShotDemo.class); //唤醒+识别
-//        Intent intent =new Intent(this.getContext(), TtsDemo.class);  //语音合成
-//        Intent intent =new Intent(this.getContext(), IatDemo.class);  //语音听写
-//        Intent intent =new Intent(this.getContext(), AsrDemo.class);  //语音评测
-//        Intent intent =new Intent(this.getContext(), com.iflytek.mscv5plusdemo.MainActivity.class);//综合语音测试,//一定要确保MainActivity是讯飞包里的,而不是百度包里的(md,蛋疼,这两包里有同名文件,c)
-//        Intent intent =new Intent(this.getContext(), Head.class);
             startActivityForResult(intent,0);
         }
     }
@@ -265,8 +263,6 @@ GrammarListener grammarListener = new GrammarListener() {
                     Toast.makeText(getContext(),"请说话",Toast.LENGTH_SHORT).show();
                     resultString = "";
                     recoString = "";
-
-//                    textView.setText(resultString);
 
                     final String resPath = ResourceUtil.generateResourcePath(getContext(), ResourceUtil.RESOURCE_TYPE.assets, "ivw/"+getString(R.string.app_id)+".jet");
                     // 清空参数
@@ -329,7 +325,7 @@ GrammarListener grammarListener = new GrammarListener() {
 
         return true;
     }
-
+//touch是一个触碰事件,他的执行顺序在长按事件之后,这一特性刚好可以用来实现长按录音结束后识别的功能
     public boolean onTouch(View v, MotionEvent event){//录音结束时触发
 
         if(v.getId()==R.id.speak_btn){

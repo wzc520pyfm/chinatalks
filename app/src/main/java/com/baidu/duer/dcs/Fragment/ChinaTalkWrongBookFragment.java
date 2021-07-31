@@ -13,7 +13,15 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.baidu.duer.dcs.R;
-
+/****************************************************************************************************
+ * 类:                碎片, Select页面的碎片, 存在于Select页的ViewPager中
+ *
+ * 页面主要逻辑:       1.利用newInstance方法创建碎片单例对象,在页面onCreateView函数中首先从包
+ *                    裹中获取数据,将内容显示在碎片上,最后onCreateView返回该碎片视图的对象.
+ *                    2.页面监听一个单选组的单选事件
+ * 注意:               1.
+ *
+ * ==================================================================================================*/
 public class ChinaTalkWrongBookFragment extends Fragment {
     protected View mView;//声明一个视图对象
     protected Context mContext;//声明一个上下文对象

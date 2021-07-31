@@ -64,7 +64,26 @@ import java.io.File;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.LinkedHashMap;
-
+/****************************************************************************************
+* 类:                碎片, Game页面的碎片, 存在于Game页的ViewPager中
+*
+* 页面主要逻辑:       1.利用newInstance方法创建碎片单例对象,在页面onCreateView函数中首先从包
+*                    裹中获取数据,先检查本地存储中是否已有img_src图片,如果没有则利用img_src
+*                    (图片名)向网络请求图片,此时会启动定义的处理器对象,请求成功后将内容显示在
+*                    碎片上,最后onCreateView返回该碎片视图的对象.
+*                    2.页面监听三个按钮的点击事件:退出按钮,提交答案按钮,语音输入按钮,关闭语音输入按钮
+*                    和开始录音按钮
+*                    3.开始录音按:使用科大讯飞SDK
+*                    4.提交答案按钮:回答正确则将isTrue设为true并显示答题正确的提示答错则显示答题
+*                    错误的提示,答题正确和答题错误都同步语音播报(使用科大讯飞语音合成SDK).如果是
+*                    第一次回答当前题目且回答正确则向主Activity发送回答正确的广播,如果已经回答完
+*                    了最后一道题目,则向主Activity请求成绩值,收到成绩后构建可以前往成绩页面的对话
+*                    框(跳转时携带成绩值、试卷名、总题数)
+*                    5.页面中包含科大讯飞SDK中语音识别和语音合成代码
+* 注意:               1.更好的做法是将科大讯飞SDK封装成工具类
+*
+*
+*======================================================================================= */
 public class ChinaTalkGameFragment extends Fragment implements View.OnClickListener {
     protected View mView;//声明一个视图对象
     protected Context mContext;//声明一个上下文对象
@@ -72,18 +91,18 @@ public class ChinaTalkGameFragment extends Fragment implements View.OnClickListe
     private ImageButton speak_btn;
     private TextView main_title;
 
-    private  int mCount;
+    private  int mCount;//记录总题数
     private int mPosition;//位置序号
     private String mImgSrc;//图片名
-    private int mPic;//图片的资源编号
+    private int mPic;//图片的资源编号---被废弃
     private String mQuestion;//题目
     private String mAnswer;//答案
     private String tip;//提示
-    private String TAG="GameActivity";
+    private String TAG="GameActivity";//测试标识
 
     private boolean isFirstAnswer=true;//是否第一次回答
-    private boolean isGetScore=false;
-    private int Score;
+    private boolean isGetScore=false;//是否要获取成绩
+    private int Score;//记录值
 
     //声明一个广播事件的标识串----广播BEGIN
     public final static String EVENT="com.baidu.duer.dcs.Fragment.ChinaTalkGameFragment";
@@ -91,7 +110,7 @@ public class ChinaTalkGameFragment extends Fragment implements View.OnClickListe
     boolean isTrue=false;//----广播END
 
 
-    //_________________BEGIN_____________________
+    //_________________语音识别BEGIN_____________________
     // 语音听写对象
     private SpeechRecognizer mIat;
     // 语音听写UI
@@ -105,7 +124,7 @@ public class ChinaTalkGameFragment extends Fragment implements View.OnClickListe
 
     private SharedPreferences mSharedPreferences;
     private String mEngineType = "cloud";
-//___________________END_________________________________
+//___________________语音识别END_________________________________
 
 //___________________语音合成BEGIN_________________________
 // 语音合成对象
@@ -262,17 +281,11 @@ private SpeechSynthesizer mTts;
         }
 
 
-
-
-
-
-
-
         tv_ques.setText(mQuestion);
         tv_ques2.setText(mQuestion);
 
 
-        //_____________________BEGIN_______________________________
+        //_____________________语音识别BEGIN_______________________________
         // 初始化识别无UI识别对象
         // 使用SpeechRecognizer对象，可根据回调消息自定义界面；
         mIat = SpeechRecognizer.createRecognizer(mContext, mInitListener);
@@ -309,7 +322,7 @@ private SpeechSynthesizer mTts;
         //tip_desc.setTextColor(mView.getResources().getIdentifier(tip_color[0],"color",""));
         //tip_desc.setTextColor(mView.getResources().getColor(CPResourceUtil.getColorId(getContext(),tip_color[0])));
 
-//____________________END____________________________
+//____________________语音识别END____________________________
 
         //如果你不细心,在上面获取文本显示区域的时候一定会到空指针问题,哈哈,菜!!!
         //你要学会我这样:
@@ -348,7 +361,7 @@ private SpeechSynthesizer mTts;
             // 开始听写
             // 如何判断一次听写结束：OnResult isLast=true 或者 onError
             case R.id.imageButton2:
-                speak_btn.setImageResource(R.drawable.btn_voice_ongoing);
+                speak_btn.setImageResource(R.drawable.btn_voice_ongoing);//更改录音图标
                 mResultText.setText(null);// 清空显示内容
                 mResultText2.setText(null);//自己编辑的代码**********************************
                 mIatResults.clear();
@@ -624,7 +637,7 @@ private SpeechSynthesizer mTts;
         //识别8k资源-使用8k的时候请解开注释
         return tempBuffer.toString();
     }
-//_________________________________END______________________________________
+//_________________________________语音识别END______________________________________
 
 //_________________________________语音合成BEGIN___________________________
 
@@ -980,7 +993,7 @@ private SpeechSynthesizer mTts;
             }
             cursor.close(); // 关闭数据库游标
             if (!isFinished) { // 未完成，则继续刷新
-                // 延迟100毫秒后再次启动下载进度的刷新任务
+                // 延迟10毫秒后再次启动下载进度的刷新任务
                 mHandler.postDelayed(this, 10);
             } else { // 已完成，则显示图片
                 // 隐藏文本进度圈

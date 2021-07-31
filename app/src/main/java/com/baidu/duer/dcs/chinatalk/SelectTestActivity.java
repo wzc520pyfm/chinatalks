@@ -30,7 +30,31 @@ import com.baidu.duer.dcs.database.SelectTestDBhelper;
 import com.baidu.duer.dcs.task.GetSelectTask;
 
 import java.util.ArrayList;
-
+/*********************************************************************************************
+ * 页面:          真题测试页面                                                              *
+ * 进入方式:      支持在FunTests页面通过语音唤醒, 亦可点击测试页面的ResultTest按钮进入
+ * 关联到的文件:  /Adapter/ResultFragmentAdapter   :  碎片适配器
+ *               /bean/Result                    :  自定义的Result数据类型
+ *               /database/ResultTestDBhelper    :  存储Result的数据库帮助文件
+ *               /Fragment/ChinaTalkResultFragment :  碎片
+ *               /task/GetResultTask               :  网络请求线程(请求任务)
+ *               以及一些工具类
+ *               /layout/chinatalk_activity_result.xml
+ * 碎片:        通过代码动态添加, 主要利用ViewPager
+ * 页面主要逻辑: 1.在本地数据库中查询Result题目数据, 如果查询到结果, 则开始构建碎片, 如果查询不到结
+ *               果,则表明是头一次打开页面, 此时执行GetResultTask线程进行网络请求Result题目数据,
+ *               当线程结束时, 先将查询到的数据存入本地Result数据库以便下次取用, 接着利用请求到的
+ *               数据构建碎片.
+ *              2.页面声明了广播接收器, 并在onStart中进行了注册, 用于与碎片进行通信.
+ *              3.与碎片通信的主要逻辑: 接收到碎片发来的广播时,取出内含的数据, 如果收到的答题正
+ *                确则分数+1,错误则不加分, 如果收到的信息表示碎片需要成绩值,则发送广播并携带成绩
+ *                值.
+ *              4.页面还声明了一个点击监听器, 用于监听是否点击了返回按钮, 监听到点击动作时前往页面
+ *                MainActivity.class
+ * 已知Bug:     1.每一次执行时, 都查询不到本地数据库中数据, 所以每一次都在从网络请求Result题目的数据
+ * 需小心的点:   1.
+ * 其他说明:     1.
+ * ===========================================================================================*/
 public class SelectTestActivity extends AppCompatActivity implements GetSelectTask.OnSelectListener, View.OnClickListener {
 
     private String TAG="SelectTestActivity";

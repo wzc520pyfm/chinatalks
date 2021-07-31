@@ -8,7 +8,9 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.baidu.duer.dcs.R;
-
+/****************************************************************************************************
+ * 操! 写多了一个碎片, 这个与ChinaTalkResultFragment重复, 所以, 这个类作废.......
+ * ==================================================================================================*/
 public class ChinaTalkTestFragment extends Fragment {
     protected View mView;//声明一个视图对象
     protected Context mContext;//声明一个上下文对象

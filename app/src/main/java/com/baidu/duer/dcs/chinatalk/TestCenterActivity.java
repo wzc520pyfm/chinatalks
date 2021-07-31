@@ -21,10 +21,21 @@ import com.baidu.duer.dcs.database.TestCenterDBHelper;
 import com.baidu.duer.dcs.util.SharedUtil;
 
 import java.util.ArrayList;
-
+/*********************************************************************************************
+ * 页面:          试卷中心页面                                                              *
+ * 进入方式:      点击测试页面的TestCenter按钮进入
+ * 关联到的文件:  /Adapter/TestCenterFragmentAdapter   :  碎片适配器
+ *               /bean/TestCenter                    :  自定义的Result数据类型
+ *               以及一些工具类
+ *               /layout/chinatalk_activity_test_center.xml
+ * 页面主要逻辑: 1.模拟网络请求来获取数据,将数据展示在页面上
+ * 已知Bug:     1.
+ * 需小心的点:   1.
+ * 其他说明:     1.
+ * ===========================================================================================*/
 public class TestCenterActivity extends AppCompatActivity {
 
-    private final static String TAG="TestCenterActivity";
+    private final static String TAG="TestCenterActivity";//测试标识
     private LinearLayout ll_content;//声明布局对象
 
     private ListView lv_test_center;//声明一个列表视图对象
@@ -78,7 +89,7 @@ public class TestCenterActivity extends AppCompatActivity {
     @Override
     protected void onResume(){
         super.onResume();
-        //获取试卷是巨亏的帮助器对象
+        //获取试卷的帮助器对象
         mTestCenterHelper=TestCenterDBHelper.getInstance(this,1);
         //打开数据的写连接
         mTestCenterHelper.openWriteLink();

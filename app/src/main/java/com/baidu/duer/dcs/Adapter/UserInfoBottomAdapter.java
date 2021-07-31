@@ -14,7 +14,11 @@ import com.baidu.duer.dcs.R;
 import com.baidu.duer.dcs.bean.UserInfoBottom;
 
 import java.util.ArrayList;
-
+/*****************************************************************************************
+* 类:                用户信息页面的下半部分的列表适配器
+* 用途:              展示用户信息中格式基本一致的内容,使用listView
+*
+*======================================================================================= */
 public class UserInfoBottomAdapter extends BaseAdapter {
     private Context mContext;//声明一个上下文对象
     private ArrayList<UserInfoBottom> mInfoList;//声明一个列表信息队列

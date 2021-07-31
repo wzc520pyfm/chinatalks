@@ -3,15 +3,20 @@ package com.baidu.duer.dcs.bean;
 import com.baidu.duer.dcs.R;
 
 import java.util.ArrayList;
-
+/*********************************************************************************
+ * 类:                bean类, TestCenter数据类型
+ * 用途:              自定义TestCenter数据类型
+ * 逻辑:              除本身数据初始化外,还提供了一个获取默认值的函数,方便测试
+ * 注意:
+ *=============================================================================== */
 public class TestCenter {
     public long rowid;//行号
     public long test_id;//试卷编号
-    public String title;
-    public String desc;
-    public int finshed_num;
-    public int score;
-    public String test_time;
+    public String title;//试卷名
+    public String desc;//试卷描述
+    public int finshed_num;//完成的题目数量
+    public int score;//成绩
+    public String test_time;//完成时限
 
     public TestCenter(){
         rowid=0L;
@@ -40,7 +45,7 @@ public class TestCenter {
             "总题数: 3000题",
             "总题数: 40题"
     };
-    public static int[] finshedNumArray={
+    public static int[] finshedNumArray={//-1代表没有此参数
             79,
             -1,
             80,

@@ -8,7 +8,21 @@ import com.baidu.duer.dcs.Fragment.ChinaTalkGameFragment;
 import com.baidu.duer.dcs.bean.Game;
 
 import java.util.ArrayList;
-
+/*******************************************************************************************
+* 类:                Game页面的碎片适配器
+* 页面主要逻辑:       实现适配器基本函数
+*
+*
+*
+*
+*
+*
+*
+*
+*
+*
+*
+*========================================================================================= */
 public class GameFragementAdapter extends FragmentStatePagerAdapter {
     //声明一个题目信息队列
     private ArrayList<Game> mGameList = new ArrayList<Game>();
@@ -27,7 +41,7 @@ public class GameFragementAdapter extends FragmentStatePagerAdapter {
     }
 
     //获取指定位置的碎片Fragment
-    public Fragment getItem(int position){
+    public Fragment getItem(int position){//返回一个碎片,所以调用Fragment
         return ChinaTalkGameFragment.newInstance(position,mGameList.get(position).img_src,mGameList.get(position).question,mGameList.get(position).answer,mGameList.get(position).tip,getCount());
     }
 

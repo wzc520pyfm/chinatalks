@@ -9,7 +9,11 @@ import android.util.AttributeSet;
 import android.widget.ProgressBar;
 
 import com.baidu.duer.dcs.util.Utils;
-
+/*****************************************************************************
+* 类:                自定义的条形进度条
+*
+*
+*=========================================================================== */
 
 public class TextProgressBar extends ProgressBar {
     private String mProgressText = ""; // 进度文本

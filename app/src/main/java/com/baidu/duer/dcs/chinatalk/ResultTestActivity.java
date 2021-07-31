@@ -30,21 +30,46 @@ import com.baidu.duer.dcs.task.GetGameTask;
 import com.baidu.duer.dcs.task.GetResultTask;
 
 import java.util.ArrayList;
+/*********************************************************************************************
+ * 页面:          真题测试页面                                                              *
+ * 进入方式:      支持在FunTests页面通过语音唤醒, 亦可点击测试页面的ResultTest按钮进入
+ * 关联到的文件:  /Adapter/ResultFragmentAdapter   :  碎片适配器
+ *               /bean/Result                    :  自定义的Result数据类型
+ *               /database/ResultTestDBhelper    :  存储Result的数据库帮助文件
+ *               /Fragment/ChinaTalkResultFragment :  碎片
+ *               /task/GetResultTask               :  网络请求线程(请求任务)
+ *               以及一些工具类
+ *               /layout/chinatalk_activity_result.xml
+ * 碎片:        通过代码动态添加, 主要利用ViewPager
+ * 页面主要逻辑: 1.在本地数据库中查询Result题目数据, 如果查询到结果, 则开始构建碎片, 如果查询不到结
+ *               果,则表明是头一次打开页面, 此时执行GetResultTask线程进行网络请求Result题目数据,
+ *               当线程结束时, 先将查询到的数据存入本地Result数据库以便下次取用, 接着利用请求到的
+ *               数据构建碎片.
+ *              2.页面声明了广播接收器, 并在onStart中进行了注册, 用于与碎片进行通信.
+ *              3.与碎片通信的主要逻辑: 接收到碎片发来的广播时,取出内含的数据, 如果收到的答题正
+ *                确则分数+1,错误则不加分, 如果收到的信息表示碎片需要成绩值,则发送广播并携带成绩
+ *                值.
+ *              4.页面还声明了一个点击监听器, 用于监听是否点击了返回按钮, 监听到点击动作时前往页面
+ *                MainActivity.class
+ * 已知Bug:     1.每一次执行时, 都查询不到本地数据库中数据, 所以每一次都在从网络请求Result题目的数据
+ * 需小心的点:   1.
+ * 其他说明:     1.
+ * ===========================================================================================*/
 
 public class ResultTestActivity extends AppCompatActivity implements GetResultTask.OnResultListener, View.OnClickListener {
 
-    private String TAG="ResultTestActivity";
-    public final static String EVENT="com.baidu.duer.dcs.chinatalk.ResultTestActivity";
+    private String TAG="ResultTestActivity";//测试标识
+    public final static String EVENT="com.baidu.duer.dcs.chinatalk.ResultTestActivity";//标识广播事件原
 
-    private String TestName;
+    private String TestName;//试卷名
     private int Score=0;//成绩
 
-    private ViewPager vp_content;
+    private ViewPager vp_content;//声明用于构建碎片的翻页视图对象
 
-    private Button next_ques;
-    private Button front_ques;
+    private Button next_ques;//下一题按钮
+    private Button front_ques;//上一题按钮
 
-    private int mCount;//记录碎片格式
+    private int mCount;//记录碎片数量
 
     private ResultTestDBhelper mResultHelper;//声明一个数据库帮助器对象
     private ProgressBar pb_async;//声明一个进度条对象
@@ -101,20 +126,21 @@ public class ResultTestActivity extends AppCompatActivity implements GetResultTa
     public void onClick(View v){
         switch (v.getId()){
             case R.id.button10:
-
+                //点击了下一题
                 if(vp_content.getCurrentItem()+1>=mCount){
                     Toast.makeText(this,"已经是最后一题了!",Toast.LENGTH_SHORT).show();
                 }
                 vp_content.setCurrentItem(vp_content.getCurrentItem()+1);
                 break;
             case R.id.button8:
-
+                //点击了上一题
                 if(vp_content.getCurrentItem()-1<=0){
                     Toast.makeText(this,"这是第一题了!",Toast.LENGTH_SHORT).show();
                 }
                 vp_content.setCurrentItem(vp_content.getCurrentItem()-1);
                 break;
             case R.id.imageView8:
+                //点击了返回
                 Intent intent =new Intent(this, MainActivity.class);
                 startActivityForResult(intent,0);
         }
@@ -163,6 +189,7 @@ public class ResultTestActivity extends AppCompatActivity implements GetResultTa
         }
     }
 
+//***************************************实现GetResultTask中接口中的四个函数BEGIN*****************************
     //在线程处理结束时触发
     public void onFindResultInfo(ArrayList<Result> resultInfo,String result){
         String desc=String.format("%s  已经加载完毕",result);
@@ -227,7 +254,7 @@ public class ResultTestActivity extends AppCompatActivity implements GetResultTa
             }
         }
     }
-
+//******************************实现GetResultTask中接口END*****************************************
     //声明一个广播接收器
     private ResultTestActivity.IsAnswer isAnswer;
 

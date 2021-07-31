@@ -11,7 +11,11 @@ import com.baidu.duer.dcs.bean.Game;
 import com.baidu.duer.dcs.bean.Result;
 
 import java.util.ArrayList;
-
+/****************************************************************************************************
+ * 类:                Result数据库帮助类
+ * 用途:              实现数据存储
+ *
+ * ==================================================================================================*/
 public class ResultTestDBhelper extends SQLiteOpenHelper {
     private static final String TAG = "ResultTestDBhelper";
     private static final String DB_NAME="result.db";//数据库名称

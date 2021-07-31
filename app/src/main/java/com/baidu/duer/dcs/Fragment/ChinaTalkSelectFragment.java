@@ -24,9 +24,22 @@ import com.baidu.duer.dcs.chinatalk.SelectTestActivity;
 import com.baidu.duer.dcs.chinatalk.TestScoreActivity;
 import com.baidu.duer.dcs.framework.message.Event;
 import com.baidu.duer.dcs.util.CPResourceUtil;
-
+/****************************************************************************************************
+ * 类:                碎片, Select页面的碎片, 存在于Select页的ViewPager中
+ *
+ * 页面主要逻辑:       1.利用newInstance方法创建碎片单例对象,在页面onCreateView函数中首先从包
+ *                    裹中获取数据,将内容显示在碎片上,最后onCreateView返回该碎片视图的对象.
+ *                    2.页面监听三个按钮的点击事件:退出按钮,上一题按钮,下一题按钮
+ *                    3.页面监听一个单选组的单选事件
+ *                    4.提交答案按钮:回答正确则将isTrue设为true并显示答题正确的提示答错则显示答题
+ *                    错误的提示.如果是第一次回答当前题目且回答正确则向主Activity发送回答正确的广播,
+ *                    如果已经回答完了最后一道题目,则向主Activity请求成绩值,收到成绩后构建可以前往
+ *                    成绩页面的对话框(跳转时携带成绩值、试卷名、总题数)
+ * 注意:               1.题目答对和答错的提示音还未实现
+ *
+ * ==================================================================================================*/
 public class ChinaTalkSelectFragment extends Fragment {
-    public static String EVENT="com.baidu.duer.dcs.Fragment.ChinaTalkSelectFragment";
+    public static String EVENT="com.baidu.duer.dcs.Fragment.ChinaTalkSelectFragment";//广播事件标识
 
     protected View mView;//声明一个视图对象
     protected Context mContext;//声明一个上下文对象
@@ -34,7 +47,7 @@ public class ChinaTalkSelectFragment extends Fragment {
     private TextView tipTitle;
     private TextView tipDesc;
 
-    private String TestName;
+    private String TestName;//试卷名
 
     private int mPosition;//位置序号
     private int mQno;
@@ -108,7 +121,7 @@ public class ChinaTalkSelectFragment extends Fragment {
         Button rb_C=mView.findViewById(R.id.rb_C);
         Button rb_D=mView.findViewById(R.id.rb_D);
 
-        select_question.setText((mPosition+1)+".  "+mQuestion);
+        select_question.setText((mPosition+1)+".  "+mQuestion);//题号和题目
         rb_A.setText(mItem1);
         rb_B.setText(mItem2);
         rb_C.setText(mItem3);
@@ -238,13 +251,13 @@ public class ChinaTalkSelectFragment extends Fragment {
                         startActivity(mIntent);
                     }
                 });
-                //给建造器设置对话框的否定按钮文本及其点击监听器
-                builder.setNegativeButton("再看看题目", new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
-                        Toast.makeText(getContext(),"再次点击确认按钮可前往成绩页面哦",Toast.LENGTH_SHORT).show();
-                    }
-                });
+                //给建造器设置对话框的否定按钮文本及其点击监听器--未完成
+//                builder.setNegativeButton("再看看题目", new DialogInterface.OnClickListener() {
+//                    @Override
+//                    public void onClick(DialogInterface dialog, int which) {
+//                        Toast.makeText(getContext(),"再次点击确认按钮可前往成绩页面哦",Toast.LENGTH_SHORT).show();
+//                    }
+//                });
                 //根据建造器完成对话框对象的构建
                 AlertDialog alert=builder.create();
                 //在界面上显示提醒对话框

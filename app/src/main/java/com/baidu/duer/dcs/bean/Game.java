@@ -3,13 +3,18 @@ package com.baidu.duer.dcs.bean;
 import com.baidu.duer.dcs.R;
 
 import java.util.ArrayList;
-
+/*********************************************************************************
+* 类:                bean类, Game数据类型
+* 用途:              自定义Game数据类型
+* 逻辑:              除本身数据初始化外,还提供了一个获取默认值的函数,方便测试
+* 注意:              tip被废弃
+*=============================================================================== */
 public class Game {
     public int q_id;
     public String img_src;//图片路径--此参数实际不适用,从请求中获得img_src后,转换为pic编号,存入pic变量
     public String question;
     public String answer;
-    public String tip; //new
+    public String tip; //被废弃
     public int pic;//图片资源编号
 
     public Game(){

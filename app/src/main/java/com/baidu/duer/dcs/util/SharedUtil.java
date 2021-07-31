@@ -3,7 +3,11 @@ package com.baidu.duer.dcs.util;
 
 import android.content.Context;
 import android.content.SharedPreferences;
-
+/************************************************************************************
+ * 类:                工具类
+ * 用途:               共享参数管理
+ *
+ *================================================================================= */
 //这是共享参数的工具类,统一对共享参数的读写操作
 public class SharedUtil {
     private static SharedUtil mUtil;//声明一个共享参数工具类的实例
