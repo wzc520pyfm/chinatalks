@@ -1,11 +1,15 @@
-package com.baidu.duer.dcs.chinatalk;
+package com.baidu.duer.dcs.Fragment;
+
 
 import android.content.Context;
 import android.os.Environment;
 import android.os.Handler;
+import android.support.v4.app.Fragment;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.LinearLayout;
 import android.widget.ListView;
@@ -33,7 +37,7 @@ import java.util.ArrayList;
  * 需小心的点:   1.
  * 其他说明:     1.
  * ===========================================================================================*/
-public class TestCenterActivity extends AppCompatActivity {
+public class ChinaTalkTestCenterFragment extends Fragment {
 
     private final static String TAG="TestCenterActivity";//测试标识
     private LinearLayout ll_content;//声明布局对象
@@ -42,18 +46,22 @@ public class TestCenterActivity extends AppCompatActivity {
     private TestCenterDBHelper mTestCenterHelper;//声明一个测试卷数据库的帮助器对象
 
 
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.chinatalk_activity_test_center);
+    protected View mView;
+    protected Context mContext;
 
-//        ll_content=(LinearLayout) findViewById(R.id.ll_content);
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+//        super.onCreate(savedInstanceState);
+//        setContentView(R.layout.chinatalk_activity_home);
+        mContext=getActivity();//获取获得页面的上下文
+
+        //根据布局文件chinatalk_fragment_game.xml生成视图对象
+        mView=inflater.inflate(R.layout.chinatalk_activity_test_center,container,false);
+
+
         //从布局文件中获取列表视图
-        lv_test_center=(ListView) findViewById(R.id.lv_test_center);
-
-
+        lv_test_center=mView.findViewById(R.id.lv_test_center);
+        return mView;//返回该碎片的视图对象
     }
-
     //声明当前的试卷对象
     private TestCenter mTestCenter;
     private View mCurrentView;//声明一个当前视图的对象
@@ -87,10 +95,10 @@ public class TestCenterActivity extends AppCompatActivity {
 
 
     @Override
-    protected void onResume(){
+    public void onResume(){
         super.onResume();
         //获取试卷的帮助器对象
-        mTestCenterHelper=TestCenterDBHelper.getInstance(this,1);
+        mTestCenterHelper=TestCenterDBHelper.getInstance(mContext,1);
         //打开数据的写连接
         mTestCenterHelper.openWriteLink();
         //模拟网络请求
@@ -102,7 +110,7 @@ public class TestCenterActivity extends AppCompatActivity {
     }
 
     @Override
-    protected void onPause(){
+    public void onPause(){
         super.onPause();
         //关闭数据库连接
         mTestCenterHelper.closeLink();
@@ -121,7 +129,7 @@ public class TestCenterActivity extends AppCompatActivity {
             mTestArray.set(i,info);
         }
         //构建试卷类别的适配器对象
-        TestCenterAdapter adapter=new TestCenterAdapter(this,mTestArray);
+        TestCenterAdapter adapter=new TestCenterAdapter(mContext,mTestArray);
         //为lv_test_center设置列表适配器
         lv_test_center.setAdapter(adapter);
 
@@ -130,7 +138,7 @@ public class TestCenterActivity extends AppCompatActivity {
     private String tFirst="true";//是否首次打开
     public void downLoad(){
         //获取共享参数保存的是否首次打开参数
-        tFirst= SharedUtil.getInstance(this).readShared("tfirst","true");
+        tFirst= SharedUtil.getInstance(mContext).readShared("tfirst","true");
         if(tFirst.equals("true")){
             ArrayList<TestCenter> testList=TestCenter.getDefaultList();
             for(int i=0;i<testList.size();i++){
@@ -140,7 +148,7 @@ public class TestCenterActivity extends AppCompatActivity {
             }
         }
         //把是否首次打开写入共享参数
-        SharedUtil.getInstance(this).writeShared("tfirst","false");
+        SharedUtil.getInstance(mContext).writeShared("tfirst","false");
     }
 
 }

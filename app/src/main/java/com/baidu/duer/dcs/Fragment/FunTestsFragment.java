@@ -34,6 +34,7 @@ import com.baidu.duer.dcs.chinatalk.Dev_code;
 import com.baidu.duer.dcs.chinatalk.GameActivity;
 import com.baidu.duer.dcs.chinatalk.ResultTestActivity;
 import com.baidu.duer.dcs.chinatalk.SelectTestActivity;
+import com.baidu.duer.dcs.chinatalk.TabFragmentActivity;
 import com.baidu.duer.dcs.util.SharedUtil;
 import com.iflytek.cloud.ErrorCode;
 import com.iflytek.cloud.GrammarListener;
@@ -246,6 +247,7 @@ GrammarListener grammarListener = new GrammarListener() {
 
         if(v.getId()==R.id.speak_btn){
             Intent intent =new Intent(this.getContext(), Dev_code.class);
+//            Intent intent =new Intent(this.getContext(), TabFragmentActivity.class);
             startActivityForResult(intent,0);
         }
     }

@@ -3,6 +3,11 @@
 
     <string name="url">https://wzctest.wzc520pyf.cn</string>
 
+    <string name="menu_home">КУЋА</string>
+    <string name="menu_exam">ИСПИТ</string>
+    <string name="menu_game">ГАМЕ</string>
+
+
     <string name="sign_out">Одјава</string>
     <string name="delete">Избриши</string>
     <string name="wrong_book">Погрешна књига са питањима</string>
@@ -28,6 +33,11 @@
     <string name="leading_record">Запис о учењу</string>
     <string name="HSK4">Кинески ниво 4</string>
     <string name="exam_record">Записник о прегледу</string>
+    <string name="residual_learning">Преостало учење</string>
+    <string name="remaining_days">Преостали дани</string>
+    <string name="task_today">Задатак данас</string>
+    <string name="completed">завршено</string>
+    <string name="remaining">Преостало</string>
     <string name="error">Грешка</string>
     <string name="test_time">време тестирања</string>
     <string name="score">Минута</string>

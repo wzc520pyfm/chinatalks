@@ -34,5 +34,13 @@
 
     <color name="color_right">#ff5c82ee</color>
     <color name="color_wrong">#ffE91E63</color>
+
+<!--    进度条-->
+    <color name="color_prog_bg">#fff4f4f4</color>
+    <color name="color_prog_pro">#ffcedbff</color>
+
+<!--    选中与未选中-->
+    <color name="tab_text_selected">#ff5c82ee</color>
+    <color name="tab_text_normal">#ff383838</color>
 </resources>
 <!--存放颜色常量-->

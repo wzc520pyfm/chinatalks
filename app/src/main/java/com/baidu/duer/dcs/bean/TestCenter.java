@@ -18,6 +18,11 @@ public class TestCenter {
     public int score;//成绩
     public String test_time;//完成时限
 
+    //新增
+    public int wrong_num;//错题数
+    public int ques_num;//总题数
+    public String old_test_time;//上一次完成测试的时间
+
     public TestCenter(){
         rowid=0L;
         test_id=0L;
@@ -63,6 +68,24 @@ public class TestCenter {
             " ",
             "测试总时长: 110分钟"
     };
+    public static int[] wrongArray={
+            -1,
+            5,
+            -1,
+            3
+    };
+    public static int[] quesArray={
+            -1,
+            30,
+            -1,
+            35
+    };
+    public static String[] oldTestTimeArray={
+            "",
+            "2019-03-27",
+            "",
+            "2019-04-23"
+    };
 
     public static ArrayList<TestCenter> getDefaultList(){
         ArrayList<TestCenter> testList = new ArrayList<TestCenter>();
@@ -74,6 +97,9 @@ public class TestCenter {
             info.finshed_num=finshedNumArray[i];
             info.score=scoreArray[i];
             info.test_time=testTimeArray[i];
+            info.wrong_num=wrongArray[i];
+            info.ques_num=quesArray[i];
+            info.old_test_time=oldTestTimeArray[i];
 
             testList.add(info);
         }

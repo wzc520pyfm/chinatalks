@@ -8,9 +8,9 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
 
+import com.baidu.duer.dcs.Fragment.ChinaTalkHomeFragment;
+import com.baidu.duer.dcs.Fragment.ChinaTalkTestCenterFragment;
 import com.baidu.duer.dcs.R;
-import com.baidu.duer.dcs.androidapp.DcsSampleApplication;
-import com.baidu.duer.dcs.androidapp.DcsSampleMainActivity;
 import com.iflytek.mscv5plusdemo.MainActivity;
 /*********************************************************************************************
  * 页面:          chinatalk测试页面                                                              *
@@ -86,7 +86,7 @@ public class Dev_code extends AppCompatActivity {
                     startActivityForResult(intent20,0);
                     break;
                 case R.id.button21:
-                    Intent intent21 =new Intent(Dev_code.this, HomeActivity.class);
+                    Intent intent21 =new Intent(Dev_code.this, ChinaTalkHomeFragment.class);
                     startActivityForResult(intent21,0);
                     break;
                 case R.id.button22:
@@ -106,7 +106,7 @@ public class Dev_code extends AppCompatActivity {
                     startActivityForResult(intent25,0);
                     break;
                 case R.id.button26:
-                    Intent intent26 =new Intent(Dev_code.this, TestCenterActivity.class);
+                    Intent intent26 =new Intent(Dev_code.this, ChinaTalkTestCenterFragment.class);
                     startActivityForResult(intent26,0);
                     break;
                 case R.id.button27:

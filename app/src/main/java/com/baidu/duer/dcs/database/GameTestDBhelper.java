@@ -110,7 +110,7 @@ public class GameTestDBhelper extends SQLiteOpenHelper {
     public long insert(ArrayList<Game> infoArray){
         long result=-1;
         for (Game info:infoArray){
-            Log.d(TAG,"q_id="+info.q_id+",img_src="+info.img_src+",question="+info.question+",answer="+info.answer+",tip="+info.tip+",pic="+info.pic);
+            Log.d(TAG,"q_id="+info.q_id+",img_src="+info.img_src+",question="+info.question+",answer="+info.answer+",tip="+info.tip);
             //如果存在相同标记q_id的记录,则更新记录,
             if(info.q_id>0){
                 String condition =String.format("q_id='%d'",info.q_id);
@@ -156,7 +156,7 @@ public class GameTestDBhelper extends SQLiteOpenHelper {
 
     //根据指定条件查询记录,并返回结果数据队列
     public ArrayList<Game> query(String condition){
-        String sql=String.format("select q_id,img_src,question,answer,tip,pic"+
+        String sql=String.format("select q_id,img_src,question,answer,tip"+
                 " from %s where %s;",TABLE_NAME,condition);
         Log.d(TAG,"query sql: "+sql);
         ArrayList<Game> infoArray=new ArrayList<Game>();

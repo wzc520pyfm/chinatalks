@@ -77,7 +77,9 @@ public class TestCenterDBHelper extends SQLiteOpenHelper {
                 +"test_id LONG NOT NULL,"
                 + "title VARCHAR NOT NULL,"+"desc VARCHAR NOT NULL,"
                 +"finshed_num INTEGER NOT NULL,"+"score INTEGER NOT NULL,"
-                +"test_time VARCHAR NOT NULL"
+                +"test_time VARCHAR NOT NULL,"
+                +"wrong_num INTEGER NOT NULL,"+"ques_num INTEGER NOT NULL,"
+                +"old_test_time VARCHAR NOT NULL"
                 +");";
         Log.d(TAG,"create_sql:"+create_sql);
         db.execSQL(create_sql);
@@ -107,7 +109,7 @@ public class TestCenterDBHelper extends SQLiteOpenHelper {
     public long insert(ArrayList<TestCenter> infoArray){
         long result=-1;
         for(TestCenter info : infoArray){
-            Log.d(TAG,"test_id="+info.test_id+"title="+info.title+",desc="+info.desc+",finsged_num="+info.finshed_num+",score="+info.score+",test_time="+info.test_time);
+            Log.d(TAG,"test_id="+info.test_id+"title="+info.title+",desc="+info.desc+",finsged_num="+info.finshed_num+",score="+info.score+",test_time="+info.test_time+",wrong_num="+info.wrong_num+",ques_num"+info.ques_num+",old_test_time="+info.old_test_time);
             //如果存在相同标记test_id的记录,则更新记录---类似行号,如果是已有的记录,应附带此id,如果是插入新纪录,此id应由表自动生成,
             if(info.rowid>0){//有问题,这里应该test_id,但已经被我改的可以正常运行了,别乱动
                 String condition = String.format("rowid='%d'",info.rowid);
@@ -123,6 +125,9 @@ public class TestCenterDBHelper extends SQLiteOpenHelper {
             cv.put("finshed_num",info.finshed_num);
             cv.put("score",info.score);
             cv.put("test_time",info.test_time);
+            cv.put("wrong_num",info.wrong_num);
+            cv.put("ques_num",info.ques_num);
+            cv.put("old_test_time",info.old_test_time);
             //执行插入记录动作,该语句返回插入记录的行号
             result=mDB.insert(TABLE_NAME,"",cv);
             //添加成功后返回行号,失败后返回-1
@@ -141,6 +146,9 @@ public class TestCenterDBHelper extends SQLiteOpenHelper {
         cv.put("finshed_num",info.finshed_num);
         cv.put("score",info.score);
         cv.put("test_time",info.test_time);
+        cv.put("wrong_num",info.wrong_num);
+        cv.put("ques_num",info.ques_num);
+        cv.put("old_test_time",info.old_test_time);
         //执行更新记录动作,该语句返回记录更新的数目
         return mDB.update(TABLE_NAME,cv,condition,null);
     }
@@ -152,7 +160,7 @@ public class TestCenterDBHelper extends SQLiteOpenHelper {
 
     //根据指定条件查询记录,并返回结果数据队列
     public ArrayList<TestCenter> query(String condition){
-        String sql=String.format("select rowid,_id,test_id,title,desc,finshed_num,score,test_time"+
+        String sql=String.format("select rowid,_id,test_id,title,desc,finshed_num,score,test_time,wrong_num,ques_num,old_test_time"+
                 " from %s where %s;", TABLE_NAME,condition);
         Log.d(TAG,"query sql: "+sql);
         ArrayList<TestCenter> infoArray = new ArrayList<TestCenter>();
@@ -168,7 +176,10 @@ public class TestCenterDBHelper extends SQLiteOpenHelper {
             info.finshed_num=cursor.getInt(5);
             info.score=cursor.getInt(6);
             info.test_time=cursor.getString(7);
-            Log.d(TAG,info.rowid+" "+info.test_id+" "+info.title+" "+info.desc+" "+info.finshed_num+" "+info.score+" "+info.test_time);
+            info.wrong_num=cursor.getInt(8);
+            info.ques_num=cursor.getInt(9);
+            info.old_test_time=cursor.getString(10);
+            Log.d(TAG,info.rowid+" "+info.test_id+" "+info.title+" "+info.desc+" "+info.finshed_num+" "+info.score+" "+info.test_time+" "+info.wrong_num+" "+info.ques_num+" "+info.old_test_time);
             infoArray.add(info);
         }
         cursor.close();//查询完毕,关闭游标

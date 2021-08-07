@@ -5,6 +5,9 @@
     <dimen name="pading_">5dp</dimen>
     <dimen name="btn_size">22sp</dimen>
     <dimen name="txt_size">18sp</dimen>
+
+
+    <dimen name="tabbar_height">60dp</dimen>
     
     <!-- 分割线高度 -->
     <dimen name="line_height">1dp</dimen>

@@ -3,6 +3,10 @@
 
     <string name="url">https://wzctest.wzc520pyf.cn</string>
 
+    <string name="menu_home">HOME</string>
+    <string name="menu_exam">EXAM</string>
+    <string name="menu_game">GAME</string>
+
     <string name="sign_out">Sign out</string>
     <string name="delete">Delete</string>
     <string name="wrong_book">Wrong question book</string>
@@ -28,6 +32,11 @@
     <string name="leading_record">Learning record</string>
     <string name="HSK4">Chinese level 4</string>
     <string name="exam_record">Examination record</string>
+    <string name="residual_learning">Residual learning</string>
+    <string name="remaining_days">Remaining days</string>
+    <string name="task_today">Task today</string>
+    <string name="completed">completed</string>
+    <string name="remaining">Remaining</string>
     <string name="error">Error</string>
     <string name="test_time">testing time</string>
     <string name="score">Minute</string>

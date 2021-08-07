@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ImageView
+        android:id="@+id/imageView14"
+        android:layout_width="wrap_content"
+        android:layout_height="187dp"
+        android:background="@drawable/shadow_home_exam"
+        android:scaleType="fitXY"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/pic_home_exam_background" />
+
+    <com.baidu.duer.dcs.widget.RoundImageView
+        android:id="@+id/roundImageView3"
+        android:layout_width="62dp"
+        android:layout_height="62dp"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:layout_marginTop="24dp"
+        android:adjustViewBounds="true"
+        android:maxWidth="80dp"
+        android:maxHeight="80dp"
+        android:scaleType="fitCenter"
+        app:layout_constraintEnd_toEndOf="@+id/imageView14"
+        app:layout_constraintHorizontal_bias="0.045"
+        app:layout_constraintStart_toStartOf="@+id/imageView14"
+        app:layout_constraintTop_toTopOf="@+id/imageView14"
+        app:srcCompat="@drawable/ic_home_exam" />
+
+    <TextView
+        android:id="@+id/textView39"
+        android:layout_width="191dp"
+        android:layout_height="28dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:text="汉语四级真题测试卷(1)"
+        android:textColor="@color/color_f5f5f5"
+        android:textSize="18sp"
+        app:layout_constraintStart_toEndOf="@+id/roundImageView3"
+        app:layout_constraintTop_toTopOf="@+id/roundImageView3" />
+
+    <TextView
+        android:id="@+id/textView40"
+        android:layout_width="191dp"
+        android:layout_height="28dp"
+        android:layout_marginTop="12dp"
+        android:text="测试时间:  2019-02-27"
+        android:textColor="@color/color_f5f5f5"
+        android:textSize="18sp"
+        app:layout_constraintStart_toStartOf="@+id/textView39"
+        app:layout_constraintTop_toBottomOf="@+id/textView39" />
+
+    <TextView
+        android:id="@+id/textView41"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:text="79"
+        android:textColor="@color/color_f5f5f5"
+        android:textSize="30sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.56"
+        app:layout_constraintStart_toEndOf="@+id/textView39"
+        app:layout_constraintTop_toTopOf="@+id/textView39" />
+
+    <TextView
+        android:id="@+id/textView42"
+        android:layout_width="131dp"
+        android:layout_height="29dp"
+        android:text="总题数: 30题"
+        android:textColor="@color/tab_text_normal"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toBottomOf="@+id/imageView14"
+        app:layout_constraintStart_toStartOf="@+id/roundImageView3"
+        app:layout_constraintTop_toBottomOf="@+id/roundImageView3"
+        app:layout_constraintVertical_bias="0.561" />
+
+    <TextView
+        android:id="@+id/textView59"
+        android:layout_width="131dp"
+        android:layout_height="29dp"
+        android:text="错题数: 5题"
+        android:textColor="@color/tab_text_normal"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toBottomOf="@+id/imageView14"
+        app:layout_constraintStart_toEndOf="@+id/textView42"
+        app:layout_constraintTop_toBottomOf="@+id/roundImageView3"
+        app:layout_constraintVertical_bias="0.555" />
+
+    <Button
+        android:id="@+id/button35"
+        android:layout_width="100dp"
+        android:layout_height="29dp"
+        android:background="@drawable/chinatalk_shape_button"
+        android:text="再次测试"
+        android:textColor="@color/color_f5f5f5"
+        app:layout_constraintEnd_toEndOf="@+id/imageView14"
+        app:layout_constraintHorizontal_bias="0.97"
+        app:layout_constraintStart_toStartOf="@+id/imageView14"
+        app:layout_constraintTop_toTopOf="@+id/textView59" />
+</android.support.constraint.ConstraintLayout>

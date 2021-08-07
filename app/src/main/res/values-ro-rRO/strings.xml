@@ -3,6 +3,11 @@
 
     <string name="url">https://wzctest.wzc520pyf.cn</string>
 
+    <string name="menu_home">ACASĂ</string>
+    <string name="menu_exam">EXAMEN</string>
+    <string name="menu_game">JOC</string>
+
+
     <string name="sign_out">Sign out</string>
     <string name="delete">Șterge</string>
     <string name="wrong_book">Carte de întrebări greșită</string>
@@ -28,6 +33,11 @@
     <string name="leading_record">Înregistrarea învățării</string>
     <string name="HSK4">Chinez nivel 4</string>
     <string name="exam_record">Dosar de examinare</string>
+    <string name="residual_learning">Învățarea reziduală</string>
+    <string name="remaining_days">Zilele ramase</string>
+    <string name="task_today">Sarcină astăzi</string>
+    <string name="completed">efectuat</string>
+    <string name="remaining">Rămas</string>
     <string name="error">Eroare</string>
     <string name="test_time">timpul de testare</string>
     <string name="score">Minut</string>
