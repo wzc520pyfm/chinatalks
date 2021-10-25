@@ -9,6 +9,7 @@ import com.baidu.duer.dcs.http.chinatalk.tool.StreamTool;
 
 import java.io.InputStream;
 import java.io.OutputStream;
+import java.io.OutputStreamWriter;
 import java.io.PrintWriter;
 import java.net.HttpURLConnection;
 import java.net.ProtocolException;
@@ -167,6 +168,7 @@ public class HttpRequestUtil {
             // 对输入流中的数据进行解压，得到原始的应答字符串
             resp_data.content = StreamTool.getUnzipStream(conn.getInputStream(),
                     conn.getHeaderField("Content-Encoding"), req_data.charset);
+            Log.d(TAG, resp_data.content);
             resp_data.cookie = getRespCookie(conn, req_data);
             conn.disconnect(); // 断开连接
         } catch (Exception e) {

@@ -3,6 +3,8 @@ package com.baidu.duer.dcs.Adapter;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentStatePagerAdapter;
+import android.view.View;
+import android.view.ViewGroup;
 
 import com.baidu.duer.dcs.Fragment.ChinaTalkGameFragment;
 import com.baidu.duer.dcs.bean.Game;
@@ -45,5 +47,14 @@ public class GameFragementAdapter extends FragmentStatePagerAdapter {
         return ChinaTalkGameFragment.newInstance(position,mGameList.get(position).img_src,mGameList.get(position).question,mGameList.get(position).answer,mGameList.get(position).tip,getCount());
     }
 
-    //
+//    @Override
+//    public void destroyItem(ViewGroup container, int position, Object object) {
+//        container.removeView((View)object);
+//    }
+//
+//    @Override
+//    public int getItemPosition(Object object) {
+//        return POSITION_NONE;
+//    }
+
 }

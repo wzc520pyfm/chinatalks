@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".chinatalk.RegActivity">
+    tools:context=".chinatalk.ReChangePsdActivity">
 
     <ImageView
         android:id="@+id/imageView7"
@@ -22,7 +22,7 @@
         android:id="@+id/textView11"
         android:layout_width="245dp"
         android:layout_height="35dp"
-        android:text="@string/reg_new_user"
+        android:text="@string/re_psd"
         android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.17"
@@ -50,18 +50,18 @@
             android:paddingBottom="10dp">
 
             <TextView
-                android:id="@+id/user_name_title"
+                android:id="@+id/user"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/user_name" />
 
             <EditText
-                android:id="@+id/user_name"
+                android:id="@+id/editTextUsername"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:ems="10"
                 android:hint="@string/user_name_hint"
-                android:inputType="text" />
+                android:inputType="textPersonName" />
 
             <TextView
                 android:id="@+id/textView18"
@@ -76,20 +76,6 @@
                 android:ems="10"
                 android:hint="@string/phone_hint"
                 android:inputType="phone" />
-
-            <TextView
-                android:id="@+id/textView19"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="@string/e_mail" />
-
-            <EditText
-                android:id="@+id/editTextTextEmailAddress"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:ems="10"
-                android:hint="@string/e_mail_hint"
-                android:inputType="textEmailAddress" />
 
             <TextView
                 android:id="@+id/textView20"
@@ -155,7 +141,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:background="@drawable/chinatalk_shape_button"
-        android:text="@string/btn_register"
+        android:text="@string/confirm"
         android:textColor="@color/color_white"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

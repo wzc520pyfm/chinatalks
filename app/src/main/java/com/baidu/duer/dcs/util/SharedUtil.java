@@ -31,11 +31,22 @@ public class SharedUtil {
         editor.commit();//提交编辑器中的修改
     }
 
-    //根据键名到共享参数中查找对应的值对象
+    //把配对信息写入共享参数
+    public void writeShared(String key,Integer value){
+        SharedPreferences.Editor editor=mShared.edit();//获取编辑器的对象
+        editor.putInt(key,value);//添加一个指定键名的字符串参数
+        editor.commit();//提交编辑器中的修改
+    }
+
+    //根据键名到共享参数中查找对应的值对象--String值
     public String readShared(String key,String defaultValue){
         return mShared.getString(key,defaultValue);
     }
 
+    //根据键名到共享参数中查找对应的值对象---Int值
+    public Integer readIntShared(String key,Integer defaultValue){
+        return mShared.getInt(key,defaultValue);
+    }
 }
 
 

@@ -58,6 +58,8 @@ public class Dev_code extends AppCompatActivity {
         Button goto_xun_fei=(Button) findViewById(R.id.button30);
         goto_xun_fei.setOnClickListener(new Dev_code.ButtonOnClickListener());
 
+        Button spinner = (Button) findViewById(R.id.spinner);
+        spinner.setOnClickListener(new Dev_code.ButtonOnClickListener());
     }
 
     //定义一个点击监听器
@@ -125,6 +127,10 @@ public class Dev_code extends AppCompatActivity {
                     //一定要确保MainActivity是讯飞包里的,而不是百度包里的(md,蛋疼,这两包里有同名文件,c)
                     Intent intent30 =new Intent(Dev_code.this, MainActivity.class);
                     startActivityForResult(intent30,0);
+                    break;
+                case R.id.spinner:
+                    Intent intent31 =new Intent(Dev_code.this, SpinnerIconActivity.class);
+                    startActivityForResult(intent31,0);
                     break;
             }
         }

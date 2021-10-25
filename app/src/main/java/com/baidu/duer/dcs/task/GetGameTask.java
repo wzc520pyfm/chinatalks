@@ -43,7 +43,7 @@ public class GetGameTask extends AsyncTask<String,Integer, ArrayList<Game>> {
         super();
     }
 
-    //线程正在后台处理-----params对应异步任务参数的第一个参数即传入参数,可以是自定义的类型
+    //线程正在后台处理-----params对应异步任务参数的第一个参数即传入参数,可以是自定义的类型---这里是请求url
     protected ArrayList<Game> doInBackground(String... params){
 
         //由params直接传入请求地址

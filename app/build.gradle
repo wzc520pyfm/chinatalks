@@ -7,6 +7,8 @@ android {
     buildToolsVersion "30.0.2"
 
     defaultConfig {
+        //解决方法数上限--1
+        multiDexEnabled true
         //指定该模块的应用编号,即APP的包名.该参数为自动生成,无需修改
         applicationId "com.baidu.duer.dcs"
         //指定App适合运行的最小SDK版本号,如16表示至少在Android4.1上运行
@@ -15,8 +17,8 @@ android {
         targetSdkVersion 30
         //指定App的应用版本号
         versionCode 1
-        //指定App的应用版本名称
-        versionName "1.0"
+        //指定App的应用版本名称--每打包一次, 就应该升高一个版本
+        versionName "1.2"
 
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
         externalNativeBuild {
@@ -121,4 +123,14 @@ dependencies {
 //    androidTestImplementation 'androidx.test.ext:junit:1.1.2'
 //    androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
 
+    //bmob后端云服务
+    implementation 'io.github.bmob:android-sdk:3.8.8'
+    implementation 'io.reactivex.rxjava2:rxjava:2.2.8'
+    implementation 'io.reactivex.rxjava2:rxandroid:2.1.1'
+//    implementation 'com.squareup.okhttp3:okhttp:4.8.1'
+//    implementation 'com.squareup.okio:okio:2.2.2'
+    implementation 'com.google.code.gson:gson:2.8.5'
+
+    //解决方法数上限-2
+//    implementation 'com.android.support:multidex:1.0.3'
 }

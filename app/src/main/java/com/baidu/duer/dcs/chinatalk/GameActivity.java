@@ -86,9 +86,9 @@ public class GameActivity extends AppCompatActivity implements GetGameTask.OnGam
         //从布局文件中获取名叫pb_async的进度条
         pb_async=(ProgressBar) findViewById(R.id.pb_async);
 
-        //获取公告数据库的帮助器对象
+        //获取游戏数据库的帮助器对象
         mGameHelper= GameTestDBhelper.getInstance(this,1);
-        //打开公告数据库的写连接
+        //打开游戏数据库的写连接
         mGameHelper.openWriteLink();
 
         //查询game的本地数据库中所有记录

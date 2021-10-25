@@ -29,6 +29,8 @@ import com.iflytek.cloud.SpeechUtility;
 import java.util.HashMap;
 import java.util.Locale;
 
+import cn.bmob.v3.Bmob;
+
 /**
  * DcsSample application
  * <p>
@@ -72,6 +74,9 @@ public class DcsSampleApplication extends Application {
         instance = this;
         // LeakCanary.install(this);
 
+        //Bmob后端云服务初始化
+        //第一：默认初始化
+        Bmob.initialize(this, "ed682c4fb960a4594fa6db2a322bcfe8");
 
         // 将“12345678”替换成您申请的APPID，申请地址：http://www.xfyun.cn
 // 请勿在“=”与appid之间添加任何空字符或者转义符

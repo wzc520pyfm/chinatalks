@@ -12,7 +12,9 @@ import com.baidu.duer.dcs.Fragment.ChinaTalkHomeFragment;
 import com.baidu.duer.dcs.Fragment.ChinaTalkTestCenterFragment;
 import com.baidu.duer.dcs.Fragment.FunTestsFragment;
 import com.baidu.duer.dcs.R;
-
+/**
+* 首页--由三个碎片构成
+* */
 public class TabFragmentActivity extends AppCompatActivity {
 
     private static final String TAG = "TabFragmentActivity";
