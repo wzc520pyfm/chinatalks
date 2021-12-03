@@ -6,4 +6,6 @@
     讯飞AppId和Bmob后端appId需要在官网申请.
     https://console.xfyun.cn/
     https://www.bmob.cn/
+### 项目服务地址: https://github.com/wzc520pyfm/ChinatalkServer.git
+
 
