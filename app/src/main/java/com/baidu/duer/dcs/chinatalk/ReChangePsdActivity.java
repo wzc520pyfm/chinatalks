@@ -22,7 +22,12 @@ import cn.bmob.v3.BmobSMS;
 import cn.bmob.v3.exception.BmobException;
 import cn.bmob.v3.listener.QueryListener;
 import cn.bmob.v3.listener.UpdateListener;
-
+/*********************************************************************************************
+ * 页面:          更改密码页面                                                                *
+ * 进入方式:      点击登录页面的改密按钮进入
+ * 需小心的点:   1.
+ * 其他说明:     1.使用bmob后端云提供的手机验证码服务
+ * ===========================================================================================*/
 public class ReChangePsdActivity extends AppCompatActivity implements RePsdTask.OnRePsdListener, View.OnClickListener {
 
     private String TAG="RePsdActivity";

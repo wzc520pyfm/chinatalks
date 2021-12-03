@@ -27,7 +27,7 @@
 
     <color name="color_black">#ff000000</color>
     <color name="color_gray">#ffBBBBBB</color>
-    <color name="color_low_gray">#fff8f8f8</color>
+    <color name="color_low_gray">#F3F3F3</color>
     <color name="color_low_blue">#ff5c82ee</color>
     <color name="color_white">#ffffffff</color>
     <color name="color_low_yellow">#fffffde9</color>

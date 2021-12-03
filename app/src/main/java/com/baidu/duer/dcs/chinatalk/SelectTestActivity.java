@@ -132,8 +132,9 @@ public class SelectTestActivity extends AppCompatActivity implements GetSelectTa
     public void onClick(View v){
         switch (v.getId()){
             case R.id.imageView8:
-                Intent intent =new Intent(this, MainActivity.class);
-                startActivityForResult(intent,0);
+//                Intent intent =new Intent(this, MainActivity.class);
+//                startActivityForResult(intent,0);
+                finish();
                 break;
             case R.id.button8:
                 if(question_vp_content.getCurrentItem()-1<=0){

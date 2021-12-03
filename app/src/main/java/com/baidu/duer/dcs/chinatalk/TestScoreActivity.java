@@ -49,7 +49,7 @@ public class TestScoreActivity extends AppCompatActivity implements View.OnClick
     public void onClick(View v){
         switch (v.getId()){
             case R.id.button11://返回首页
-                Intent intent =new Intent(this, MainActivity.class);
+                Intent intent =new Intent(this, TabFragmentActivity.class);
                 startActivityForResult(intent,0);
                 break;
         }

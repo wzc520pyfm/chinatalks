@@ -6,6 +6,7 @@
     <string name="menu_home">ACASĂ</string>
     <string name="menu_exam">EXAMEN</string>
     <string name="menu_game">JOC</string>
+    <string name="menu_my">ALE MELE</string>
 
 
     <string name="sign_out">Sign out</string>

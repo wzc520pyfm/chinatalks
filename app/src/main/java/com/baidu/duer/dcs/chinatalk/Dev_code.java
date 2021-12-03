@@ -8,7 +8,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
 
-import com.baidu.duer.dcs.Fragment.ChinaTalkHomeFragment;
+import com.baidu.duer.dcs.Fragment.ChinaTalkMyFragment;
 import com.baidu.duer.dcs.Fragment.ChinaTalkTestCenterFragment;
 import com.baidu.duer.dcs.R;
 import com.iflytek.mscv5plusdemo.MainActivity;
@@ -88,7 +88,7 @@ public class Dev_code extends AppCompatActivity {
                     startActivityForResult(intent20,0);
                     break;
                 case R.id.button21:
-                    Intent intent21 =new Intent(Dev_code.this, ChinaTalkHomeFragment.class);
+                    Intent intent21 =new Intent(Dev_code.this, ChinaTalkMyFragment.class);
                     startActivityForResult(intent21,0);
                     break;
                 case R.id.button22:

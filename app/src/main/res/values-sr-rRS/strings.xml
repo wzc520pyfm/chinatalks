@@ -6,6 +6,7 @@
     <string name="menu_home">КУЋА</string>
     <string name="menu_exam">ИСПИТ</string>
     <string name="menu_game">ГАМЕ</string>
+    <string name="menu_my">MOJA</string>
 
 
     <string name="sign_out">Одјава</string>

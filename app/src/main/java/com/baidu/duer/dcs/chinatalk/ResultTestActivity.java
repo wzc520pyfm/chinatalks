@@ -141,8 +141,9 @@ public class ResultTestActivity extends AppCompatActivity implements GetResultTa
                 break;
             case R.id.imageView8:
                 //点击了返回
-                Intent intent =new Intent(this, MainActivity.class);
-                startActivityForResult(intent,0);
+//                Intent intent =new Intent(this, MainActivity.class);
+//                startActivityForResult(intent,0);
+                finish();
         }
     }
 

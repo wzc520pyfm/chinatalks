@@ -256,8 +256,9 @@ public class GameActivity extends AppCompatActivity implements GetGameTask.OnGam
         switch (v.getId()){
             case R.id.button:
                 //如果点击了返回按钮则前往MainActivity页面
-                Intent intent =new Intent(this, MainActivity.class);
-                startActivityForResult(intent,0);
+//                Intent intent =new Intent(this, MainActivity.class);
+//                startActivityForResult(intent,0);
+                finish();
                 break;
         }
     }

@@ -3,6 +3,7 @@ package com.baidu.duer.dcs.Adapter;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -14,6 +15,8 @@ import android.widget.TextView;
 import com.baidu.duer.dcs.R;
 import com.baidu.duer.dcs.androidapp.DcsSampleApplication;
 import com.baidu.duer.dcs.bean.TestCenter;
+import com.baidu.duer.dcs.chinatalk.ResultTestActivity;
+import com.baidu.duer.dcs.chinatalk.SelectTestActivity;
 
 import java.util.ArrayList;
 /****************************************************************************************************
@@ -62,6 +65,7 @@ public class TestCenterAdapter extends BaseAdapter implements View.OnClickListen
                 holder.iv_score=convertView.findViewById(R.id.textView36);
                 holder.iv_test_time=convertView.findViewById(R.id.textView38);
                 holder.iv_start=convertView.findViewById(R.id.button16);
+
                 //将视图持有者保存到转换视图当中
                 convertView.setTag(holder);
             //}else{//转换视图非空
@@ -105,11 +109,16 @@ public class TestCenterAdapter extends BaseAdapter implements View.OnClickListen
     @Override
     public void onClick(View v){
         if(v.getId() == R.id.button16){//开始
+            Intent intent1 =new Intent(mContext, ResultTestActivity.class);
+            mContext.startActivity(intent1);
 
         }else if(v.getId() == R.id.button15){//重新开始
+            Intent intent1 =new Intent(mContext, SelectTestActivity.class);
+            mContext.startActivity(intent1);
 
         }else if(v.getId()==R.id.button17){//继续测试
-
+            Intent intent1 =new Intent(mContext, SelectTestActivity.class);
+            mContext.startActivity(intent1);
         }
     }
 

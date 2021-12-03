@@ -9,11 +9,12 @@ import android.widget.TabHost;
 import android.widget.TextView;
 
 import com.baidu.duer.dcs.Fragment.ChinaTalkHomeFragment;
+import com.baidu.duer.dcs.Fragment.ChinaTalkMyFragment;
 import com.baidu.duer.dcs.Fragment.ChinaTalkTestCenterFragment;
 import com.baidu.duer.dcs.Fragment.FunTestsFragment;
 import com.baidu.duer.dcs.R;
 /**
-* 首页--由三个碎片构成
+* 首页--由四个碎片构成
 * */
 public class TabFragmentActivity extends AppCompatActivity {
 
@@ -40,6 +41,9 @@ public class TabFragmentActivity extends AppCompatActivity {
         //往标签栏添加第三个标签, 其中内容视图展示FunTestsFragment
         tabHost.addTab(getTabView(R.string.menu_game,R.drawable.chinatalk_bar_game),
                 FunTestsFragment.class,bundle);
+        //往标签栏添加第四个标签, 其中内容视图展示ChinaTalkHomeFragment
+        tabHost.addTab(getTabView(R.string.menu_my,R.drawable.chinatalk_bar_my),
+                ChinaTalkMyFragment.class,bundle);
     }
 
     //根据字符串和图表的资源编号, 获取对应的标签规格

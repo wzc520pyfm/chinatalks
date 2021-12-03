@@ -1,6 +1,7 @@
 package com.baidu.duer.dcs.Adapter;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -11,6 +12,9 @@ import android.widget.TextView;
 
 import com.baidu.duer.dcs.R;
 import com.baidu.duer.dcs.bean.TestCenter;
+import com.baidu.duer.dcs.chinatalk.EditInformationActivity;
+import com.baidu.duer.dcs.chinatalk.ResultTestActivity;
+import com.baidu.duer.dcs.chinatalk.SelectTestActivity;
 
 import java.util.ArrayList;
 
@@ -57,7 +61,24 @@ public class HomeExamFragmentAdapter extends BaseAdapter implements View.OnClick
 //            holder.iv_desc=convertView.findViewById(R.id.textView34);
             holder.iv_score=convertView.findViewById(R.id.textView41);
 //            holder.iv_test_time=convertView.findViewById(R.id.textView38);
-//            holder.iv_start=convertView.findViewById(R.id.button16);
+            holder.iv_start=convertView.findViewById(R.id.button35);
+            if (info.title.contains("随机测试")){
+                holder.iv_start.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        Intent intent1 =new Intent(mContext, SelectTestActivity.class);
+                        mContext.startActivity(intent1);
+                    }
+                });
+            }else if(info.title.contains("真题测试")){
+                holder.iv_start.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        Intent intent1 =new Intent(mContext, ResultTestActivity.class);
+                        mContext.startActivity(intent1);
+                    }
+                });
+            }
             holder.old_test_time=convertView.findViewById(R.id.textView40);
             holder.ques_num=convertView.findViewById(R.id.textView42);
             holder.wrong_num=convertView.findViewById(R.id.textView59);

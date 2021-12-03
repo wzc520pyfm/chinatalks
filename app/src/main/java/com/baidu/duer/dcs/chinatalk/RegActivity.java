@@ -30,7 +30,7 @@ import cn.bmob.v3.listener.UpdateListener;
  * 页面:          注册页面, 即软件注册页面                                                                    *
  * 进入方式:      点击测试页面的Reg按钮进入
  * 需小心的点:   1.
- * 其他说明:     1.
+ * 其他说明:     1.使用bmob后端云提供的手机验证码服务
  * ===========================================================================================*/
 public class RegActivity extends AppCompatActivity implements VarCodeTask.OnVarCodeListener, RegTask.OnRegListener,View.OnClickListener {
 

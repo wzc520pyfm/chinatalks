@@ -6,6 +6,7 @@
     <string name="menu_home">HOME</string>
     <string name="menu_exam">EXAM</string>
     <string name="menu_game">GAME</string>
+    <string name="menu_my">MY</string>
 
     <string name="sign_out">Sign out</string>
     <string name="delete">Delete</string>

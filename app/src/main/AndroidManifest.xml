@@ -62,7 +62,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".Fragment.ChinaTalkHomeFragment" />
+        <activity android:name=".Fragment.ChinaTalkMyFragment" />
         <activity android:name=".chinatalk.GameActivity" />
         <activity android:name=".chinatalk.EditInformationActivity" />
         <activity android:name=".chinatalk.AnnouncementActivity" /> <!-- application还有一些子节点,如  活动activity  服务service  广播接收器receiver  内容提供器provider等 -->

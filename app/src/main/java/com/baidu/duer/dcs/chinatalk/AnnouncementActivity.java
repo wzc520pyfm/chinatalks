@@ -17,7 +17,7 @@ import com.baidu.duer.dcs.util.SharedUtil;
 
 import java.util.ArrayList;
 /*********************************************************************************************
- * 页面:          试卷中心页面                                                              *
+ * 页面:          公告页面                                                              *
  * 进入方式:      点击测试页面的Ann按钮进入
  * 关联到的文件:  /database/AnnouncementDBHelper   :  数据库帮助器
  *               /bean/AnnInfo                    :  自定义的AnnInfo数据类型
